@@ -7,6 +7,7 @@ import path from 'path'
 import render from 'koa-ejs'
 import cookie from 'koa-cookie'
 import session from 'koa-session'
+import LRU from 'lru-cache'
 import {
     SYSTEM
 } from './config'
@@ -27,7 +28,10 @@ render(app, {
     root: path.join(__dirname, 'view'),
     layout: 'template',
     viewExt: 'html',
-    cache: true,
+    cache: LRU({
+      max: 1000,
+      maxAge: 1000 * 60 * 15
+    }),
     debug: SYSTEM.DEBUG
 });
 
@@ -64,3 +68,4 @@ app.listen(SYSTEM.PROT);
 console.log(`服务启动了：路径为：127.0.0.1:${SYSTEM.PROT}`)
 
 export default app
+

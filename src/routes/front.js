@@ -15,52 +15,18 @@ const checkfn = controllers.common.checkRequestUrl;
 /*首页页面*/
 router.get(['/'], async(ctx, next) => {
 	let datas = {
-		title:'IT技术视频 react.js node.js vue2 angular2视频教程 前端,java,大数据高清视频教程',
+		title:'zane 的博客',
 		imgBase:SYSTEM.BASEIMG,
-		bannerList:[],
-		recomList:[],
-		newList:[],
-		categoryList:[],
+		pageNo:1,
+		pageSize:10,
+		totalNum:100
 	}
 
-	let tagsList		= 	await controllers.front.common.getTagsList()  
-	let categoryList	= 	await controllers.front.common.getCategoryList()  
-	datas.categoryList  = 	categoryList;
-
-	//获得banner列表
-	datas.bannerList 	= 	await controllers.front.home.getHomeBannerList()  
-	//获得推荐列表
-	datas.recomList		=	await controllers.front.home.getHomeRecomList()  
-	//获得最新列表
-	datas.newList		= 	await controllers.front.home.getHomeNewList() 
-
-	console.log(categoryList)
-
-
-	for(let i=0,len=datas.recomList.length;i<len;i++){
-		for(let j=0,lenj=tagsList.length;j<lenj;j++){
-			if(datas.recomList[i].tagsid == tagsList[j].id){
-				datas.recomList[i].tagName = tagsList[j].tagname
-			}
-		}
-		for(let k=0,lenk=categoryList.length;k<lenk;k++){
-			if(datas.recomList[i].categoryid == categoryList[k].id){
-				datas.recomList[i].categoryName = categoryList[k].categoryname
-			}
-		}
-	};
-	for(let i=0,len=datas.newList.length;i<len;i++){
-		for(let j=0,lenj=tagsList.length;j<lenj;j++){
-			if(datas.newList[i].tagsid == tagsList[j].id){
-				datas.newList[i].tagName = tagsList[j].tagname
-			}
-		}
-		for(let k=0,lenk=categoryList.length;k<lenk;k++){
-			if(datas.newList[i].categoryid == categoryList[k].id){
-				datas.newList[i].categoryName = categoryList[k].categoryname
-			}
-		}
-	};
+	let pageNo 			= 	ctx.query.pageNo || 1;
+	let pageSize 		= 	ctx.query.pageSize || SYSTEM.PAGESIZE
+	
+	// datas.pageNo 	= 	goodsList.pageNo
+	// datas.pageSize 	= 	goodsList.pageSize
 
 	await ctx.render('front/index',{
 		datas:datas

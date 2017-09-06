@@ -46,7 +46,6 @@ a:hover{text-decoration:none;}
 .tr{text-align:right;}
 .fl{float:left;}
 .fr{float:right;}
-.clearfix:after{content:'';display:block;clear:both;}
 .inline-block{display:inline-block!important;}
 .cursor{cursor:pointer;}
 
@@ -73,12 +72,12 @@ a:hover{text-decoration:none;}
 .red{color:red;}
 
 @font-face {
-  font-family: 'iconfont';  /* project id 133474 */
-  src: url('//at.alicdn.com/t/font_wem4woeeksf3l3di.eot');
-  src: url('//at.alicdn.com/t/font_wem4woeeksf3l3di.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_wem4woeeksf3l3di.woff') format('woff'),
-  url('//at.alicdn.com/t/font_wem4woeeksf3l3di.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_wem4woeeksf3l3di.svg#iconfont') format('svg');
+  font-family: 'iconfont';  /* project id 407732 */
+  src: url('//at.alicdn.com/t/font_407732_n2g8c0oirfyiizfr.eot');
+  src: url('//at.alicdn.com/t/font_407732_n2g8c0oirfyiizfr.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_407732_n2g8c0oirfyiizfr.woff') format('woff'),
+  url('//at.alicdn.com/t/font_407732_n2g8c0oirfyiizfr.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_407732_n2g8c0oirfyiizfr.svg#iconfont') format('svg');
 }
 @mixin icon-font ($sizing) {
     font-family:"iconfont";

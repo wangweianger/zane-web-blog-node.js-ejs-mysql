@@ -1,0 +1,53 @@
+<div id="side" class="side">
+	<div class="top">
+		<!-- <div class="zane">zane</div> -->
+		<div class="logo"><img src="/images/index/me.jpg"></div>
+		<div class="name">汪微的博客</div>
+		<div class="text">zane,做一个有思维的开发者</div>
+	</div>
+	<div class="nav">
+		<ul>
+			<li><a href="/"><span class="iconfont">&#xe608;</span>首页</a></li>
+			<li><a href="/"><span class="iconfont">&#xe635;</span>归档</a></li>
+			<li><a href="/"><span class="iconfont">&#xe610;</span>标签</a></li>
+			<li><a href="/"><span class="iconfont">&#xe696;</span>友链</a></li>
+			<li><a href="/"><span class="iconfont">&#xe64a;</span>关于</a></li>
+		</ul>
+	</div>
+	<div class="icons">
+		<ul>
+			<li><a href="/"><span class="iconfont">&#xe600;</span></a></li>
+			<li><a href="/"><span class="iconfont">&#xe69b;</span></a></li>
+			<li><a href="/"><span class="iconfont">&#xe649;</span></a></li>
+			<li><a href="/"><span class="iconfont">&#xe641;</span></a></li>
+		</ul>
+	</div>
+	<div class="fix-top">
+		<span id="nav-silde" class="iconfont">&#xe602;</span>
+		<h1>汪微的博客</h1>
+		<img src="/images/index/me.jpg">
+	</div>
+</div>
+
+<script>
+$(function(){
+	$('#nav-silde').click(function(){
+		var isShow = $('#side').css('margin-left')
+		if(isShow === '0px'){
+			$(this).parent('.fix-top').addClass('navSlideHide').removeClass('navSlideShow')
+			$('#main,#footer').addClass('navSlideHide').removeClass('navSlideShow')
+			$('#side').addClass('sideSlideHide').removeClass('sideSlideShow')
+			$(this).html('&#xe602;')
+		}else{
+			$(this).parent('.fix-top').addClass('navSlideShow').removeClass('navSlideHide')
+			$('#main,#footer').addClass('navSlideShow').removeClass('navSlideHide')
+			$('#side').addClass('sideSlideShow').removeClass('sideSlideHide')
+			$(this).html('&#xe601;')
+		}
+		var screenW = $(window).width();
+		if(screenW<=768){
+			$('#main').css({width:$(window).width()})
+		}
+	})
+})
+</script>

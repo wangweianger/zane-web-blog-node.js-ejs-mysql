@@ -7,7 +7,7 @@ function Page(json) {
 	this.totalPage = Math.ceil(this.totalCount / this.pageSize); //总页数 
 	this.html = "";
 	this.setting = json.setting || {
-		defaultPage: 5, //默认展示的页数
+		defaultPage: 3, //默认展示的页数
 		firstPageText: "首页", //第一页的字 （可以是：Home）
 		prevPageText: "上一页", //上一页的字 
 		nextPageText: "下一页", //下一页的字
@@ -24,7 +24,7 @@ Page.prototype.init = function() {
 	this.everyPage(); //分页
 	this.nextPage(); //下一页
 	this.lastPage(); //尾页
-	this.totalPageText(); //页数显示信息
+	// this.totalPageText(); //页数显示信息
 	this.parent.append(this.html);
 	this.callback();
 }
@@ -96,7 +96,7 @@ Page.prototype.lastPage = function() {
 
 //总共页数
 Page.prototype.totalPageText = function() {
-	this.html += "<span class='page-msg'>共<span>" + this.totalCount + "</span>条记录  每页<span>" + this.pageSize + "</span>条  第<span>" + this.nowPage + "</span>页/共<span>" + this.totalPage + "</span>页</span>";
+	this.html += "<span class='page-msg'>共<span>" + this.totalCount + "</span>条记录 第<span>" + this.nowPage + "</span>页/共<span>" + this.totalPage + "</span>页</span>";
 }
 
 //点击分页执行的函数

@@ -1,45 +1,32 @@
-<div class="bgfff"></div>
-<div class="footer">
-    <div class="content">
-        <ul>
-            <% datas.categoryList.forEach(function (item) {%>    
-                <li><a href="/list?categoryid=<%= item.id %>"><%= item.categoryname %></a></li>
-            <% })%>
-        </ul>
-    	<p>微分享 视频学习教程 qq群：752636052</p>
-        <div class="wx-qq">
-            <img src="/images/common/wxh.jpg">
-            <p>加我微信号</p>
-        </div>
-    	<div id="loading"></div>
-    	<div id="hddb"></div>
-    </div>
-</div>
+<footer class="footer" id="footer">
+    <p>@2017 做一个有思维的开发者</p>
+    <p>版权所有 | WANG WEI..</p>
+</footer>
+<div id="hddb"></div>
 
 <script>
-//回到顶部JS开始
- $(window).scroll(function(){
-  var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
-  //alert(scrollTop)
-  if(scrollTop>200){
-   $('#hddb').show();
-  }else{
-   $('#hddb').hide();
-  }
-   
- }); 
- $('#hddb').click(function(){
-   var scrollTimer=null;
-   scrollTimer=setInterval(function (){
-    var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
-    var iSpeed=Math.floor(-scrollTop/6);
-    if(scrollTop==0)
-    {
-     clearInterval(scrollTimer);
-    }
-    document.documentElement.scrollTop=document.body.scrollTop=scrollTop+iSpeed;
-   }, 30);
-  });
-  
- //回到顶部JS结束
+    //回到顶部JS开始
+    $(window).scroll(function(){
+        var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+      //alert(scrollTop)
+      if(scrollTop>200){
+       $('#hddb').show();
+      }else{
+       $('#hddb').hide();
+      }
+       
+    }); 
+    $('#hddb').click(function(){
+       var scrollTimer=null;
+       scrollTimer=setInterval(function (){
+        var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+        var iSpeed=Math.floor(-scrollTop/6);
+        if(scrollTop==0)
+        {
+         clearInterval(scrollTimer);
+        }
+        document.documentElement.scrollTop=document.body.scrollTop=scrollTop+iSpeed;
+       }, 30);
+    });
+    //回到顶部JS结束
 </script>

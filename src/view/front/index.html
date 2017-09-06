@@ -1,74 +1,98 @@
-<%- include("./header.html") %>
+<%- include("./side.html") %>
 <!-- 样式 -->
 <link rel="stylesheet" href="/css/front-home.css">
-<link rel="stylesheet" href="//cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
-<div class="main" id="home" >
-	<!-- banner -->
-	<div class="swiper-container">
-	  	<div class="swiper-wrapper">
-	  		<% datas.bannerList.forEach(function (item) {%>    
-	    		<div class="swiper-slide"><a href="/list/detail?id=<%= item.id %>"><img src="<%= datas.imgBase+item.bannerImg %>"></a></div>
-	    	<% })%>
-	  	</div>
-	  	<div class="swiper-pagination"></div>
+<link rel="stylesheet" href="/css/page.css">
+<div class="main" id="main" >
+	<div class="block">
+		<h1> 
+			<span>胜天半子，其又奈何？</span>
+			<div class="right fr">
+				<span>2017-07-12</span>
+				<span>From:zane</span>
+			</div>
+		</h1>
+		<div class="text">
+			整个四月份(2017)，<code>node.js</code>日常的工作和吃喝睡外，其余时间，全权沉浸于最近两个现象级玩物：《王者荣耀》和《人民的名义》，对于前者，可谓废寝忘食，如瘾如毒，不能自顾；手酸体倦时，就看一群老干部们偷奸耍滑，斗智斗勇。其实，对于这“王者农药”，玩过一段时间后，并不是欢喜于这款游戏，也绝非百无聊赖来打发时间，有的只是，那不能自控的厮杀快感和求胜欲望；这某种程度上，跟《人民的名义》中被迫追名逐利的祁同伟，很相像。对于，这个刻画最为饱满角色，即使是作为对立派别，但对于他那可厌、也可悲、亦可敬的人生，也仍有种难以抑制的同情和钦赞。
+		</div>
+		<div class="bottom">
+			<div class="fl"><span class="iconfont">&#xe610;</span> : <a class="tag" href="">node.js</a></div>
+			<div class="fr"><a class="pl" href=""><span class="iconfont">&#xe60e;</span>评论</a></div>
+		</div>
 	</div>
-	<!-- 推荐 -->
-	<div class="block tuijian">
-		<h1>课程推荐</h1>
-		<ul class="content">
-	        <% datas.recomList.forEach(function (item) {%>    
-			<li>
-				<div class="top">
-					<a href="/list/detail?id=<%= item.id %>"><img src="<%= datas.imgBase+item.mainimg %>"></a>
-					<div class="positon">
-						<span class="sp1" style="display:<%- item.tagName?'inline-block':'none' %>"><%= item.tagName %></span>
-						<span class="sp2" style="display:<%- item.categoryName?'inline-block':'none' %>"><%= item.categoryName %></span>
-					</div>
-				</div>
-				<div class="bottom">
-					<h1><a href="/list/detail?id=<%= item.id %>"><%= item.title %></a></h1>
-					<div class="biaoqian">
-						<span><%= item.difficulty %></span>
-						<span class="fr"><%= item.category %></span>
-					</div>
-					<div class="price">
-						<span class="now">¥<%= item.newprice %></span>
-						<span style="display:<%- item.oldprice?'inline-block':'none' %>" class="old">¥<%= item.oldprice %></span>
-					</div>
-				</div>
-			</li>
-			<% })%>
-		</ul>
+	<div class="block">
+		<h1> 
+			<span>胜天半子，其又奈何？</span>
+			<div class="right fr">
+				<span>2017-07-12</span>
+				<span>From:zane</span>
+			</div>
+		</h1>
+		<div class="text">
+			整个四月份(2017)， <code>除去</code>日常的工作和吃喝睡外，其余时间，全权沉浸于最近两个现象级玩物：《王者荣耀》和《人民的名义》，对于前者，可谓废寝忘食，如瘾如毒，不能自顾；手酸体倦时，就看一群老干部们偷奸耍滑，斗智斗勇。其实，对于这“王者农药”，玩过一段时间后，并不是欢喜于这款游戏，也绝非百无聊赖来打发时间，有的只是，那不能自控的厮杀快感和求胜欲望；这某种程度上，跟《人民的名义》中被迫追名逐利的祁同伟，很相像。对于，这个刻画最为饱满角色，即使是作为对立派别，但对于他那可厌、也可悲、亦可敬的人生，也仍有种难以抑制的同情和钦赞。
+		</div>
+		<div class="bottom">
+			<div class="fl"><span class="iconfont">&#xe610;</span> : <a class="tag" href="">node.js</a></div>
+			<div class="fr"><a class="pl" href=""><span class="iconfont">&#xe60e;</span>评论</a></div>
+		</div>
 	</div>
-	<!-- 最新 -->
-	<div class="block zuixin">
-		<h1>最新上架</h1>
-		<ul class="content">
-	        <% datas.newList.forEach(function (item) {%>    
-			<li>
-				<div class="top">
-					<a href="/list/detail?id=<%= item.id %>"><img src="<%= datas.imgBase+item.mainimg %>"></a>
-					<div class="positon">
-						<span class="sp1" style="display:<%- item.tagName?'inline-block':'none' %>"><%= item.tagName %></span>
-						<span class="sp1" style="display:<%- item.categoryName?'inline-block':'none' %>"><%= item.categoryName %></span>
-					</div>
-				</div>
-				<div class="bottom">
-					<h1><a href="/list/detail?id=<%= item.id %>"><%= item.title %></a></h1>
-					<div class="biaoqian">
-						<span><%= item.difficulty %></span>
-						<span class="fr"><%= item.category %></span>
-					</div>
-					<div class="price">
-						<span class="now">¥<%= item.newprice %></span>
-						<span style="display:<%- item.oldprice?'inline-block':'none' %>" class="old">¥<%= item.oldprice %></span>
-					</div>
-				</div>
-			</li>
-			<% })%>
-		</ul>
+	<div class="block">
+		<h1> 
+			<span>胜天半子，其又奈何？</span>
+			<div class="right fr">
+				<span>2017-07-12</span>
+				<span>From:zane</span>
+			</div>
+		</h1>
+		<div class="text">
+			整个四月份(2017)，除去日常的工作和吃喝睡外，其余时间，全权沉浸于最近两个现象级玩物：《王者荣耀》和《人民的名义》，对于前者，可谓废寝忘食，如瘾如毒，不能自顾；手酸体倦时，就看一群老干部们偷奸耍滑，斗智斗勇。其实，对于这“王者农药”，玩过一段时间后，并不是欢喜于这款游戏，也绝非百无聊赖来打发时间，有的只是，那不能自控的厮杀快感和求胜欲望；这某种程度上，跟《人民的名义》中被迫追名逐利的祁同伟，很相像。对于，这个刻画最为饱满角色，即使是作为对立派别，但对于他那可厌、也可悲、亦可敬的人生，也仍有种难以抑制的同情和钦赞。
+		</div>
+		<div class="bottom">
+			<div class="fl"><span class="iconfont">&#xe610;</span> : <a class="tag" href="">node.js</a></div>
+			<div class="fr"><a class="pl" href=""><span class="iconfont">&#xe60e;</span>评论</a></div>
+		</div>
+	</div>
+	<div class="block">
+		<h1> 
+			<span>胜天半子，其又奈何？</span>
+			<div class="right fr">
+				<span>2017-07-12</span>
+				<span>From:zane</span>
+			</div>
+		</h1>
+		<div class="text">
+			整个四月份(2017)，除去日常的工作和吃喝睡外，其余时间，全权沉浸于最近两个现象级玩物：《王者荣耀》和《人民的名义》，对于前者，可谓废寝忘食，如瘾如毒，不能自顾；手酸体倦时，就看一群老干部们偷奸耍滑，斗智斗勇。其实，对于这“王者农药”，玩过一段时间后，并不是欢喜于这款游戏，也绝非百无聊赖来打发时间，有的只是，那不能自控的厮杀快感和求胜欲望；这某种程度上，跟《人民的名义》中被迫追名逐利的祁同伟，很相像。对于，这个刻画最为饱满角色，即使是作为对立派别，但对于他那可厌、也可悲、亦可敬的人生，也仍有种难以抑制的同情和钦赞。
+		</div>
+		<div class="bottom">
+			<div class="fl"><span class="iconfont">&#xe610;</span> : <a class="tag" href="">node.js</a></div>
+			<div class="fr"><a class="pl" href=""><span class="iconfont">&#xe60e;</span>评论</a></div>
+		</div>
+	</div>
+	<!--  分页 -->
+	<div class="tc clearfix mt30">
+		<div id="copot-page"></div>
 	</div>
 </div>
-<script src="//cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
-<script src="/js/front-home.js"></script>
 <%- include("./footer.html") %>
+
+<script src="/js/Page.js"></script>
+<script src="/js/front-home.js"></script>
+<script>
+// 分页
+	var pageNo = '<%- datas.pageNo %>'
+	var pageSize = '<%- datas.pageSize %>'
+	var totalNum ='<%- datas.totalNum %>'
+
+	$(function() {
+		new Page({
+			parent: $("#copot-page"),
+			nowPage: pageNo,
+			pageSize: pageSize,
+			totalCount: totalNum,
+			callback: function(nowPage, totalPage) {
+				var url = '/?pageNo='+nowPage
+				location.href = url
+			}
+		});
+	});
+</script>
+

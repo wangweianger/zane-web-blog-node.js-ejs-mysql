@@ -1,62 +1,40 @@
-#home .swiper-container .swiper-slide img {
-  width: 100%;
-  height: 320px; }
-
-#home .block {
+.main .block {
+  background: #fff;
   overflow: hidden;
-  margin-top: 30px; }
-  #home .block h1 {
-    font-size: 18px; }
-  #home .block .content {
-    width: 1180px;
-    margin-top: 20px; }
-    #home .block .content li {
-      width: 276px;
-      height: 300px;
-      float: left;
-      margin-right: 15px;
-      background: #fff;
-      overflow: hidden;
-      border-radius: 5px 5px 0 0;
-      margin-bottom: 30px; }
-      #home .block .content li .top {
-        height: 150px;
-        overflow: hidden;
-        position: relative; }
-        #home .block .content li .top img {
-          width: 100%;
-          min-height: 100%; }
-        #home .block .content li .top .positon {
-          position: absolute;
-          left: 10px;
-          bottom: 10px; }
-          #home .block .content li .top .positon span {
-            display: inline-block;
-            padding: 3px 5px;
-            font-size: 13px;
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            border-radius: 20px;
-            margin-right: 5px; }
-      #home .block .content li .bottom {
-        padding: 10px; }
-        #home .block .content li .bottom h1 {
-          font-size: 18px;
-          margin-top: 5px;
-          margin-bottom: 10px;
-          height: 50px;
-          overflow: hidden; }
-        #home .block .content li .bottom .biaoqian {
-          color: #93999F;
-          font-size: 13px;
-          margin-bottom: 10px; }
-          #home .block .content li .bottom .biaoqian span {
-            margin-right: 5px; }
-        #home .block .content li .bottom .price .now {
-          color: red;
-          font-size: 20px;
-          margin-right: 10px; }
-        #home .block .content li .bottom .price .old {
-          font-size: 14px;
-          color: #93999F;
-          text-decoration: line-through; }
+  margin-top: .3rem;
+  padding: 0 .2rem;
+  border: solid 1px #eee; }
+  .main .block h1 {
+    font-size: .35rem;
+    height: 1rem;
+    line-height: 1rem;
+    border-bottom: solid 1px #ddd; }
+    .main .block h1 .right {
+      font-size: .14rem; }
+      .main .block h1 .right span {
+        margin-left: .1rem;
+        color: #c1c1c1; }
+  .main .block .text {
+    font-size: .16rem;
+    line-height: .35rem;
+    padding: .2rem 0;
+    color: #666; }
+  .main .block .bottom {
+    border-top: solid 1px #ddd;
+    line-height: .6rem;
+    font-size: .16rem; }
+    .main .block .bottom .iconfont {
+      font-size: .25rem;
+      margin-right: .1rem; }
+    .main .block .bottom a.tag {
+      padding: .08rem .1rem;
+      background: #f4615e;
+      color: #fff;
+      margin-left: .1rem; }
+    .main .block .bottom a.pl {
+      color: #afadad; }
+
+@media (max-width: 768px) {
+  .main .block .text {
+    font-size: .25rem;
+    line-height: .45rem; } }
