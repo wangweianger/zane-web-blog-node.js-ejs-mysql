@@ -1,0 +1,11 @@
+<%- include("./top.html") %>
+<%- include("./side.html") %>
+<link rel="stylesheet" href="/css/back-home.css">
+
+<div class="common-back-content" id="explain" v-cloak>
+	<h1 >购买说明</h1>
+	<div id="editor"></div>
+	<button type="button" @click="submitExplain">提交</button>
+</div>
+<script src="//unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+<script src="/js/back-explain.js"></script>

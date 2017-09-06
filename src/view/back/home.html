@@ -1,0 +1,63 @@
+<%- include("./top.html") %>
+<%- include("./side.html") %>
+<link rel="stylesheet" href="/css/back-home.css">
+
+<div class="common-back-content" id="home" v-cloak>
+	<div class="back-main">
+		<div class="topd mb10 inline-block"><a href="/back/add"><span>新增商品</span><span class="icon"></span></a></div>
+		<div class="content mt10">
+			<div class="block mt30">
+				<button class="btn btn-default btn-main" @click="selectOnline($event,'')">全部</button>
+				<button class="btn btn-default" @click="selectOnline($event,1,'online')">上架</button>
+				<button class="btn btn-default" @click="selectOnline($event,0,'online')">下架</button>
+				<button class="btn btn-default" @click="selectOnline($event,1,'recom')">已推荐</button>
+				<button class="btn btn-default" @click="selectOnline($event,0,'recom')">未推荐</button>
+				<button class="btn btn-default" @click="selectOnline($event,1,'banner')">首页banner推荐</button>
+			</div>
+			<table class="table mt20">
+				<tr>
+					<th>主图</th>
+					<th>二维码价格图</th>
+					<th>标题</th>
+					<th>类别</th>
+					<th>难度</th>
+					<th>时长</th>
+					<th>价格</th>
+					<th>原价</th>
+					<th>所属分类</th>
+					<th>所属标签</th>
+					<th>上下架状态</th>
+					<th>时间</th>
+					<th>操作</th>
+				</tr>
+				<tr v-for="item in datalist">
+					<td class="tc"><img :src="item.mainimg|imgBaseUrl"></td>
+					<td class="tc"><img :src="item.ewmimg|imgBaseUrl"></td>
+					<td>{{item.title}}</td>
+					<td class="tc">{{item.category}}</td>
+					<td class="tc">{{item.difficulty}}</td>
+					<td class="tc">{{item.longtime}}</td>
+					<td class="tc">¥{{item.newprice}}</td>
+					<td class="tc">¥{{item.oldprice}}</td>
+					<td class="tc">{{item.categoryid|categoryFilter}}</td>
+					<td class="tc">{{item.tagsid|tagsFilter}}</td>
+					<td class="tc">{{item.isOnline==1?'上架':'下架'}}</td>
+					<td class="tc">{{item.createTime}}</td>
+					<td class="tc">
+						<a :href="'/back/add?id='+item.id">修改</a> |
+						<a href="javascript:" v-if="item.isOnline==1?false:true" @click="editOnline(item)">上架</a>
+						<a href="javascript:" v-if="item.isOnline==0?false:true" @click="editOnline(item)">下架</a> |
+						<a href="javascript:" v-if="item.isRecom==1?false:true" @click="editRecom(item)">推荐首页</a>
+						<a href="javascript:" v-if="item.isRecom==0?false:true" @click="editRecom(item)">撤销推荐</a> |
+						<a href="javascript:" @click="deleteItemGoods(item)">删除</a>
+					</td>
+				</tr>
+			</table>
+			<!--  分页 -->
+			<div class="tr clearfix mt30">
+				<div id="copot-page"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/js/back-home.js"></script>

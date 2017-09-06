@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="/css/back-common.css">
+<link rel="stylesheet" href="/css/page.css">
+<script src="//cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+<script src="/js/vue-filters.js"></script>
+<script src="/js/vue-components.js"></script>
+<script src="/js/Page.js"></script>
+<script>Vue.config.devtools = true</script>
+
+<div class="top" id="top">
+	<div class="left">
+		<img class="img1" src="/images/back/logo-home.png">
+		<img class="img2" src="/images/back/touxiang.jpg">
+	</div>
+	<div class="right">
+		<div class="right-l">
+			VIDEO后台CMS系统
+		</div>
+		<div class="right-r">
+			<a class="mr20" target="_blank" href="/">首页</a>
+			<span class="mr20">admin</span>
+			<img class="login-out" @click="loginout" src="/images/back/logoout.png">
+		</div>
+	</div>
+</div>
+<script>
+	var app = new Vue({
+		el:'#top',
+		data:{
+			userMsg:{},
+		},
+		mounted(){
+			this.$nextTick(function(){
+				this.userMsg=util.getStorage('local','userMsg')?JSON.parse(util.getStorage('local','userMsg')):{}
+			})
+		},
+		methods:{
+			loginout(){
+				Layer.confirm({width:300,height:160,title:"确定退出登录吗？",header:"退出登录"},function(){
+					util.ajax({
+						url:config.baseApi+'api/back/user/userLoginOut',
+						success:function(data){
+							location.href = config.loginUrl + '?redirecturl=' + encodeURIComponent(location.href);
+						}
+					})
+				})
+			},
+		}
+	})
+</script>

@@ -1,0 +1,305 @@
+/*回到顶部CSS*/
+#hddb {
+   width:40px;
+   height:40px;
+   background:url(/images/common/totop.png) no-repeat left top;
+   background-size:100% 100%;
+   position: fixed;
+   right:10px;
+   bottom:50px;
+   display:none;
+   cursor: pointer;
+   z-index:100;
+}
+.header {
+   background:#fff;
+   height: 60px;
+   line-height: 60px;
+   border-bottom:solid 1px #eee;
+   overflow:hidden;
+   .nav{
+      overflow:hidden;
+      margin-left:50px;
+      float:left;
+      li{
+         display:inline-block;
+         font-size:18px;
+         height:60px;
+         text-align:center;
+         float:left;
+         a{
+            padding:0 20px;
+            display:block;
+            width:100%;
+            height:100%;
+         }
+         &.active{
+            a{
+               color:red;
+            }
+         }
+         &:hover{
+            a{
+               color:red;
+            }
+         }
+      }
+   }
+   dl {
+      width: 1150px;
+      margin:auto;
+      dt {
+         float: left;
+         a {
+            padding-left: 50px;
+            position: relative;
+            display: block;
+            font-size: 22px;
+            color: #38436b;
+         }
+         a:after {
+            content: '';
+            left: 0;
+            top: 15px;
+            width:30px;
+            height: 30px;
+            background:url('/images/index/logo.png') left center no-repeat;
+            display: block;
+            background-size:cover;
+            position:absolute;
+         }
+      }
+      dd {
+         float: right;
+         img {
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+            border-radius: 100%;
+            vertical-align: middle;
+            margin-right: 3px;
+         }
+         .loginouticon {
+            font-size: 28px;
+         }
+         span {
+            display: inline-block;
+            cursor: pointer;
+            font-size: 18px;
+         }
+         .addicon {
+            font-size: 22px;  
+         }
+         .addtop-btn {
+            transition: all .5s ease;
+            transform: rotate(10deg);
+            -webkit-transform: rotate(10deg);
+         }
+         .more-user{
+            .addicon{
+               font-size:25px;
+               margin-top: -8px;
+            }
+         }
+         .wiki{
+            .addicon{
+               font-size:30px;
+            }
+         }
+      }
+   }
+    .search{
+        float:left;
+        margin-left:50px;
+        position:relative;
+        input{
+            border:none;
+            height:35px;
+            padding-left:10px;
+            width:250px;
+            border-bottom:solid 1px #ddd;
+        }
+        a{
+            width:20px;
+            height:20px;
+            display:block;
+            position:absolute;
+            right:0;
+            top:20px;
+            background:url('/images/common/search.png') no-repeat center center;
+            background-size:100% 100%;
+        }
+    }
+}
+.main{
+   width:1150px;
+   margin:0 auto;
+}
+
+.dh-nav{
+    margin:20px 0;
+    color:#999;
+    a{
+        color:#999;
+    }
+}
+
+.common-search{
+    height:150px;
+    background:url('/images/index/top.jpg') no-repeat top center;
+    position:relative;
+    .mask{
+        width:100%;
+        height:100%;
+        background:rgba(0,0,0,.5);
+        position:absolute;
+        left:0;
+        top:0;
+    }
+    .main{
+        position:absolute;
+        left:50%;
+        top:50%;
+        width:500px;
+        height:40px;
+        margin:-20px 0 0 -250px;
+        input{
+            width:398px;
+            height:40px;
+            border:solid 1px #ddd;
+            padding-left:10px;
+            float:left;
+        }
+        button{
+            width:98px;
+            height:40px;
+            color:#fff;
+            background:rgba(70,83,130,.95);
+            font-size:18px;
+            float:left;
+            border:solid 1px rgba(70,83,130,.95);
+        }
+    }
+}
+
+.btn {
+   display: inline-block;
+   padding:8px 10px;
+   text-align: center;
+   line-height: 22px;
+   min-width: 60px;
+   font-size: 14px;
+   color:#fff;
+   border-radius:2px;
+   cursor: pointer;
+   position:relative;
+    &.btn-default{
+        border:solid 1px #ddd;
+        color:#333;
+        background:#fff;
+        font-size:15px;
+    }
+    &.btn-main{
+        border:solid 1px #3497DB;
+        color:#fff;
+        background:#3497DB;
+    }
+   span {
+      position:relative;
+      z-index: 999; 
+   }
+   &:after {
+      content:'';
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 100%;
+      position:absolute;
+      transition: all .3s ease;
+   }
+   &:hover {
+      span {
+         color: #fff!important;
+      }
+      &:after {
+         width: 100%;
+      }
+   }
+}
+.btn-detail {
+   border:1px solid #e9807b;
+   color: #e9807b;
+   a{
+      color: #e9807b;
+   }
+   &:hover {
+      &:after {
+         background:#e9807b;
+      }
+   }
+}
+.btn-edit {
+   border:1px solid #44a5de;
+   color: #44a5de;
+   &:hover {
+      &:after {
+         background:#44a5de;
+      }
+   }
+}
+.btn-down {
+   border:1px solid #dea844;
+   color: #dea844;
+   &:hover {
+      &:after {
+         background:#dea844;
+      }
+   }
+}
+.btn-up {
+   border:1px solid #67d675;
+   color: #67d675;
+   &:hover {
+      &:after {
+         background:#67d675;
+      }
+   }
+}
+.footer {
+   background:#273547;
+   color: #999;
+   padding:30px 0;
+   min-width: 1200px;
+   line-height: 30px;
+   margin-top: 50px;
+   .content{
+      width:1150px;
+      margin:0 auto;
+      position:relative;
+      ul{
+         li{
+              display:inline-block;
+              margin-right:20px;
+              a{color:#999;} 
+              a:hover{
+                color:#fff;
+              }
+         }
+      }
+        .wx-qq{
+            position:absolute;
+            right:0;
+            top:-10px;
+            img{
+                width:60px;
+                height:60px;
+            }
+            p{
+                font-size:12px;
+                margin-top:-10px;
+            }
+        }
+   }
+}
+
+

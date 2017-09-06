@@ -1,0 +1,115 @@
+<%- include("./top.html") %>
+<%- include("./side.html") %>
+<link rel="stylesheet" href="/css/back-add.css">
+
+<div class="common-back-content" id="add" v-cloak>
+	<div class="back-main">
+		<div class="h1">新增商品</div>
+		<div class="content">
+			<div class="block">
+				<span class="left"><span class="red">*</span>标题：</span>
+				<input class="right from-col" v-model.trim="edit.title" type="text" >
+			</div>
+			<div class="block">
+				<span class="left">所属类别：</span>
+				<select class="right from-col" v-model.trim="edit.categoryid" style="height:35px;">
+					<option value="">请选择</option>
+					<option :value="item.id" v-for="item in categoryDatas" >{{item.categoryname}}</option>}
+				</select>
+			</div>
+			<div class="block">
+				<span class="left">所属标签：</span>
+				<select class="right from-col" v-model.trim="edit.tagsid" style="height:35px;">
+					<option value="">请选择</option>
+					<option :value="item.id" v-for="item in tagsDatas">{{item.tagname}}</option>}
+				</select>
+			</div>
+			<div class="block">
+				<span class="left">上下架：</span>
+				<select class="right from-col" v-model.trim="edit.isOnline" style="height:35px;">
+					<option value="">请选择</option>
+					<option value="1" >上架</option>
+					<option value="0" >下架</option>
+				</select>
+			</div>
+			<div class="block">
+				<span class="left">是否推荐首页：</span>
+				<label class="mr10">不推荐<input type="radio" v-model="edit.isRecom" name="isRecom" value="0"></label>
+				<label>推荐<input type="radio" v-model="edit.isRecom" name="isRecom" value="1"></label>
+			</div>
+			<div class="block">
+				<span class="left">是否首页banner：</span>
+				<label class="mr10">否<input type="radio" v-model="edit.isBanner" name="isBanner" value="0"></label>
+				<label>是<input type="radio" v-model="edit.isBanner" name="isBanner" value="1"></label>
+			</div>
+			<div class="block" v-if="edit.isBanner==1?true:false">
+				<span class="left"><span class="red">*</span>主图：</span>
+				<div class="right" style="background:none">
+					<img v-if="edit.bannerImg" style="width:100%" @click="uploadImg('bannerImg')" class="img-val" :src="edit.bannerImg|imgBaseUrl">
+					<img v-if="!edit.bannerImg" @click="uploadImg('bannerImg')" class="upload cursor" src="/images/back/uoload.png">
+					<span v-if="edit.bannerImg" style="width:100%" class="click-update">点击图片修改</span>
+				</div>
+			</div>
+			<div class="block">
+				<span class="left">类别：</span>
+				<label class="mr20" v-for="item in edit.categoryjson">{{item.value}}<input type="checkbox" :value="item.value" v-model.trim="item.checked"  ></label>
+			</div>
+			<div class="block">
+				<span class="left">难度：</span>
+				<label class="mr20" v-for="item in edit.difficultyjson">{{item.value}}<input type="checkbox" :value="item.value" v-model.trim="item.checked"  ></label>
+			</div>
+			<div class="block">
+				<span class="left">时长：</span>
+				<input class="right from-col" v-model.trim="edit.longtime" type="text" placeholder="例如:16小时20分钟">
+			</div>
+			<div class="block">
+				<span class="left"><span class="red">*</span>主图：</span>
+				<div class="right" style="background:none">
+					<img v-if="edit.mainimg" @click="uploadImg('mainimg')" class="img-val" :src="edit.mainimg|imgBaseUrl">
+					<img v-if="!edit.mainimg" @click="uploadImg('mainimg')" class="upload cursor" src="/images/back/uoload.png">
+					<span v-if="edit.mainimg" class="click-update">点击图片修改</span>
+				</div>
+			</div>
+			<div class="block">
+				<span class="left">原价：</span>
+				<input class="right from-col" v-model.trim="edit.oldprice" type="text" >
+			</div>
+			<div class="block">
+				<span class="left"><span class="red">*</span>卖价：</span>
+				<input class="right from-col" v-model.trim="edit.newprice" type="text" >
+			</div>
+			<div class="block">
+				<span class="left"><span class="red">*</span>二维码价格图：</span>
+				<div class="right" style="background:none">
+					<img v-if="edit.ewmimg" @click="uploadImg('ewmimg')" class="img-val" :src="edit.ewmimg|imgBaseUrl">
+					<img v-if="!edit.ewmimg" @click="uploadImg('ewmimg')" class="upload cursor" src="/images/back/uoload.png">
+					<span v-if="edit.ewmimg" class="click-update">点击图片修改</span>
+				</div>
+			</div>
+			<div class="block">
+				<span class="left">大小：</span>
+				<input class="right from-col" v-model.trim="edit.size" placeholder="例如:20G" type="text" >
+			</div>
+			<div class="block">
+				<span class="left">描述：</span>
+				<textarea class="right from-col" v-model.trim="edit.desc" rows="4"></textarea>
+			</div>
+			<div class="block">
+				<span class="left"><span class="red">*</span>正文：</span>
+				<div class="right">
+					<div id="editor"></div>
+				</div>
+			</div>
+			<div class="block tijiao">
+				<button class="submit" type="button" @click="submit">发表商品</button>
+				<button class="default" type="button" onclick="history.back()">取消</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="//unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+<script src="/js/back-add.js"></script>
+
+
+
+

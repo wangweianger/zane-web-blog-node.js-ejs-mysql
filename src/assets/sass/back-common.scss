@@ -1,0 +1,142 @@
+.top{
+    height:60px;
+    overflow:hidden;
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    z-index:100;
+    .left{
+        float:left;
+        overflow:hidden;
+        width:220px;
+        background:#2F88C5;
+        border-bottom: solid 1px #308BC9;
+        .img1{
+            margin-left:20px;
+        }
+        .img2{
+            margin-left:30px;
+            margin-top:0px;
+            float:right;
+            margin-right:10px;
+        }
+    }
+    .right{
+        border-bottom:solid 1px #ddd;
+        overflow:hidden;
+        padding-left:50px;
+        line-height:60px;
+        background:#fff;
+        height:60px;
+        .right-l{
+            float:left;
+            font-size:18px;
+        }
+        .right-r{
+            float:right;
+            font-size:16px;
+            padding-right:30px;
+        }
+        .login-out{
+            width:25px;
+            height:25px;
+            margin-top:15px;
+            float:right;
+            cursor:pointer;
+        }
+    }
+}
+.side{
+    width:220px;
+    position:fixed;
+    left:0;
+    top:60px;
+    height:100%;
+    color:#fff;
+    background:#3497DB;
+    li{
+        border-top: solid 1px #4CA3DF;
+        border-bottom: solid 1px #308BC9;
+        line-height: 35px;
+        overflow: hidden;
+        cursor: pointer;
+        font-size:14px;
+        a{
+            display:block;
+            color:#fff;
+            padding: 20px 0;
+            padding-left: 10%;
+        }
+        &.active{
+            background: #2F88C5;
+        }
+        &:hover{
+            background: #2F88C5;
+        }
+        span{
+            display:inline-block;
+            width:20px;
+            height:20px;
+            margin-right:10px;
+            float:left;
+            margin-top:6px;
+        }
+        .wz{
+            background:url('/images/back/wenzhang.png') no-repeat center center;
+            background-size:100% 100%;
+        }
+        .fl{
+            background:url('/images/back/fenlei.png') no-repeat center center;
+            background-size:100% 100%;
+        }
+        .bq{
+            background:url('/images/back/biaoqian.png') no-repeat center center;
+            background-size:100% 100%;
+        }
+        .sm{
+            background:url('/images/back/shuoming.png') no-repeat center center;
+            background-size:100% 100%;
+        }
+    }
+}
+.common-back-content{
+    margin-left:220px;
+    margin-top:60px;
+    padding:30px;
+}
+
+
+.table{
+    border-collapse: separate;
+    border-spacing: 0;
+    border-left:solid 1px #ddd;
+    border-top:solid 1px #ddd;
+    background:#fff;
+    box-shadow: 0 0 2px #ccc;
+    width:100%;
+    th{
+        border-bottom:solid 1px #ddd;
+        border-right:solid 1px #ddd;
+        padding:8px 10px;
+        font-size:14px;
+        font-weight:bold;
+    }
+    td{
+        border-bottom:solid 1px #ddd;
+        border-right:solid 1px #ddd;
+        padding:8px 8px;
+        font-size:13px;
+        a{
+            color:#337ab7;
+        }
+    }
+    img{
+        width:80px;
+        height:60px;
+    }
+}
+
+[v-cloak] { display: none }
+
+

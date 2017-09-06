@@ -1,0 +1,43 @@
+#home{
+    .search{
+        margin-top:20px;
+        background:#fff;
+        border-radius:5px;
+        padding:20px 30px;
+        overflow:hidden;
+        position:relative;
+        .common{
+            float:left;
+            h1{
+                font-size:18px;
+                font-weight:bold;
+            }
+            ul{
+                overflow:hidden;
+                margin-top:15px;
+            }
+            li{
+                display:inline-block;
+                padding:3px 5px;
+                margin-right:10px;
+                font-size:14px;
+                cursor:pointer;
+                &.active{
+                    background:red;
+                    color:#fff;
+                    a{
+                        color:#fff;
+                    }
+                }
+            }
+        }
+        .left{
+            width:45%;
+        }
+        .right{
+            width:55%;
+            border-left:solid 1px #ddd;
+            padding-left:20px;
+        }
+    }
+}
