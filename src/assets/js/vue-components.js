@@ -2,9 +2,8 @@ let Component = {
     modal:{
         template: `
             <div v-show="show">
-                <div 
-                    :style="{'width':'500px'}"
-                    class="PopLayer PopLayer-alert PopLayer-customHtml customHtmlMask" style="height: 200px; margin-left: -300px; margin-top: -200px; opacity: 1;">
+                <div class="PopLayer PopLayer-alert PopLayer-customHtml customHtmlMask" style="height: 200px; margin-left: -300px; margin-top: -200px; opacity: 1;"
+                    v-bind:style="{'width':width+'px','height':height+'px'}" >
                     <div class="PopLayer-h1">
                         {{title}}
                         <span
@@ -25,7 +24,11 @@ let Component = {
             },
             width:{
                 type:String,
-                default:800,
+                default:500,
+            },
+            height:{
+                type:String,
+                default:200,
             },
             title:{
                 type:String,

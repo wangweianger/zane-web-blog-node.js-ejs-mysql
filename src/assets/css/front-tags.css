@@ -1,0 +1,76 @@
+html, body {
+  background: #fff; }
+
+.main h1 {
+  font-size: .3rem;
+  margin-top: .3rem; }
+
+.main ul.tag {
+  margin-top: .3rem; }
+  .main ul.tag li {
+    font-size: .2rem;
+    border: solid 1px #f4615e;
+    display: inline-block;
+    padding: .05rem .2rem;
+    border-radius: .3rem;
+    margin-right: .2rem; }
+    .main ul.tag li a {
+      color: #f4615e; }
+    .main ul.tag li:hover {
+      background: #f4615e; }
+      .main ul.tag li:hover a {
+        color: #fff; }
+
+.main ul.link {
+  margin-top: .3rem; }
+  .main ul.link li {
+    list-style: disc;
+    margin-left: .3rem;
+    font-size: .16rem;
+    margin-top: .1rem; }
+
+.main .about .danger {
+  color: red;
+  margin: .2rem 0; }
+
+.main .about .text {
+  line-height: 35px;
+  margin: 20px 0;
+  color: #999; }
+
+.main .about p {
+  line-height: 35px;
+  color: #999; }
+
+.main .comment {
+  overflow: hidden;
+  margin-top: .3rem;
+  border-bottom: solid 1px #eee; }
+  .main .comment .item {
+    line-height: .35rem;
+    overflow: hidden;
+    border-top: solid 1px #eee;
+    padding: .2rem 0; }
+    .main .comment .item img {
+      width: .3rem;
+      height: .3rem;
+      float: left;
+      margin-right: .2rem; }
+    .main .comment .item p {
+      float: left;
+      margin-right: .2rem; }
+    .main .comment .item span {
+      display: inline-block;
+      float: left;
+      color: #aaa;
+      font-size: 13px; }
+
+@media (max-width: 768px) {
+  .main h1 {
+    font-size: .5rem; }
+  .main ul.link {
+    margin-top: .3rem; }
+    .main ul.link li {
+      margin-left: .3rem;
+      font-size: .3rem;
+      margin-top: .1rem; } }

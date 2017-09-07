@@ -21,8 +21,6 @@ class detail {
             let pageNo   = ctx.request.body.pageNo || 1
             let pageSize = ctx.request.body.pageSize || SYSTEM.PAGESIZE
             let isOnline = ctx.request.body.isOnline || ''
-            let isRecom  = ctx.request.body.isRecom || ''  
-            let isBanner  = ctx.request.body.isBanner || ''    
 
             let datas = {
                 totalNum:0,
@@ -32,12 +30,10 @@ class detail {
             };
             let arr=[]
             if(isOnline+'') arr.push({isOnline})
-            if(isRecom+'') arr.push({isRecom})
-            if(isBanner+'') arr.push({isBanner})
 
             // ----------------   查询总条数 sql   -------------------------
             let totalSql = getsql.SELECT({
-                table: 'goods',
+                table: 'article',
                 wheres:arr,
                 iscount: true,
             })
@@ -45,7 +41,7 @@ class detail {
 
             // ---------------   查询列表数据 sql ---------------------------       
             let sql = getsql.SELECT({
-                table: 'goods',
+                table: 'article',
                 wheres:arr,
                 sort: 'id',
                 isdesc: true,
@@ -74,7 +70,7 @@ class detail {
         }
     }
 
-    // 获得单个商品详情
+    // 获得单个文章详情
     async getItemDetail(ctx){
         try {
             let id=ctx.request.body.id
@@ -88,7 +84,7 @@ class detail {
             }
 
             let sql = getsql.SELECT({
-                table:'goods',
+                table:'article',
                 wheres:[{id}]
             })
 
@@ -108,7 +104,7 @@ class detail {
         }
     }
 
-    // 删除商品
+    // 删除文章
     async deleteGoods(ctx){
         try {
             let id=ctx.request.body.id
@@ -122,7 +118,7 @@ class detail {
             }
 
             let sql = getsql.DELETE({
-                table:'goods',
+                table:'article',
                 wheres:[{id}]
             })
 
@@ -142,7 +138,7 @@ class detail {
         }
     }
 
-    // 商品上下架
+    // 文章上下线
     async editOnline(ctx){
         try {
             let id = ctx.request.body.id
@@ -157,7 +153,7 @@ class detail {
             }
 
             let sql = getsql.UPDATE({
-                table:'goods',
+                table:'article',
                 fields:[{isOnline}],
                 wheres:[{id}]
             })
@@ -177,67 +173,21 @@ class detail {
             return;
         }
     }
-
-    // 首页是否推荐
-    async editRecom(ctx){
-        try {
-            let id = ctx.request.body.id
-            let isRecom = ctx.request.body.isRecom
-
-            if(!id){
-                ctx.body = util.result({
-                    code: 1001,
-                    desc: "参数不全"
-                });
-                return;
-            }
-
-            let sql = getsql.UPDATE({
-                table:'goods',
-                fields:[{isRecom}],
-                wheres:[{id}]
-            })
-
-            let result = await mysql(sql);
-            
-            ctx.body = util.result({
-                data: result
-            });
-
-        } catch (err) {
-            console.log(err)
-            ctx.body = util.result({
-                code: 1001,
-                desc: "服务错误"
-            });
-            return;
-        }
-    }
     
-    // 编辑商品
+    // 编辑文章
     async editGoods(ctx){
         try {
             let id          =   ctx.request.body.id
             let title       =   ctx.request.body.title
-            let category    =   ctx.request.body.category
-            let difficulty  =   ctx.request.body.difficulty
-            let longtime    =   ctx.request.body.longtime
-            let mainimg     =   ctx.request.body.mainimg
-            let oldprice    =   ctx.request.body.oldprice
-            let newprice    =   ctx.request.body.newprice
-            let ewmimg      =   ctx.request.body.ewmimg
-            let describes   =   ctx.request.body.desc
+            let describes   =   ctx.request.body.describes
             let text        =   ctx.request.body.text
-            let size        =   ctx.request.body.size
-            let tagsid      =   ctx.request.body.tagsid
-            let categoryid  =   ctx.request.body.categoryid
+            let author      =   ctx.request.body.author
+            let browse      =   ctx.request.body.browse
+            let tagid       =   ctx.request.body.tagid
             let isOnline    =   ctx.request.body.isOnline
-            let isRecom     =   ctx.request.body.isRecom
-            let isBanner    =   ctx.request.body.isBanner
-            let bannerImg   =   ctx.request.body.bannerImg
             let createTime  =   moment(new Date().getTime()).format('YYYY-MM-DD HH:mm:ss')
 
-            if(!title || !mainimg || !newprice || !ewmimg || !text){
+            if(!title || !text){
                 ctx.body = util.result({
                     code: 1001,
                     desc: "参数不全"
@@ -245,26 +195,18 @@ class detail {
                 return;
             }
 
-            let arr=[{title},{mainimg},{newprice},{ewmimg},{text}];
-            if(category) arr.push({category});
-            if(difficulty) arr.push({difficulty});
-            if(longtime) arr.push({longtime});
-            if(oldprice) arr.push({oldprice});
+            let arr=[{title},{text},{createTime}];
             if(describes) arr.push({describes});
-            if(size) arr.push({size});
-            if(tagsid) arr.push({tagsid});
-            if(categoryid) arr.push({categoryid});
-            if(createTime) arr.push({createTime});
+            if(author) arr.push({author});
+            if(browse) arr.push({browse});
+            if(tagid) arr.push({tagid});
             if(isOnline+'') arr.push({isOnline});
-            if(isRecom+'') arr.push({isRecom});
-            if(isBanner+'') arr.push({isBanner});
-            if(bannerImg) arr.push({bannerImg});
 
             let sql = ""
             if (id) {
                 // 表示修改
                 sql = getsql.UPDATE({
-                    table: 'goods',
+                    table: 'article',
                     fields: arr,
                     wheres: [{
                         id
@@ -273,12 +215,10 @@ class detail {
             } else {
                 // 表示新增
                 sql = getsql.INSERT({
-                    table: 'goods',
+                    table: 'article',
                     fields: arr,
                 })
             }
-
-            console.log(sql)
 
             let result = await mysql(sql)
 

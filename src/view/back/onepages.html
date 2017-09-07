@@ -2,22 +2,22 @@
 <%- include("./side.html") %>
 <link rel="stylesheet" href="/css/back-home.css">
 
-<div class="common-back-content" id="category" v-cloak>
+<div class="common-back-content" id="onepages" v-cloak>
 	<div class="back-main">
-		<div class="topd mb10 inline-block" @click="editPicObj.show=true"><a href="javascript:"><span>新增分类</span><span class="icon"></span></a></div>
+		<div class="topd mb10 inline-block"><a href="/back/addonepage"><span>新增单页</span><span class="icon"></span></a></div>
 		<div class="content mt10">
 			<table class="table">
 				<tr>
 					<th class="w-80">序号</th>
-					<th>分类名称</th>
+					<th>页面名称</th>
 					<th>操作</th>
 				</tr>
 				<tr v-for="(item,i) in datalist">
 					<td class="tc">{{i+1}}</td>
-					<td class="tc">{{item.categoryname}}</td>
+					<td class="tc">{{item.pageName}}</td>
 					<td class="tc">
-						<a href="javascript:" @click="updateCategory(item)">修改</a> |
-						<a href="javascript:" @click="deleteCategory(item)">删除</a>
+						<a href="javascript:" @click="updateLink(item)">修改</a> |
+						<a href="javascript:" @click="deleteLink(item)">删除</a>
 					</td>
 				</tr>
 			</table>
@@ -31,13 +31,18 @@
 	<modal
 		:show.sync="editPicObj.show"
 		width="480"
-		title="编辑分类"
+		height="250"
+		title="编辑友链"
 		>
 		<div slot="modal-body">
 			<div class="avator-wapper">
 				<div class="block">
-					<span class="left">分类名:</span>
-					<input v-model.trim="edit.categoryname" type="text">	
+					<span class="left">名称:</span>
+					<input v-model.trim="edit.linkName" type="text">	
+				</div>
+				<div class="block mt10">
+					<span class="left">链接:</span>
+					<input v-model.trim="edit.lineHref" type="text">	
 				</div>
 				<div class="tc submit">
 					<button
@@ -52,4 +57,4 @@
 	</modal>
 
 </div>
-<script src="/js/back-category.js"></script>
+<script src="/js/back-onepages.js"></script>

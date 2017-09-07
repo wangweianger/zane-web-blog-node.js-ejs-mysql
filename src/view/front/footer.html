@@ -3,8 +3,13 @@
     <p>版权所有 | WANG WEI..</p>
 </footer>
 <div id="hddb"></div>
+<div id="loading"></div>
 
 <script>
+    window.onload=function(){
+        $('#loading').hide();
+    }
+
     //回到顶部JS开始
     $(window).scroll(function(){
         var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;

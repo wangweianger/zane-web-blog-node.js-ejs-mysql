@@ -1,0 +1,107 @@
+html,body{
+    background:#fff;
+}
+.main{
+    // 分类
+    h1{
+        font-size:.3rem;
+        margin-top:.3rem;
+    }
+    // 标签
+    ul.tag{
+        margin-top:.3rem;
+        li{
+            font-size:.2rem;
+            border:solid 1px #f4615e;
+            display:inline-block;
+            padding:.05rem .2rem;
+            border-radius:.3rem;
+            margin-right:.2rem;
+            a{
+               color:#f4615e;
+            }
+            &:hover{
+                background:#f4615e;
+                a{
+                    color:#fff;
+                }
+            }
+        }
+    } 
+
+    // 友情链接
+    ul.link{
+        margin-top:.3rem;
+        li{
+            list-style:disc;
+            margin-left:.3rem;
+            font-size:.16rem;
+            margin-top:.1rem;
+        }
+    }
+
+    // 关于
+    .about{
+        .danger{
+            color:red;
+            margin:.2rem 0;
+        }
+        .text{
+            line-height:35px;
+            margin:20px 0;
+            color:#999;
+        }
+        p{
+            line-height:35px;
+            color:#999;
+        }
+    }
+
+    // 评论
+    .comment{
+        overflow:hidden;
+        margin-top:.3rem;
+        border-bottom:solid 1px #eee;
+        .item{
+            line-height:.35rem;
+            overflow:hidden;
+            border-top:solid 1px #eee;
+            padding:.2rem 0;
+            img{
+                width:.3rem;
+                height:.3rem;
+                float:left;
+                margin-right:.2rem;
+            }
+            p{
+                float:left;
+                margin-right:.2rem;
+            }
+            span{
+                display:inline-block;
+                float:left;
+                color:#aaa;
+                font-size:13px;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 768px) {
+    .main{
+        h1{
+            font-size:.5rem;
+        }
+        ul.link{
+            margin-top:.3rem;
+            li{
+                margin-left:.3rem;
+                font-size:.3rem;
+                margin-top:.1rem;
+            }
+        }
+    }
+}
+
+

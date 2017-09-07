@@ -21,7 +21,7 @@ class detail {
 
             // ---------------   查询列表数据 sql ---------------------------       
             let sql = getsql.SELECT({
-                table: 'category',
+                table: 'link',
                 sort: 'id',
                 isdesc: true,
             });
@@ -42,12 +42,13 @@ class detail {
     }
 
     // 编辑分类
-    async editCategory(ctx){
+    async editLink(ctx){
         try {
-            let id = ctx.request.body.id
-            let categoryname = ctx.request.body.categoryname
+            let id          = ctx.request.body.id
+            let linkName    = ctx.request.body.linkName
+            let lineHref    = ctx.request.body.lineHref
 
-            if(!categoryname){
+            if(!linkName || !lineHref){
                 ctx.body = util.result({
                     code: 1001,
                     desc: "参数不全"
@@ -59,15 +60,15 @@ class detail {
             if (id) {
                 // 表示修改
                 sql = getsql.UPDATE({
-                    table: 'category',
-                    fields: [{categoryname}],
+                    table: 'link',
+                    fields: [{linkName},{lineHref}],
                     wheres: [{id}]
                 })
             } else {
                 // 表示新增
                 sql = getsql.INSERT({
-                    table: 'category',
-                    fields: [{categoryname}],
+                    table: 'link',
+                    fields: [{linkName},{lineHref}],
                 })
             }
 
@@ -88,7 +89,7 @@ class detail {
     }
    
     // 删除分类
-    async deleteCategory(ctx){
+    async deleteLink(ctx){
         try {
             let id=ctx.request.body.id
 
@@ -101,7 +102,7 @@ class detail {
             }
 
             let sql = getsql.DELETE({
-                table:'category',
+                table:'link',
                 wheres:[{id}]
             })
 

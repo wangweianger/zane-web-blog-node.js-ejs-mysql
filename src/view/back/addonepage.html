@@ -1,0 +1,31 @@
+<%- include("./top.html") %>
+<%- include("./side.html") %>
+<link rel="stylesheet" href="/css/back-add.css">
+
+<div class="common-back-content" id="addonepage" v-cloak>
+	<div class="back-main">
+		<div class="h1">新增商品</div>
+		<div class="content">
+			<div class="block">
+				<span class="left"><span class="red">*</span>标题：</span>
+				<input class="right from-col" v-model.trim="edit.title" type="text" >
+			</div>
+			<div class="block">
+				<span class="left"><span class="red">*</span>正文：</span>
+				<div class="right">
+					<div id="editor"></div>
+				</div>
+			</div>
+			<div class="block tijiao">
+				<button class="submit" type="button" @click="submit">发表商品</button>
+				<button class="default" type="button" onclick="history.back()">取消</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="//unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+<script src="/js/back-addonepage.js"></script>
+
+
+
+

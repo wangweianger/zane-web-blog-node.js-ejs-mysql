@@ -33,6 +33,54 @@ router.get(['/'], async(ctx, next) => {
 	}); 
 });
 
+// 归档
+router.get(['/file'], async(ctx, next) => {
+	let datas = {
+		title:'按日期归档',
+		imgBase:SYSTEM.BASEIMG,
+	}
+
+	await ctx.render('front/file',{
+		datas:datas
+	});
+})
+
+// 标签
+router.get(['/tags'], async(ctx, next) => {
+	let datas = {
+		title:'标签列表',
+		imgBase:SYSTEM.BASEIMG,
+	}
+
+	await ctx.render('front/tags',{
+		datas:datas
+	});
+})
+
+// 友链
+router.get(['/link'], async(ctx, next) => {
+	let datas = {
+		title:'友情链接',
+		imgBase:SYSTEM.BASEIMG,
+	}
+
+	await ctx.render('front/link',{
+		datas:datas
+	});
+})
+
+// 关于我
+router.get(['/about'], async(ctx, next) => {
+	let datas = {
+		title:'关于博主',
+		imgBase:SYSTEM.BASEIMG,
+	}
+
+	await ctx.render('front/about',{
+		datas:datas
+	});
+})
+
 /*-------------------------------------列表相关-----------------------------------------------*/
 /*列表页面*/
 router.get(['/list'], async(ctx, next) => {

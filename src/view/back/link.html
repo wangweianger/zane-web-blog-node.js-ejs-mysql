@@ -2,22 +2,24 @@
 <%- include("./side.html") %>
 <link rel="stylesheet" href="/css/back-home.css">
 
-<div class="common-back-content" id="tags" v-cloak>
+<div class="common-back-content" id="link" v-cloak>
 	<div class="back-main">
-		<div class="topd mb10 inline-block" @click="addTags"><a href="javascript:"><span>新增标签</span><span class="icon"></span></a></div>
+		<div class="topd mb10 inline-block" @click="addLink"><a href="javascript:"><span>新增友链</span><span class="icon"></span></a></div>
 		<div class="content mt10">
 			<table class="table">
 				<tr>
 					<th class="w-80">序号</th>
-					<th>标签名称</th>
+					<th>友链名称</th>
+					<th>友链链接</th>
 					<th>操作</th>
 				</tr>
 				<tr v-for="(item,i) in datalist">
 					<td class="tc">{{i+1}}</td>
-					<td class="tc">{{item.tagname}}</td>
+					<td class="tc">{{item.linkName}}</td>
+					<th class="tc">{{item.lineHref}}</th>
 					<td class="tc">
-						<a href="javascript:" @click="updateTags(item)">修改</a> |
-						<a href="javascript:" @click="deleteTags(item)">删除</a>
+						<a href="javascript:" @click="updateLink(item)">修改</a> |
+						<a href="javascript:" @click="deleteLink(item)">删除</a>
 					</td>
 				</tr>
 			</table>
@@ -31,13 +33,18 @@
 	<modal
 		:show.sync="editPicObj.show"
 		width="480"
-		title="编辑标签"
+		height="250"
+		title="编辑友链"
 		>
 		<div slot="modal-body">
 			<div class="avator-wapper">
 				<div class="block">
-					<span class="left">标签名:</span>
-					<input v-model.trim="edit.tagname" type="text">	
+					<span class="left">名称:</span>
+					<input v-model.trim="edit.linkName" type="text">	
+				</div>
+				<div class="block mt10">
+					<span class="left">链接:</span>
+					<input v-model.trim="edit.lineHref" type="text">	
 				</div>
 				<div class="tc submit">
 					<button
@@ -52,4 +59,4 @@
 	</modal>
 
 </div>
-<script src="/js/back-tags.js"></script>
+<script src="/js/back-link.js"></script>

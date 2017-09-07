@@ -53,33 +53,26 @@ router.post('/api/back/goods/getItemDetail',checkIsLogin, controllers.back.home.
 // 商品上下架
 router.post('/api/back/goods/editOnline',checkIsLogin, controllers.back.home.editOnline)
 
-// 首页是否推荐
-router.post('/api/back/goods/editRecom',checkIsLogin, controllers.back.home.editRecom)
-
-
 /*--------------------------------------------分类相关-----------------------------------------------------------*/
 
-// 分类列表
-router.get(['/back/category'], async(ctx, next) => {
+// 友链列表
+router.get(['/back/link'], async(ctx, next) => {
 	let datas = {
-		title:'分类列表',
+		title:'友链列表',
 	}
-	await ctx.render('back/category',{
+	await ctx.render('back/link',{
 		datas:datas
 	}); 
 });
 
-// 获得分类列表
-router.post('/api/back/category/getList',checkIsLogin, controllers.back.category.getList)
+// 获得友链列表
+router.post('/api/back/link/getList',checkIsLogin, controllers.back.link.getList)
 
-// 编辑标签
-router.post('/api/back/category/editCategory',checkIsLogin, controllers.back.category.editCategory)
+//编辑友链 
+router.post('/api/back/link/editLink',checkIsLogin, controllers.back.link.editLink)
 
-//编辑分类 
-router.post('/api/back/category/editCategory',checkIsLogin, controllers.back.category.editCategory)
-
-// 删除分类
-router.post('/api/back/category/deleteCategory',checkIsLogin, controllers.back.category.deleteCategory)
+// 删除友链
+router.post('/api/back/link/deleteLink',checkIsLogin, controllers.back.link.deleteLink)
 
 
 /*--------------------------------------------标签相关-----------------------------------------------------------*/
@@ -104,24 +97,57 @@ router.post('/api/back/tags/editTags',checkIsLogin, controllers.back.tags.editTa
 router.post('/api/back/tags/deleteTags',checkIsLogin, controllers.back.tags.deleteTags)
 
 
-/*--------------------------------------------购买说明-----------------------------------------------------------*/
-
-// 购买说明
-router.get(['/back/explain'], async(ctx, next) => {
+/*--------------------------------------------评论列表-----------------------------------------------------------*/
+// 评论列表
+router.get(['/back/comment'], async(ctx, next) => {
 	let datas = {
-		title:'购买说明',
+		title:'评论列表',
 	}
-	await ctx.render('back/explain',{
+	await ctx.render('back/comment',{
 		datas:datas
 	}); 
 });
 
-// 获得详情
-router.post('/api/back/explain/getDetail',checkIsLogin, controllers.back.explain.getDetail)
+// 获得评论列表
+router.post('/api/back/comment/getList',checkIsLogin, controllers.back.comment.getList)
 
-// 编辑说明
-router.post('/api/back/explain/editItem',checkIsLogin, controllers.back.explain.editItem)
+// 编辑评论
+router.post('/api/back/comment/editComment',checkIsLogin, controllers.back.comment.editComment)
 
+// 删除评论
+router.post('/api/back/comment/deleteComment',checkIsLogin, controllers.back.comment.deleteComment)
+
+/*--------------------------------------------单页面-----------------------------------------------------------*/
+// 单页面列表
+router.get(['/back/onepages'], async(ctx, next) => {
+	let datas = {
+		title:'单页面',
+	}
+	await ctx.render('back/onepages',{
+		datas:datas
+	}); 
+});
+// 新增单页
+router.get(['/back/addonepage'], async(ctx, next) => {
+	let datas = {
+		title:'新增单页',
+	}
+	await ctx.render('back/addonepage',{
+		datas:datas
+	}); 
+});
+
+// 获得单页面列表
+router.post('/api/back/onepages/getList',checkIsLogin, controllers.back.onepages.getList)
+
+// 获得单页面详情
+router.post('/api/back/onepages/getItemDetail',checkIsLogin, controllers.back.onepages.getItemDetail)
+
+// 编辑单页面
+router.post('/api/back/onepages/editOnepage',checkIsLogin, controllers.back.onepages.editOnepage)
+
+// 删除单页面
+router.post('/api/back/onepages/deleteOnepage',checkIsLogin, controllers.back.onepages.deleteOnepage)
 
 /*--------------------------------------------用户相关-----------------------------------------------------------*/
 

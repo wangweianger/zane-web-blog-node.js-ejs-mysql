@@ -8,10 +8,10 @@
 	<div class="nav">
 		<ul>
 			<li><a href="/"><span class="iconfont">&#xe608;</span>首页</a></li>
-			<li><a href="/"><span class="iconfont">&#xe635;</span>归档</a></li>
-			<li><a href="/"><span class="iconfont">&#xe610;</span>标签</a></li>
-			<li><a href="/"><span class="iconfont">&#xe696;</span>友链</a></li>
-			<li><a href="/"><span class="iconfont">&#xe64a;</span>关于</a></li>
+			<li><a href="/file"><span class="iconfont">&#xe635;</span>归类</a></li>
+			<li><a href="/tags"><span class="iconfont">&#xe610;</span>标签</a></li>
+			<li><a href="/link"><span class="iconfont">&#xe696;</span>友链</a></li>
+			<li><a href="/about"><span class="iconfont">&#xe64a;</span>关于</a></li>
 		</ul>
 	</div>
 	<div class="icons">
@@ -46,7 +46,7 @@ $(function(){
 		}
 		var screenW = $(window).width();
 		if(screenW<=768){
-			$('#main').css({width:$(window).width()})
+			$('#main,#footer').css({width:$(window).width()})
 		}
 	})
 })

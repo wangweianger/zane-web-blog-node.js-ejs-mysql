@@ -1,6 +1,6 @@
 // list
 var app = new Vue({
-    el: '#category',
+    el: '#link',
     data: {
         datalist:[], 
          editPicObj:{
@@ -8,7 +8,8 @@ var app = new Vue({
         },
         edit:{
             id:'',
-            categoryname:'',
+            linkName:'',
+            lineHref:'',
         }
     },
     components: {
@@ -23,7 +24,7 @@ var app = new Vue({
         // 获得列表
         getList(){
             util.ajax({
-                url:config.baseApi+'api/back/category/getList',
+                url:config.baseApi+'api/back/link/getList',
                 success:data=>{
                     this.datalist=data.data
                 }
@@ -50,15 +51,23 @@ var app = new Vue({
                 })
             })
         },
-        updateCategory(item){
+        // 新增友链
+        addLink(){
+            this.editPicObj.show    =   true
+            this.edit.linkName      =   '';
+            this.edit.lineHref      =   '';
+            this.edit.id            =   '';
+        },
+        updateLink(item){
             this.editPicObj.show=true;
             this.edit=item;
         },
         // 编辑标签
         editPic(){
-            if(!this.edit.categoryname){ Layer.alert({width:300,height:150,type:"msg",title:"请填写分类名称!"}); return false; }
+            if(!this.edit.linkName){ Layer.alert({width:300,height:150,type:"msg",title:"请填写友链名称!"}); return false; }
+            if(!this.edit.lineHref){ Layer.alert({width:300,height:150,type:"msg",title:"请填写友链链接!"}); return false; }
             util.ajax({
-                url:config.baseApi+'api/back/category/editCategory',
+                url:config.baseApi+'api/back/link/editLink',
                 data:this.edit,
                 success:data=>{
                     Layer.miss({width:250,height:90,title:"操作成功!",time:2000})
@@ -68,10 +77,10 @@ var app = new Vue({
             })
         },
         // 删除分类
-        deleteCategory(item){
+        deleteLink(item){
             Layer.confirm({width:300,height:160,title:"确定删除分类吗？",header:"删除"},()=>{
                 util.ajax({
-                    url:config.baseApi+'api/back/category/deleteCategory',
+                    url:config.baseApi+'api/back/link/deleteLink',
                     data:{
                         id:item.id,
                     },

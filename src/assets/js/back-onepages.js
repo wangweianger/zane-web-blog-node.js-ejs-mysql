@@ -1,14 +1,15 @@
 // list
 var app = new Vue({
-    el: '#tags',
+    el: '#onepages',
     data: {
         datalist:[], 
-        editPicObj:{
+         editPicObj:{
             show:false,
         },
         edit:{
             id:'',
-            tagname:'',
+            linkName:'',
+            lineHref:'',
         }
     },
     components: {
@@ -23,7 +24,7 @@ var app = new Vue({
         // 获得列表
         getList(){
             util.ajax({
-                url:config.baseApi+'api/back/tags/getList',
+                url:config.baseApi+'api/back/onepages/getList',
                 success:data=>{
                     this.datalist=data.data
                 }
@@ -50,21 +51,23 @@ var app = new Vue({
                 })
             })
         },
-        // 新增标签
-        addTags(){
-            this.editPicObj.show=true
-            this.edit.id="";
-            this.edit.tagname="";
+        // 新增友链
+        addLink(){
+            this.editPicObj.show    =   true
+            this.edit.linkName      =   '';
+            this.edit.lineHref      =   '';
+            this.edit.id            =   '';
         },
-        updateTags(item){
+        updateLink(item){
             this.editPicObj.show=true;
             this.edit=item;
         },
         // 编辑标签
         editPic(){
-            if(!this.edit.tagname){ Layer.alert({width:300,height:150,type:"msg",title:"请填写标签名称!"}); return false; }
+            if(!this.edit.linkName){ Layer.alert({width:300,height:150,type:"msg",title:"请填写友链名称!"}); return false; }
+            if(!this.edit.lineHref){ Layer.alert({width:300,height:150,type:"msg",title:"请填写友链链接!"}); return false; }
             util.ajax({
-                url:config.baseApi+'api/back/tags/editTags',
+                url:config.baseApi+'api/back/link/editLink',
                 data:this.edit,
                 success:data=>{
                     Layer.miss({width:250,height:90,title:"操作成功!",time:2000})
@@ -72,13 +75,12 @@ var app = new Vue({
                     this.getList();
                 }
             })
-            
         },
         // 删除分类
-        deleteTags(item){
-            Layer.confirm({width:300,height:160,title:"确定删除标签吗？",header:"删除"},()=>{
+        deleteLink(item){
+            Layer.confirm({width:300,height:160,title:"确定删除分类吗？",header:"删除"},()=>{
                 util.ajax({
-                    url:config.baseApi+'api/back/tags/deleteTags',
+                    url:config.baseApi+'api/back/link/deleteLink',
                     data:{
                         id:item.id,
                     },

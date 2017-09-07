@@ -1,0 +1,34 @@
+html, body {
+  background: #fff; }
+
+.main h1 {
+  font-size: .3rem;
+  margin-top: .3rem; }
+
+.main .block {
+  margin-top: .2rem; }
+  .main .block h2 {
+    font-size: .2rem;
+    margin-bottom: .1rem; }
+  .main .block li {
+    line-height: .25rem;
+    font-size: .16rem;
+    list-style: disc;
+    margin-left: .2rem; }
+    .main .block li span {
+      margin-left: .3rem;
+      color: #ccc;
+      font-size: .14rem; }
+
+@media (max-width: 768px) {
+  .main h1 {
+    font-size: .5rem; }
+  .main .block {
+    margin-top: .3rem; }
+    .main .block h2 {
+      font-size: .35rem;
+      margin-bottom: .3rem; }
+    .main .block li {
+      margin-left: .35rem;
+      font-size: .3rem;
+      line-height: .45rem; } }

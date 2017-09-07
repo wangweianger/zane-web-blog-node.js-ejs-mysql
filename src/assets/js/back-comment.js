@@ -1,38 +1,34 @@
 // list
 var app = new Vue({
-    el: '#home',
+    el: '#link',
     data: {
         datalist:[], 
+         editPicObj:{
+            show:false,
+        },
+        edit:{
+            id:'',
+            text:'',
+        },
         pageNo:1,
         pageSize:config.pageSize,  
-        isOnline:'', 
-        isRecom:'',
-        isBanner:'',
+    },
+    components: {
+        modal: window.Component.modal
     },
     mounted() {
         this.$nextTick(() => {
-            this.getGoodsList();
+            this.getList();
         })
-    },
-    filters:{
-        imgBaseUrl:window.Filter.imgBaseUrl,
-        categoryFilter:window.Filter.categoryFilter,
-        tagsFilter:window.Filter.tagsFilter,
-    },
-    watch:{
-        'pageNo'(){
-            this.getGoodsList();
-        },
     },
     methods: {
         // 获得列表
-        getGoodsList(){
+        getList(){
             util.ajax({
-                url:config.baseApi+'api/back/goods/getList',
+                url:config.baseApi+'api/back/comment/getList',
                 data:{
                     pageNo:this.pageNo,
                     pageSize:this.pageSize,
-                    isOnline:this.isOnline,
                 },
                 success:data=>{
                     this.datalist=data.data.datalist
@@ -46,7 +42,6 @@ var app = new Vue({
                             this.pageNo=nowPage
                         }
                     });
-
                 }
             })
         },
@@ -71,35 +66,40 @@ var app = new Vue({
                 })
             })
         },
-        // 上下架
-        editOnline(item){
+        updateComment(item){
+            this.editPicObj.show=true;
+            this.edit=item;
+        },
+        // 编辑标签
+        editPic(){
+            if(!this.edit.text){ Layer.alert({width:300,height:150,type:"msg",title:"请填写修改后的内容!"}); return false; }
             util.ajax({
-                url:config.baseApi+'api/back/goods/editOnline',
-                data:{
-                    id:item.id,
-                    isOnline:item.isOnline==1?0:1
-                },
+                url:config.baseApi+'api/back/comment/editComment',
+                data:this.edit,
                 success:data=>{
                     Layer.miss({width:250,height:90,title:"操作成功!",time:2000})
-                    this.getGoodsList();
+                    this.editPicObj.show=false;
+                    this.getList();
                 }
             })
         },
-        selectOnline($event,type,lei){
-            this.isOnline=''
-            this.isRecom=''
-            this.isBanner=''
-
-            $($event.target).addClass('btn-main').siblings().removeClass('btn-main');
-            if(lei == 'online'){
-                this.isOnline=type
-            }else if(lei == 'recom'){
-                this.isRecom = type
-            }else if(lei == 'banner'){
-                this.isBanner = type
-            }
-
-            this.getGoodsList();
+        // 删除分类
+        deleteComment(item){
+            Layer.confirm({width:300,height:160,title:"确定删除分类吗？",header:"删除"},()=>{
+                util.ajax({
+                    url:config.baseApi+'api/back/comment/deleteComment',
+                    data:{
+                        id:item.id,
+                    },
+                    success:data => {
+                        Layer.alert({
+                            type:'msg',
+                            title: '操作成功!'
+                        });
+                        this.getList();
+                    },
+                })
+            })
         },
         
     }

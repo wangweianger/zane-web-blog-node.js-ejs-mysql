@@ -1,0 +1,50 @@
+html,body{
+    background:#fff;
+}
+.main{
+    // 分类
+    h1{
+        font-size:.3rem;
+        margin-top:.3rem;
+    }
+    .block{
+        margin-top:.2rem;
+        h2{
+            font-size:.2rem;
+            margin-bottom:.1rem;
+        }
+        li{
+            line-height:.25rem;
+            font-size:.16rem;
+            list-style:disc;
+            margin-left:.2rem;
+            span{
+                margin-left:.3rem;
+                color:#ccc;
+                font-size:.14rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .main{
+        h1{
+            font-size:.5rem;
+        }
+        .block{
+            margin-top:.3rem;
+            h2{
+                font-size:.35rem;
+                margin-bottom:.3rem;
+            }
+            li{
+                margin-left:.35rem;
+                font-size:.3rem;
+                line-height:.45rem;
+            }
+        }
+    }
+}
+
+
