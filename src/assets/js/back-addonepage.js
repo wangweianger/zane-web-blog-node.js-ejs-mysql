@@ -7,7 +7,8 @@ var app = new Vue({
         html:'',
         edit:{
             id:util.getQueryString('id'),
-            text:'',
+            pageName:'',
+            pageText:'',
         },
     },
     filters:{
@@ -43,10 +44,10 @@ var app = new Vue({
             }
             // this.editor.customConfig.uploadImgShowBase64 = true
             this.editor.customConfig.onchange = (html) => {
-                this.edit.text=html
+                this.edit.pageText=html
             }
             this.editor.create() 
-            this.editor.txt.html(this.edit.text)
+            this.editor.txt.html(this.edit.pageText)
 
             setTimeout(()=>{
                 $('div.w-e-text-container').css({height:'600px'})
@@ -68,10 +69,11 @@ var app = new Vue({
        
         // 提交商品
         submit(){
-            if(!this.edit.title){ Layer.alert({width:300,height:150,type:"msg",title:"商品标题必填!"}); return false; }
+            if(!this.edit.pageName){ Layer.alert({width:300,height:150,type:"msg",title:"页面名称必填!"}); return false; }
+            if(!this.edit.pageText){ Layer.alert({width:300,height:150,type:"msg",title:"页面内容必填!"}); return false; }
 
             util.ajax({
-                url:config.baseApi+'api/back/goods/editGoods',
+                url:config.baseApi+'api/back/onepages/editOnepage',
                 data:this.edit,
                 success:data=>{
                     Layer.miss({width:250,height:90,title:"操作成功!",time:2000})

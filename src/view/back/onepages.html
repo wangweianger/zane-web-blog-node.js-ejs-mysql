@@ -16,8 +16,8 @@
 					<td class="tc">{{i+1}}</td>
 					<td class="tc">{{item.pageName}}</td>
 					<td class="tc">
-						<a href="javascript:" @click="updateLink(item)">修改</a> |
-						<a href="javascript:" @click="deleteLink(item)">删除</a>
+						<a :href="'/back/addonepage?id='+item.id">修改</a> |
+						<a href="javascript:" @click="deleteOnepage(item)">删除</a>
 					</td>
 				</tr>
 			</table>
@@ -27,34 +27,6 @@
 			</div>
 		</div>
 	</div>
-
-	<modal
-		:show.sync="editPicObj.show"
-		width="480"
-		height="250"
-		title="编辑友链"
-		>
-		<div slot="modal-body">
-			<div class="avator-wapper">
-				<div class="block">
-					<span class="left">名称:</span>
-					<input v-model.trim="edit.linkName" type="text">	
-				</div>
-				<div class="block mt10">
-					<span class="left">链接:</span>
-					<input v-model.trim="edit.lineHref" type="text">	
-				</div>
-				<div class="tc submit">
-					<button
-						@click="editPic()" 
-						class="moco-btn moco-btn-blue inline_block mr10">确认</button>
-					<button
-						@click="editPicObj.show=false" 
-						class="moco-btn moco-btn-normal inline_block">取消</button>
-				</div>
-			</div>
-		</div>
-	</modal>
 
 </div>
 <script src="/js/back-onepages.js"></script>

@@ -4,11 +4,11 @@
 
 <div class="common-back-content" id="addonepage" v-cloak>
 	<div class="back-main">
-		<div class="h1">新增商品</div>
+		<div class="h1">编辑单页面</div>
 		<div class="content">
 			<div class="block">
 				<span class="left"><span class="red">*</span>标题：</span>
-				<input class="right from-col" v-model.trim="edit.title" type="text" >
+				<input class="right from-col" v-model.trim="edit.pageName" type="text" >
 			</div>
 			<div class="block">
 				<span class="left"><span class="red">*</span>正文：</span>
@@ -17,7 +17,7 @@
 				</div>
 			</div>
 			<div class="block tijiao">
-				<button class="submit" type="button" @click="submit">发表商品</button>
+				<button class="submit" type="button" @click="submit">提交页面</button>
 				<button class="default" type="button" onclick="history.back()">取消</button>
 			</div>
 		</div>

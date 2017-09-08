@@ -15,7 +15,7 @@ class detail {
 
     };
 
-    // 获取分类列表
+    // 获取单页面列表
     async getList(ctx) {
         try {
 
@@ -55,7 +55,7 @@ class detail {
             }
 
             let sql = getsql.SELECT({
-                table:'article',
+                table:'onepage',
                 wheres:[{id}]
             })
 
@@ -75,14 +75,14 @@ class detail {
         }
     }
 
-    // 编辑分类
+    // 编辑单页面
     async editOnepage(ctx){
         try {
             let id          = ctx.request.body.id
-            let linkName    = ctx.request.body.linkName
-            let lineHref    = ctx.request.body.lineHref
+            let pageName    = ctx.request.body.pageName
+            let pageText    = ctx.request.body.pageText
 
-            if(!linkName || !lineHref){
+            if(!pageName || !pageText){
                 ctx.body = util.result({
                     code: 1001,
                     desc: "参数不全"
@@ -94,15 +94,15 @@ class detail {
             if (id) {
                 // 表示修改
                 sql = getsql.UPDATE({
-                    table: 'link',
-                    fields: [{linkName},{lineHref}],
+                    table: 'onepage',
+                    fields: [{pageName},{pageText}],
                     wheres: [{id}]
                 })
             } else {
                 // 表示新增
                 sql = getsql.INSERT({
-                    table: 'link',
-                    fields: [{linkName},{lineHref}],
+                    table: 'onepage',
+                    fields: [{pageName},{pageText}],
                 })
             }
 
@@ -122,7 +122,7 @@ class detail {
         }
     }
    
-    // 删除分类
+    // 删除单页面
     async deleteOnepage(ctx){
         try {
             let id=ctx.request.body.id
@@ -136,7 +136,7 @@ class detail {
             }
 
             let sql = getsql.DELETE({
-                table:'link',
+                table:'onepage',
                 wheres:[{id}]
             })
 
