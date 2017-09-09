@@ -30,7 +30,6 @@ $(()=>{
     // editor.customConfig.uploadImgShowBase64 = true
     editor.customConfig.onchange = (html) => {
         subtext=html
-        console.log(html)
     }
     editor.create() 
 
@@ -66,7 +65,7 @@ $(()=>{
                 	if(data.code == 1000){
                 		Layer.miss({width:250,height:90,title:"发布成功!",time:2000})
                 		captchaObj.reset();
-                		// $('#commenttext').
+                		editor.txt.html('')
                         let str = `<div class="item">
                             <img src="/images/index/01.jpg">
                             <div class="text">${data.data.text} <span class="default">${data.data.createTime}</span></div>

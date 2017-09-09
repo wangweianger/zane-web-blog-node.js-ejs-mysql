@@ -52,7 +52,7 @@ class atticle {
                     pageSize:pageSize,
                 }
             });
-            console.log(sql)
+
             let result = await mysql(sql);
 
             if (result && result.length) {
@@ -68,6 +68,40 @@ class atticle {
         } catch (err) {
             console.log(err)
             return {};
+        }
+    }
+
+    // 根据搜索条件获得结果
+    async getListForSearch(tagids,titles){
+        try{
+            let tagid    = tagids
+            let title    = titles
+            let isOnline =  1
+
+            let arr=[{isOnline}]
+            if(tagid+'') arr.push({tagid})
+            if(title+'') arr.push({title,'like':true})
+
+            let sql = getsql.SELECT({
+                table: 'article',
+                wheres:arr,
+                fields:['id','title','createTime'],
+            });
+            
+            let result = await mysql(sql);
+
+            if (result && result.length) {
+                result.forEach((i,k) => {
+                    i.classTime     =   moment(i.createTime).format('YYYY-MM-DD')
+                    i.monthTime     =   moment(i.createTime).format('YYYY年MM月')
+                })
+            }
+
+            return result;
+
+        }catch(err){
+            console.log(err)
+            return [];
         }
     }
 

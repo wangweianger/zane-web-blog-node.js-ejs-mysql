@@ -21,6 +21,25 @@ html, body {
       color: #ccc;
       font-size: .14rem; }
 
+.main .search {
+  overflow: hidden;
+  margin: .2rem 0; }
+  .main .search input {
+    height: .5rem;
+    width: 5rem;
+    float: left;
+    padding-left: .15rem;
+    font-size: .22rem; }
+  .main .search button {
+    border: solid 1px #2479CC;
+    background: #2479CC;
+    color: #fff;
+    height: .5rem;
+    padding: 0 .3rem;
+    font-size: .22rem;
+    float: left;
+    cursor: pointer; }
+
 @media (max-width: 768px) {
   .main h1 {
     font-size: .5rem; }

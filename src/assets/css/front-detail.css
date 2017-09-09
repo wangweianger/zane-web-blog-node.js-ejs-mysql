@@ -83,6 +83,7 @@ html, body {
     border-bottom: solid 1px #f9f9f9; }
     .main .detail .comment pre {
       display: block;
+      width: 100%;
       padding: 9.5px;
       margin: 0 0 10px;
       font-size: 13px;

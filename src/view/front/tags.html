@@ -4,7 +4,7 @@
 	<h1>标签</h1>
 	<ul class="tag">
 		<% datas.datalist.forEach(function (item) {%> 
-			<li><a href=""> <%= item.tagname %> </a></li>
+			<li><a href="/search?tagid=<%= item.id %>"> <%= item.tagname %> </a></li>
 		<% })%>  
 	</ul>
 		

@@ -67,8 +67,6 @@ router.get(['/file'], async(ctx, next) => {
 		
 	})
 	
-	console.log(JSON.stringify(datas))
-
 	await ctx.render('front/file',{
 		datas:datas
 	});
@@ -160,37 +158,29 @@ router.post('/api/gt/validate-slide', controllers.front.home.gtValidate)
 
 
 /*-------------------------------------搜索结果页-----------------------------------------------*/
-router.get(['/list/search'], async(ctx, next) => {
+router.get(['/search'], async(ctx, next) => {
 	let datas = {
-		title:'搜索商品结果',
+		title:'文章搜索列表',
 		imgBase:SYSTEM.BASEIMG,
-		tagsList:[],
-		categoryList:[],
-		goodsList:[],
+		datalist:[],
 		searchtext:null,
+		tagid:null,
+		dataobj:{}
 	}
 
-	datas.searchtext	=	ctx.query.searchtext
+	datas.searchtext	=	ctx.query.searchtext || ""
+	datas.tagid			=   ctx.query.tagid || ""
 
-	datas.tagsList		= 	await controllers.front.common.getTagsList()  
-	datas.categoryList	= 	await controllers.front.common.getCategoryList()  
+	let result 			= 	await controllers.front.home.getListForSearch(datas.tagid,datas.searchtext)||[]
 
-	let result 	= 	await controllers.front.goodslist.getSearchList(datas.searchtext)
-
-	datas.goodsList = 	result
-
-	for(let i=0,len=datas.goodsList.length;i<len;i++){
-		for(let j=0,lenj=datas.tagsList.length;j<lenj;j++){
-			if(datas.goodsList[i].tagsid == datas.tagsList[j].id){
-				datas.goodsList[i].tagName = datas.tagsList[j].tagname
-			}
+	result.forEach(item=>{
+		if(datas.dataobj[item.monthTime]){
+			datas.dataobj[item.monthTime].push(item)
+		}else{
+			datas.dataobj[item.monthTime] = [item]
 		}
-		for(let k=0,lenk=datas.categoryList.length;k<lenk;k++){
-			if(datas.goodsList[i].categoryid == datas.categoryList[k].id){
-				datas.goodsList[i].categoryName = datas.categoryList[k].categoryname
-			}
-		}
-	};
+		
+	})
 
 	await ctx.render('front/search',{
 		datas:datas

@@ -1,7 +1,11 @@
 <%- include("./side.html") %>
 <link rel="stylesheet" href="/css/front-file.css">
 <div class="main" id="main">
-	<h1>归类</h1>
+	<h1>搜索</h1>
+	<div class="search">
+		<input type="text" id="searchText" value="<%= datas.searchtext %>" >
+		<button type="button" id="subSearchText">搜索</button>
+	</div>
 	<% for(var key in datas.dataobj) {%>
    		<div class="block">
 			<h2><%= key %> (<%= datas.dataobj[key].length %>)</h2>
@@ -13,5 +17,14 @@
 		</div>
 	<% } %>
 </div>
+<script>
+    $(function(){
+       $('#subSearchText').click(function(){
+       	    let searchText = $('#searchText').val();
+       	    location.href="/search?searchtext="+searchText
+       })
+
+    })
+</script>
 <%- include("./footer.html") %>
 

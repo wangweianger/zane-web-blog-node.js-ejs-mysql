@@ -19,7 +19,7 @@
 			<li><a href="/"><span class="iconfont">&#xe600;</span></a></li>
 			<li><a href="/"><span class="iconfont">&#xe69b;</span></a></li>
 			<li><a href="/"><span class="iconfont">&#xe649;</span></a></li>
-			<li><a href="/"><span class="iconfont">&#xe641;</span></a></li>
+			<li><a href="/search"><span class="iconfont">&#xe641;</span></a></li>
 		</ul>
 	</div>
 	<div class="fix-top">
@@ -31,6 +31,10 @@
 
 <script>
 $(function(){
+	var screenH = $(window).height();
+	var footerH = $('#footer').height();
+	$('#main').css({'minHeight':screenH-footerH-110+'px'})
+
 	$('#nav-silde').click(function(){
 		var isShow = $('#side').css('margin-left')
 		if(isShow === '0px'){
