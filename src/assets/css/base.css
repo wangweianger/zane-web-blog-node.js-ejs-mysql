@@ -54,6 +54,9 @@ a {
   color: #2479CC;
   text-decoration: none; }
 
+a:hover {
+  color: #2479CC; }
+
 em, i {
   font-style: normal; }
 
@@ -178,6 +181,12 @@ a:hover {
 
 .red {
   color: red; }
+
+.black {
+  color: #000; }
+
+.bl555 {
+  color: #555; }
 
 @font-face {
   font-family: 'iconfont';

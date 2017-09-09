@@ -71,10 +71,8 @@ class atticle {
     }
 
     // 获得单个文章详情
-    async getItemDetail(ctx){
+    async getItemDetail(id){
         try {
-            let id=ctx.request.body.id
-
             if(!id){
                 ctx.body = util.result({
                     code: 1001,
@@ -89,152 +87,25 @@ class atticle {
             })
 
             let result = await mysql(sql);
+
+            if(result.length){
+                let datas = result[0]
+                datas.classTime     =   moment(datas.createTime).format('YYYY-MM-DD HH:mm:ss')
+                datas.monthTime     =   moment(datas.createTime).format('YYYY年MM月DD日')
+            }else{
+                return {};
+            }
             
-            ctx.body = util.result({
-                data: result.length?result[0]:[]
-            });
+            return result.length?result[0]:{}
 
         } catch (err) {
             console.log(err)
-            ctx.body = util.result({
-                code: 1001,
-                desc: "服务错误"
-            });
-            return;
+            return {};
         }
     }
 
-    // 删除文章
-    async deleteGoods(ctx){
-        try {
-            let id=ctx.request.body.id
+ 
 
-            if(!id){
-                ctx.body = util.result({
-                    code: 1001,
-                    desc: "参数不全"
-                });
-                return;
-            }
-
-            let sql = getsql.DELETE({
-                table:'article',
-                wheres:[{id}]
-            })
-
-            let result = await mysql(sql);
-            
-            ctx.body = util.result({
-                data: result
-            });
-
-        } catch (err) {
-            console.log(err)
-            ctx.body = util.result({
-                code: 1001,
-                desc: "服务错误"
-            });
-            return;
-        }
-    }
-
-    // 文章上下线
-    async editOnline(ctx){
-        try {
-            let id = ctx.request.body.id
-            let isOnline = ctx.request.body.isOnline
-
-            if(!id){
-                ctx.body = util.result({
-                    code: 1001,
-                    desc: "参数不全"
-                });
-                return;
-            }
-
-            let sql = getsql.UPDATE({
-                table:'article',
-                fields:[{isOnline}],
-                wheres:[{id}]
-            })
-
-            let result = await mysql(sql);
-            
-            ctx.body = util.result({
-                data: result
-            });
-
-        } catch (err) {
-            console.log(err)
-            ctx.body = util.result({
-                code: 1001,
-                desc: "服务错误"
-            });
-            return;
-        }
-    }
-    
-    // 编辑文章
-    async editGoods(ctx){
-        try {
-            let id          =   ctx.request.body.id
-            let title       =   ctx.request.body.title
-            let describes   =   ctx.request.body.describes
-            let text        =   ctx.request.body.text
-            let author      =   ctx.request.body.author
-            let browse      =   ctx.request.body.browse
-            let tagid       =   ctx.request.body.tagid
-            let isOnline    =   ctx.request.body.isOnline
-            let createTime  =   moment(new Date().getTime()).format('YYYY-MM-DD HH:mm:ss')
-
-            if(!title || !text){
-                ctx.body = util.result({
-                    code: 1001,
-                    desc: "参数不全"
-                });
-                return;
-            }
-
-            let arr=[{title},{text},{createTime}];
-            if(describes) arr.push({describes});
-            if(author) arr.push({author});
-            if(browse) arr.push({browse});
-            if(tagid) arr.push({tagid});
-            if(isOnline+'') arr.push({isOnline});
-
-            let sql = ""
-            if (id) {
-                // 表示修改
-                sql = getsql.UPDATE({
-                    table: 'article',
-                    fields: arr,
-                    wheres: [{
-                        id
-                    }]
-                })
-            } else {
-                // 表示新增
-                sql = getsql.INSERT({
-                    table: 'article',
-                    fields: arr,
-                })
-            }
-
-            let result = await mysql(sql)
-
-            ctx.body = util.result({
-                data: result
-            });
-
-        } catch (err) {
-            console.log(err)
-            ctx.body = util.result({
-                code: 1001,
-                desc: "服务错误"
-            });
-            return;
-        }
-    }
 
 
     

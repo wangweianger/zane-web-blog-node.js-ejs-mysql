@@ -13,6 +13,7 @@ li { list-style: none; }
 input, textarea, select { font-family: inherit; font-size: inherit; font-weight: inherit; outline: none; -webkit-appearence: none; -ms-appearence: none; }
 button, html input[type="button"], input[type="reset"], input[type="submit"] { border: none; background: none; -webkit-appearance: none; outline: none; }
 a { -webkit-touch-callout: none; text-decoration: none; outline: 0; color:#2479CC;text-decoration:none;}
+a:hover{color:#2479CC;}
 em, i { font-style: normal; }
 iframe { display: none; } 
 ::-webkit-input-placeholder {color: #999;}
@@ -71,6 +72,8 @@ a:hover{text-decoration:none;}
 .mb30{margin-bottom:30px;}
 .bold{font-weight:bold;}
 .red{color:red;}
+.black{color:#000;}
+.bl555{color:#555;}
 
 @font-face {
   font-family: 'iconfont';  /* project id 407732 */

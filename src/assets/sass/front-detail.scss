@@ -1,0 +1,134 @@
+//main 
+html,body{
+    background:#fff;
+}
+.main{
+    .detail{
+    	padding-left:.2rem;
+        padding-top:.3rem;
+        h1.h1{
+        	font-size:.35rem;
+        	div{
+        		font-size:13px;
+        		span{
+        			display:block;
+        			&:nth-child(1){
+        				margin-top:.02rem;
+        				margin-bottom:.05rem;
+        			}
+        		}
+        	}
+        }
+        .context{
+        	margin:.3rem 0;
+        	font-size:16px;
+        	line-height:35px;
+        	h1{
+        		font-size:22px;
+        		margin:15px 0;
+        		font-weight:bold;
+        	}
+        	h2{
+        		font-size:20px;
+        		margin:12px 0;
+        		font-weight:bold;
+        	}
+        	h3{
+        		font-size:18px;
+        		margin:10px 0;
+        		font-weight:bold;
+        	}
+        	h4{
+        		font-size:16px;
+        		margin:8px 0;
+        		font-weight:bold;
+        	}
+        	p,li{
+        		margin:10px 0;
+        	}
+        }
+        .dasang{
+        	overflow:hidden;
+        	margin:.3rem 0 .2rem;
+        	border-top:solid 1px #eee;
+        	border-bottom:solid 1px #eee;
+        	padding:.2rem 0;
+        	button{
+        		padding:15px 50px;
+        		background:red;
+        		border:solid 1px red;
+        		display:block;
+        		margin:0 auto;
+        		color:#fff;
+        		font-size:20px;
+        		border-radius:30px;
+        		&:hover{
+        			background:#f35555;
+        			color:#e0bbbb;
+        		}
+        	}
+        }
+        .info{
+        	font-size:14px;
+        	font-style: italic;
+        	color:#999;
+        }
+        // 评论
+    	.comment{
+	        overflow:hidden;
+	        margin-top:.3rem;
+	        border-bottom:solid 1px #eee;
+	        h1{
+	        	font-size:.35rem;
+	        }
+	        .item{
+	            line-height:.3rem;
+	            overflow:hidden;
+	            border-top:solid 1px #eee;
+	            padding:.2rem 0;
+	            img{
+	                width:.3rem;
+	                height:.3rem;
+	                float:left;
+	                margin-right:.2rem;
+	            }
+	            p{
+	                float:left;
+	                margin-right:.2rem;
+	            }
+	            span{
+	                display:inline-block;
+	                float:left;
+	                color:#aaa;
+	                font-size:13px;
+	            }
+	        }
+    	}
+
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .main{
+    	.detail{
+    		padding-left:0;
+    		h1.h1{
+        		font-size:.35rem;
+        		overflow:hidden;
+	        	div{
+	        		float:left;
+	        		span{
+	        			display:inline-block;
+	        			color:#999;
+	        		}
+	        	}
+        	}
+    	}
+    }
+}
+
+
+
+
+
