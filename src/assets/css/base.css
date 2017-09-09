@@ -227,7 +227,8 @@ code {
   left: 0;
   top: 0;
   background: #000 url(/images/common/bg1.jpg);
-  color: #8e8e8e; }
+  color: #8e8e8e;
+  z-index: 10002; }
   .side a {
     color: #8e8e8e; }
   .side .iconfont, .side a.iconfont {

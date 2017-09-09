@@ -139,6 +139,35 @@ class atticle {
         }
     }
 
+    //新增浏览次数
+    async addBrowse(ctx){
+        try{
+            let id        = ctx.request.body.id
+            let browse    = ctx.request.body.browse
+
+            if(!id || !(browse+'')) return;
+            browse = parseInt(browse)+1;
+
+            let sql = getsql.UPDATE({
+                table:'article',
+                fields:[{browse}],
+                wheres:[{id}]
+            })
+
+            let result = await mysql(sql);
+
+            ctx.body = util.result({
+                data : result
+            });
+
+        }catch(err){
+            console.log(err)
+            ctx.body = util.result({
+                code: 1001,
+                desc: "插入数据库错误!"
+            });
+        }
+    }
  
     // 获得文章页评论列表
     async getCommentList(articleId){

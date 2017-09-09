@@ -1,5 +1,6 @@
 // 前台首页
 $(()=>{
+    
 	// 加载输入框
 	let subtext = ''
 	let E = window.wangEditor
@@ -96,5 +97,26 @@ $(()=>{
         }
     });
 
+    //判断是否立即滚动到评论框
+    let isComment = util.getQueryString('isComment') || ""
+    if(isComment === 'true'){
+        let scrollTop = $('#editor').offset().top;
+        setTimeout(()=>{
+            $(window).scrollTop(scrollTop);
+        },200)
+    };
+
+    // 文章浏览量++
+    util.ajax({
+        url:config.baseApi+'api/article/addBrowse',
+        data:{
+            browse:$('#browse-number').text(),
+            id:$('#articleId').text()
+        },
+        success:data=>{
+
+        }
+    })
 
 })
+

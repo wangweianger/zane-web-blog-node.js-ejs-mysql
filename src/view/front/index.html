@@ -16,8 +16,11 @@
 			<a class="bl555" href="/detail/<%= item.id %>"><%= item.describes %></a>
 		</div>
 		<div class="bottom">
-			<div class="fl"><span class="iconfont">&#xe610;</span> : <a class="tag" href=""><%= item.tagname %></a></div>
-			<div class="fr"><a class="pl" href=""><span class="iconfont">&#xe60e;</span>评论</a></div>
+			<div class="fl">
+				<span class="iconfont">&#xe610;</span> : 
+				<a class="tag" href="/search?tagid=<%= item.tagid %>"><%= item.tagname %></a>
+			</div>
+			<div class="fr"><a class="pl" href="/detail/<%= item.id %>?isComment=true"><span class="iconfont">&#xe60e;</span>评论</a></div>
 		</div>
 	</div>
 	<% })%>
@@ -30,14 +33,11 @@
 <%- include("./footer.html") %>
 
 <script src="/js/Page.js"></script>
-<script src="/js/front-home.js"></script>
 <script>
 // 分页
 	var pageNo = '<%- datas.pageNo %>'
 	var pageSize = '<%- datas.pageSize %>'
 	var totalNum ='<%- datas.totalNum %>'
-
-	console.log(pageSize +'---'+totalNum)
 
 	$(function() {
 		new Page({

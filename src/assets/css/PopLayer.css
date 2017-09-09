@@ -1,8 +1,8 @@
 .floatRight{float:right;}
 .PopLayer-alert{width:500px;height:300px;margin:-150px 0 0 -250px;border:solid 3px #eee;position:fixed;left:50%;top:50%;z-index:1000001;background:#fff;filter:alpha(opacity=0);opacity:0;
-	box-shadow:0 0 10px #888;color:#000;
+	box-shadow:0 0 10px #888;color:#000;z-index:10004;
 }
-.PopLayer-mask{width:100%;height:100%;position:fixed;left:0;top:0;z-index:1000;background:#000;filter:alpha(opacity=20);opacity:0.2;cursor:pointer;}
+.PopLayer-mask{width:100%;height:100%;position:fixed;left:0;top:0;z-index:10003;background:#000;filter:alpha(opacity=20);opacity:0.2;cursor:pointer;}
 .PopLayer-h1{width:100%;height:35px;line-height:35px;text-indent:10px;background:#fff;border-bottom:solid 1px #ddd;position:relative;font-size:14px;font-weight:bold;}
 .PopLayer-h1 span{font-weight:100;font-size:10px;display:block;width:20px;height:20px;position:absolute;right:15px;top:8px;overflow:hidden;
 	background:url(/images/common/PopLayer-close.png) no-repeat center center;cursor:pointer;

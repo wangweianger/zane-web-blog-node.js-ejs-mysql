@@ -156,6 +156,8 @@ router.get('/api/gt/register-slide', controllers.front.home.gtRegister)
 //极验验证 验证
 router.post('/api/gt/validate-slide', controllers.front.home.gtValidate)
 
+//每次刷新页面更新浏览次数
+router.post('/api/article/addBrowse', controllers.front.home.addBrowse)
 
 /*-------------------------------------搜索结果页-----------------------------------------------*/
 router.get(['/search'], async(ctx, next) => {
