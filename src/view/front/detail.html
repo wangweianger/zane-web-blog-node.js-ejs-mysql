@@ -1,6 +1,7 @@
 <%- include("./side.html") %>
 <link rel="stylesheet" href="/css/front-detail.css">
 <div class="main" id="main">
+	<div id="articleId" style="display:none"><%= datas.id %></div>
 	<div class="detail">
 		<h1 class="h1">
 			<%= datas.detail.title %>
@@ -20,26 +21,28 @@
 		</div>
 		<div class="comment">
 			<h1>评论</h1>
-			<div class="comment">
+			<div id="editor"></div>
+			<div class="subComment">
+				<!-- 评论验证 -->
+				<div id="captcha" class="fl captcha">
+		            <p id="wait" class="show">正在加载验证码......</p>
+		        </div>
+		        <div id="btn" class="fl btn">提交</div>
+	        </div>
+	        <!-- 评论验证结束 -->
+
+			<div class="comment" id="commenttext">
+				<% datas.commentlist.forEach(function(item,index) {%> 
 				<div class="item">
-					<img src="/images/index/me.jpg">
-					<p>这里是我的评论</p>
-					<span>2017-05-03</span>
+					<img src="/images/index/0<%= index%5+1 %>.jpg">
+					<div class="text"><%- item.text %>  <span class="default"><%= item.createTime %></span></div>
 				</div>
-				<div class="item">
-					<img src="/images/index/me.jpg">
-					<p>这里是我的评论</p>
-					<span>2017-05-03</span>
-				</div>
-				<div class="item">
-					<img src="/images/index/me.jpg">
-					<p>这里是我的评论</p>
-					<span>2017-05-03</span>
-				</div>
+				<%})%>
 			</div>
 		</div>
 	</div>
-	
 </div>
 <%- include("./footer.html") %>
-
+<script src="//unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+<script src="/js/gt.js"></script>
+<script src="/js/front-detail.js"></script>

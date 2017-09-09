@@ -71,6 +71,7 @@
     "npm": ">= 4.2.0"
   },
   "dependencies": {
+    "gt3-sdk": "^2.0.0",
     "lru-cache": "^4.1.1"
   }
 }

@@ -119,11 +119,14 @@ router.get(['/about'], async(ctx, next) => {
 
 /*详情页面*/
 router.get(['/detail/:id'], async(ctx, next) => {
+
 	let datas = {
 		title:'',
 		describe: '',
 		imgBase:SYSTEM.BASEIMG,
 		detail:{},
+		commentlist:[],
+		id:'',
 	}
 
 	let id 			=	ctx.params.id || 1
@@ -136,45 +139,25 @@ router.get(['/detail/:id'], async(ctx, next) => {
 		}
 	}
 	
-	datas.detail = detail
+	// 获得评论列表
+	let commentlist = await controllers.front.home.getCommentList(id)
 
-	console.log(datas)
-
-	// datas.detail 	= 	await controllers.front.goodsdetail.getItemDetail(id) 
-	// datas.explain	=	await controllers.front.goodsdetail.getExplain() 
-	// datas.title		= 	datas.detail.title
-	// datas.describe	=	datas.detail.describes
-
-	// for(let j=0,lenj=tagsList.length;j<lenj;j++){
-	// 	if(datas.detail.tagsid == tagsList[j].id){
-	// 		datas.detail.tagName = tagsList[j].tagname
-	// 	}
-	// }
-	// for(let k=0,lenk=categoryList.length;k<lenk;k++){
-	// 	if(datas.detail.categoryid == categoryList[k].id){
-	// 		datas.detail.categoryName = categoryList[k].categoryname
-	// 	}
-	// }
-
-	// //获得推荐列表
-	// datas.recomList		=	await controllers.front.home.getHomeRecomList(4)  
-	// for(let i=0,len=datas.recomList.length;i<len;i++){
-	// 	for(let j=0,lenj=tagsList.length;j<lenj;j++){
-	// 		if(datas.recomList[i].tagsid == tagsList[j].id){
-	// 			datas.recomList[i].tagName = tagsList[j].tagname
-	// 		}
-	// 	}
-	// 	for(let k=0,lenk=categoryList.length;k<lenk;k++){
-	// 		if(datas.recomList[i].categoryid == categoryList[k].id){
-	// 			datas.recomList[i].categoryName = categoryList[k].categoryname
-	// 		}
-	// 	}
-	// };
+	datas.title			=   detail.title
+	datas.id  			=   id
+	datas.detail 		= 	detail
+	datas.commentlist 	= 	commentlist
 
 	await ctx.render('front/detail',{
 		datas:datas
 	}); 
 });
+
+//极验验证 注册
+router.get('/api/gt/register-slide', controllers.front.home.gtRegister)
+
+//极验验证 验证
+router.post('/api/gt/validate-slide', controllers.front.home.gtValidate)
+
 
 /*-------------------------------------搜索结果页-----------------------------------------------*/
 router.get(['/list/search'], async(ctx, next) => {

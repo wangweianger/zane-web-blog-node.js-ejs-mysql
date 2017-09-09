@@ -6,6 +6,7 @@ import {
     util,
     mysql,
     getsql,
+    gtsdk,
 } from '../../tool'
 
 class atticle {
@@ -105,8 +106,97 @@ class atticle {
     }
 
  
+    // 获得文章页评论列表
+    async getCommentList(articleId){
+        try{
+            if(!articleId){
+                ctx.body = util.result({
+                    code: 1001,
+                    desc: "参数不全"
+                });
+                return;
+            }
+            let sql = getsql.SELECT({
+                table:'comment',
+                wheres:[{articleId}],
+                isdesc:true,
+                sort:'id',
+            })
+            let result = await mysql(sql);
 
+            if (result && result.length) {
+                result.forEach((i,k) => {
+                   i.createTime = moment(i.createTime).format('YYYY-MM-DD HH:mm:ss')
+                })
+            }
 
+            return result;
+
+        }catch(err){
+            console.log(err)
+            return []
+        }
+    }
+
+    // 极验验证 注册
+    async gtRegister(ctx,next){
+        let data = await gtsdk.register(ctx) 
+        ctx.body = data   
+    }
+
+    // 极验验证 验证
+    async gtValidate(ctx,next){
+        try{
+            let text        = ctx.request.body.text
+            let articleId   = ctx.request.body.articleId
+            let articleName = ctx.request.body.articleName
+            let createTime  =   moment(new Date().getTime()).format('YYYY-MM-DD HH:mm:ss')
+
+            let data = await gtsdk.validate(ctx) 
+
+            if(!text){
+                ctx.body = util.result({
+                    code: 1001,
+                    desc: "参数不全"
+                });
+                return;
+            }
+            if(text.length>1000){
+                ctx.body = util.result({
+                    code: 1001,
+                    desc: "评论内容太长!"
+                });
+                return;
+            }
+
+            let sql = getsql.INSERT({
+                table:'comment',
+                fields:[{text},{articleId},{articleName},{createTime}],
+            })
+
+            let result = await mysql(sql);
+
+            if(data === 0){
+                ctx.body = util.result({
+                    code: 1001,
+                    desc: "验证失败"
+                });
+            }else if(data === 1){
+                ctx.body = util.result({
+                    data: {
+                        text:text,
+                        createTime:moment(createTime).format('YYYY-MM-DD HH:mm:ss')
+                    }
+                });
+            }
+        }catch(err){
+            console.log(err)
+            ctx.body = util.result({
+                code: 1001,
+                desc: "参数错误"
+            });
+        }
+    }
 
     
 
