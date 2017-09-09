@@ -40,6 +40,7 @@ app
     .use(session(app))
     .use(KoaBody({
         multipart: true,
+        text:true,
         formidable: {
             uploadDir: path.join(__dirname, '/upload')
         }

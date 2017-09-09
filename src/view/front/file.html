@@ -1,21 +1,17 @@
 <%- include("./side.html") %>
 <link rel="stylesheet" href="/css/front-file.css">
 <div class="main" id="main">
-	<h1>分类</h1>
-	<div class="block">
-		<h2>2017年5月(2)</h2>
-		<ul>
-			<li><a href="">ThinkJS 3 正式版发布！  <span>2017-09-05</span></a></li>
-			<li><a href="">ThinkJS 3 正式版发布！  <span>2017-09-05</span></a></li>
-		</ul>
-	</div>
-	<div class="block">
-		<h2>2017年5月(2)</h2>
-		<ul>
-			<li><a href="">ThinkJS 3 正式版发布！  <span>2017-09-05</span></a></li>
-			<li><a href="">ThinkJS 3 正式版发布！  <span>2017-09-05</span></a></li>
-		</ul>
-	</div>
+	<h1>归类</h1>
+	<% for(var key in datas.dataobj) {%>
+   		<div class="block">
+			<h2><%= key %> (<%= datas.dataobj[key].length %>)</h2>
+			<ul>
+				<% datas.dataobj[key].forEach(function (child) {%>   
+					<li><a href=""><%= child.title %>  <span><%= child.classTime %></span></a></li>
+				<% })%>
+			</ul>
+		</div>
+	<% } %>
 </div>
 <%- include("./footer.html") %>
 

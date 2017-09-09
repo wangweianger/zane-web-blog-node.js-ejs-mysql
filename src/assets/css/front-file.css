@@ -14,7 +14,8 @@ html, body {
     line-height: .25rem;
     font-size: .16rem;
     list-style: disc;
-    margin-left: .2rem; }
+    margin-left: .2rem;
+    color: #2479CC; }
     .main .block li span {
       margin-left: .3rem;
       color: #ccc;
@@ -31,4 +32,9 @@ html, body {
     .main .block li {
       margin-left: .35rem;
       font-size: .3rem;
-      line-height: .45rem; } }
+      line-height: .45rem;
+      width: 100%;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+      .main .block li span {
+        display: none; } }

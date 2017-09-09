@@ -12,10 +12,11 @@
    z-index:100;
 }
 code{
-    color:red;
+    color:#a9a9a9;
     background:#eee;
     padding:.04rem .06rem;
     border:solid 1px #eee;
+    margin:0 .05rem;
 }
 // side
 .side{
@@ -25,17 +26,21 @@ code{
     left:0;
     top:0;
     background:#000 url(/images/common/bg1.jpg);
-    color:#969696;
+    color:#8e8e8e;
+    a{color:#8e8e8e;}
+    .iconfont,a.iconfont{
+        color:#7f7f7f;
+    }
     .top{
-        background:url(/images/index/profile-bg.png) no-repeat left top;
         background-size:100% auto;
         text-align:center;
         .logo{
-            width:100px;
-            height:100px;
+            width:120px;
+            height:120px;
+            border-radius:50%;
             display:inline-block;
             overflow:hidden;
-            margin-top:120px;
+            margin-top:40px;
             img{
                 width:100%;
                 height:100%;
@@ -43,23 +48,37 @@ code{
         }
         .name{
             font-size:18px;
-            margin-top:15px;
+            margin-top:13px;
             margin-bottom:10px;
         }
         .text{
             font-size:14px;
-            color:#656565;
+            color:#676767;
         }
     }
     .nav{
         margin-top:20px;
-        a{
-            color:#969696;
+        overflow:hidden;
+        &:before{
+            content:'';
+            height:1px;
+            width:100%;
+            display:block;
+            background:#000;
+        }
+        &:after{
+            content:'';
+            height:1px;
+            width:100%;
+            display:block;
+            background:#444;
         }
         li{
+            border-top: solid 1px #444;
+            border-bottom: solid 1px #000;
             height:50px;
             line-height:50px;
-            font-size:16px;
+            font-size:15px;
             a{
                 display:block;
                 width:100%;
@@ -71,7 +90,7 @@ code{
                     margin-left:50px;
                     float:left;
                     margin-right:20px;
-                    font-size:22px;
+                    font-size:18px;
                 }
             }
 
@@ -92,24 +111,10 @@ code{
                 display:block;
                 width:100%;
                 height:100%;
-                color:#6d6c6c;
                 span{
-                    font-size:22px;
+                    font-size:18px;
                 }
             }
-            // &:nth-child(1){
-            //     background:#4e7bc0;
-            // }
-            // &:nth-child(2){
-            //     background:#00bff3;
-            // }
-            // &:nth-child(3){
-            //     background:#f4615e;
-            // }
-            // &:nth-child(4){
-            //     background:#4e7bc0;
-            // }
-            
         }
     }
     .fix-top{
@@ -161,8 +166,6 @@ code{
     color:#afadad;
     margin-top:.5rem;
 }
-
-
 .btn {
    display: inline-block;
    padding:8px 10px;
@@ -246,7 +249,6 @@ code{
       }
    }
 }
-
 .h1{
     font-size:18px;
     margin-bottom:20px;

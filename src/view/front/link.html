@@ -3,8 +3,9 @@
 <div class="main" id="main">
 	<h1>友链</h1>
 	<ul class="link">
-		<li><a href="">node.js</a></li>
-		<li><a href="">vue.js</a></li>
+		<% datas.datalist.forEach(function (item) {%> 
+			<li><a target="_blank" href="<%= item.lineHref %>"> <%= item.linkName %> </a></li>
+		<% })%> 
 	</ul>
 		
 	

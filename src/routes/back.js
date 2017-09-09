@@ -2,6 +2,7 @@
 import KoaRouter from 'koa-router'
 import controllers from '../controllers'
 import moment from 'moment'
+import crypto from 'crypto'
 import {
 	SYSTEM
 } from '../config'
@@ -20,37 +21,40 @@ router.post('/upload', controllers.common.fwbUploadImgs)
 
 /*后台首页*/
 router.get(['/back/home'], async(ctx, next) => {
+
 	let datas = {
 		title:'后台首页',
 	}
+	
 	await ctx.render('back/home',{
 		datas:datas
 	}); 
+
 });
 
-// 新增商品
+// 新增文章
 router.get(['/back/add'], async(ctx, next) => {
 	let datas = {
-		title:'新增商品',
+		title:'新增文章',
 	}
 	await ctx.render('back/add',{
 		datas:datas
 	}); 
 });
 
-// 获得商品列表
+// 获得文章列表
 router.post('/api/back/goods/getList',checkIsLogin, controllers.back.home.getList)
 
-// 删除商品
+// 删除文章
 router.post('/api/back/goods/deleteGoods',checkIsLogin, controllers.back.home.deleteGoods)
 
-// 新增商品
+// 新增文章
 router.post('/api/back/goods/editGoods',checkIsLogin, controllers.back.home.editGoods)
 
-// 获得商品详情
+// 获得文章详情
 router.post('/api/back/goods/getItemDetail',checkIsLogin, controllers.back.home.getItemDetail)
 
-// 商品上下架
+// 文章上下架
 router.post('/api/back/goods/editOnline',checkIsLogin, controllers.back.home.editOnline)
 
 /*--------------------------------------------分类相关-----------------------------------------------------------*/

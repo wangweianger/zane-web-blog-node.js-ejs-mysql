@@ -13,28 +13,31 @@
       font-size: .14rem; }
       .main .block h1 .right span {
         margin-left: .1rem;
-        color: #c1c1c1; }
+        color: #000; }
   .main .block .text {
-    font-size: .16rem;
+    font-size: .15rem;
     line-height: .35rem;
     padding: .2rem 0;
-    color: #999; }
+    color: #555; }
   .main .block .bottom {
+    overflow: hidden;
     border-top: solid 1px #ddd;
-    line-height: .6rem;
-    font-size: .16rem; }
+    line-height: .5rem;
+    font-size: .14rem; }
     .main .block .bottom .iconfont {
-      font-size: .25rem;
-      margin-right: .1rem; }
+      font-size: .2rem;
+      margin-right: .05rem; }
     .main .block .bottom a.tag {
-      padding: .08rem .1rem;
-      background: #f4615e;
+      padding: .05rem .1rem;
+      background: #000;
       color: #fff;
-      margin-left: .1rem; }
+      margin-left: .05rem; }
     .main .block .bottom a.pl {
-      color: #afadad; }
+      color: #000; }
 
 @media (max-width: 768px) {
   .main .block .text {
     font-size: .25rem;
-    line-height: .45rem; } }
+    line-height: .45rem; }
+  .main .block .bottom {
+    line-height: .7rem; } }

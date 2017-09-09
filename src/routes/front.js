@@ -14,19 +14,34 @@ const checkfn = controllers.common.checkRequestUrl;
 
 /*首页页面*/
 router.get(['/'], async(ctx, next) => {
+
 	let datas = {
 		title:'zane 的博客',
 		imgBase:SYSTEM.BASEIMG,
 		pageNo:1,
-		pageSize:10,
-		totalNum:100
+		pageSize:0,
+		totalNum:0,
+		datalist:[],
 	}
 
 	let pageNo 			= 	ctx.query.pageNo || 1;
-	let pageSize 		= 	ctx.query.pageSize || SYSTEM.PAGESIZE
-	
-	// datas.pageNo 	= 	goodsList.pageNo
-	// datas.pageSize 	= 	goodsList.pageSize
+	let pageSize 		= 	SYSTEM.PAGESIZE
+
+	let tagsList    = await controllers.front.tags.getList()
+	let atticleList = await controllers.front.home.getList(pageNo,pageSize)
+
+	for(let i=0,len=atticleList.datalist.length;i<len;i++){
+		for(let j=0,lenj=tagsList.length;j<lenj;j++){
+			if(atticleList.datalist[i].tagid === tagsList[j].id){
+				atticleList.datalist[i].tagname = tagsList[j].tagname
+			}
+		}
+	};
+
+	datas.pageNo 	= 	pageNo
+	datas.pageSize 	= 	pageSize
+	datas.totalNum  = 	atticleList.totalNum
+	datas.datalist  =   atticleList.datalist
 
 	await ctx.render('front/index',{
 		datas:datas
@@ -38,7 +53,21 @@ router.get(['/file'], async(ctx, next) => {
 	let datas = {
 		title:'按日期归档',
 		imgBase:SYSTEM.BASEIMG,
+		dataobj:{},
 	}
+
+	let atticleList = await controllers.front.file.getList()||[]
+
+	atticleList.forEach(item=>{
+		if(datas.dataobj[item.monthTime]){
+			datas.dataobj[item.monthTime].push(item)
+		}else{
+			datas.dataobj[item.monthTime] = [item]
+		}
+		
+	})
+	
+	console.log(JSON.stringify(datas))
 
 	await ctx.render('front/file',{
 		datas:datas
@@ -50,7 +79,10 @@ router.get(['/tags'], async(ctx, next) => {
 	let datas = {
 		title:'标签列表',
 		imgBase:SYSTEM.BASEIMG,
+		datalist:[],
 	}
+
+	datas.datalist = await controllers.front.tags.getList()
 
 	await ctx.render('front/tags',{
 		datas:datas
@@ -62,7 +94,11 @@ router.get(['/link'], async(ctx, next) => {
 	let datas = {
 		title:'友情链接',
 		imgBase:SYSTEM.BASEIMG,
+		datalist:[],
 	}
+
+	datas.datalist = await controllers.front.link.getList()
+	console.log(datas)
 
 	await ctx.render('front/link',{
 		datas:datas

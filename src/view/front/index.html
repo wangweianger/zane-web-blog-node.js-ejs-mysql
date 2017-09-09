@@ -3,70 +3,25 @@
 <link rel="stylesheet" href="/css/front-home.css">
 <link rel="stylesheet" href="/css/page.css">
 <div class="main" id="main" >
+	<% datas.datalist.forEach(function (item) {%>   
 	<div class="block">
 		<h1> 
-			<span>胜天半子，其又奈何？</span>
+			<span><%= item.title %></span>
 			<div class="right fr">
-				<span>2017-07-12</span>
-				<span>From:zane</span>
+				<span><%= item.createTime %></span>
+				<span>From : <%= item.author %></span>
 			</div>
 		</h1>
 		<div class="text">
-			整个四月份(2017)，<code>node.js</code>日常的工作和吃喝睡外，其余时间，全权沉浸于最近两个现象级玩物：《王者荣耀》和《人民的名义》，对于前者，可谓废寝忘食，如瘾如毒，不能自顾；手酸体倦时，就看一群老干部们偷奸耍滑，斗智斗勇。其实，对于这“王者农药”，玩过一段时间后，并不是欢喜于这款游戏，也绝非百无聊赖来打发时间，有的只是，那不能自控的厮杀快感和求胜欲望；这某种程度上，跟《人民的名义》中被迫追名逐利的祁同伟，很相像。对于，这个刻画最为饱满角色，即使是作为对立派别，但对于他那可厌、也可悲、亦可敬的人生，也仍有种难以抑制的同情和钦赞。
+			<%= item.describes %>
 		</div>
 		<div class="bottom">
-			<div class="fl"><span class="iconfont">&#xe610;</span> : <a class="tag" href="">node.js</a></div>
+			<div class="fl"><span class="iconfont">&#xe610;</span> : <a class="tag" href=""><%= item.tagname %></a></div>
 			<div class="fr"><a class="pl" href=""><span class="iconfont">&#xe60e;</span>评论</a></div>
 		</div>
 	</div>
-	<div class="block">
-		<h1> 
-			<span>胜天半子，其又奈何？</span>
-			<div class="right fr">
-				<span>2017-07-12</span>
-				<span>From:zane</span>
-			</div>
-		</h1>
-		<div class="text">
-			整个四月份(2017)， <code>除去</code>日常的工作和吃喝睡外，其余时间，全权沉浸于最近两个现象级玩物：《王者荣耀》和《人民的名义》，对于前者，可谓废寝忘食，如瘾如毒，不能自顾；手酸体倦时，就看一群老干部们偷奸耍滑，斗智斗勇。其实，对于这“王者农药”，玩过一段时间后，并不是欢喜于这款游戏，也绝非百无聊赖来打发时间，有的只是，那不能自控的厮杀快感和求胜欲望；这某种程度上，跟《人民的名义》中被迫追名逐利的祁同伟，很相像。对于，这个刻画最为饱满角色，即使是作为对立派别，但对于他那可厌、也可悲、亦可敬的人生，也仍有种难以抑制的同情和钦赞。
-		</div>
-		<div class="bottom">
-			<div class="fl"><span class="iconfont">&#xe610;</span> : <a class="tag" href="">node.js</a></div>
-			<div class="fr"><a class="pl" href=""><span class="iconfont">&#xe60e;</span>评论</a></div>
-		</div>
-	</div>
-	<div class="block">
-		<h1> 
-			<span>胜天半子，其又奈何？</span>
-			<div class="right fr">
-				<span>2017-07-12</span>
-				<span>From:zane</span>
-			</div>
-		</h1>
-		<div class="text">
-			整个四月份(2017)，除去日常的工作和吃喝睡外，其余时间，全权沉浸于最近两个现象级玩物：《王者荣耀》和《人民的名义》，对于前者，可谓废寝忘食，如瘾如毒，不能自顾；手酸体倦时，就看一群老干部们偷奸耍滑，斗智斗勇。其实，对于这“王者农药”，玩过一段时间后，并不是欢喜于这款游戏，也绝非百无聊赖来打发时间，有的只是，那不能自控的厮杀快感和求胜欲望；这某种程度上，跟《人民的名义》中被迫追名逐利的祁同伟，很相像。对于，这个刻画最为饱满角色，即使是作为对立派别，但对于他那可厌、也可悲、亦可敬的人生，也仍有种难以抑制的同情和钦赞。
-		</div>
-		<div class="bottom">
-			<div class="fl"><span class="iconfont">&#xe610;</span> : <a class="tag" href="">node.js</a></div>
-			<div class="fr"><a class="pl" href=""><span class="iconfont">&#xe60e;</span>评论</a></div>
-		</div>
-	</div>
-	<div class="block">
-		<h1> 
-			<span>胜天半子，其又奈何？</span>
-			<div class="right fr">
-				<span>2017-07-12</span>
-				<span>From:zane</span>
-			</div>
-		</h1>
-		<div class="text">
-			整个四月份(2017)，除去日常的工作和吃喝睡外，其余时间，全权沉浸于最近两个现象级玩物：《王者荣耀》和《人民的名义》，对于前者，可谓废寝忘食，如瘾如毒，不能自顾；手酸体倦时，就看一群老干部们偷奸耍滑，斗智斗勇。其实，对于这“王者农药”，玩过一段时间后，并不是欢喜于这款游戏，也绝非百无聊赖来打发时间，有的只是，那不能自控的厮杀快感和求胜欲望；这某种程度上，跟《人民的名义》中被迫追名逐利的祁同伟，很相像。对于，这个刻画最为饱满角色，即使是作为对立派别，但对于他那可厌、也可悲、亦可敬的人生，也仍有种难以抑制的同情和钦赞。
-		</div>
-		<div class="bottom">
-			<div class="fl"><span class="iconfont">&#xe610;</span> : <a class="tag" href="">node.js</a></div>
-			<div class="fr"><a class="pl" href=""><span class="iconfont">&#xe60e;</span>评论</a></div>
-		</div>
-	</div>
+	<% })%>
+
 	<!--  分页 -->
 	<div class="tc clearfix mt30">
 		<div id="copot-page"></div>
@@ -81,6 +36,8 @@
 	var pageNo = '<%- datas.pageNo %>'
 	var pageSize = '<%- datas.pageSize %>'
 	var totalNum ='<%- datas.totalNum %>'
+
+	console.log(pageSize +'---'+totalNum)
 
 	$(function() {
 		new Page({

@@ -18,6 +18,7 @@ html,body{
             font-size:.16rem;
             list-style:disc;
             margin-left:.2rem;
+            color: #2479CC;
             span{
                 margin-left:.3rem;
                 color:#ccc;
@@ -42,6 +43,12 @@ html,body{
                 margin-left:.35rem;
                 font-size:.3rem;
                 line-height:.45rem;
+                width:100%;
+                white-space:nowrap;
+                text-overflow:ellipsis;
+                span{
+                    display:none;
+                }
             }
         }
     }
