@@ -73,7 +73,7 @@ html,body{
             border-top:solid 1px #f9f9f9;
             padding:10px 0;
             position:relative;
-            img{
+            img.people{
                 position:absolute;
                 left:0;
                 top:8px;
@@ -85,6 +85,9 @@ html,body{
             div.text{
                 margin-left:.5rem;
                 font-size:14px;
+                img{
+                    max-height:2rem!important;
+                }
                 &>*{
                     float:left;
                 }

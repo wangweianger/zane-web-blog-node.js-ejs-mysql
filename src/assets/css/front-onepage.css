@@ -60,7 +60,7 @@ html, body {
     border-top: solid 1px #f9f9f9;
     padding: 10px 0;
     position: relative; }
-    .main .comment .item img {
+    .main .comment .item img.people {
       position: absolute;
       left: 0;
       top: 8px;
@@ -71,6 +71,8 @@ html, body {
     .main .comment .item div.text {
       margin-left: .5rem;
       font-size: 14px; }
+      .main .comment .item div.text img {
+        max-height: 2rem !important; }
       .main .comment .item div.text > * {
         float: left; }
       .main .comment .item div.text > .default {

@@ -15,6 +15,9 @@ export let SYSTEM = {
 
 	BASEIMG: 'http://ormfcl92t.bkt.clouddn.com/',
 
+	//限制文件上传大小 500kb
+	FILESIZE:512000,
+
 	USERMSG:{
 		USERNAME:'admin',
 		PASSWORD:'123456789'

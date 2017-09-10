@@ -18,6 +18,8 @@ $(()=>{
     editor.customConfig.uploadFileName = 'file'
     editor.customConfig.withCredentials = true
     editor.customConfig.uploadImgTimeout = 12000
+    // 将图片大小限制为 500kb
+    editor.customConfig.uploadImgMaxSize = 500 * 1024
 
     editor.customConfig.uploadImgHooks = {
         success: function (xhr, editor, result) {

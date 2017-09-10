@@ -1,3 +1,4 @@
+import path from 'path'
 import {
     util,
     mysql,
@@ -93,6 +94,14 @@ class common {
     async uploadImgs(ctx, next) {
         try {
             let file = ctx.request.body.files.file;
+            if(file.size > SYSTEM.FILESIZE){
+                ctx.body = util.result({
+                    code: 1001,
+                    errno: 1,
+                    desc: "上传文件不能大于500kb!"
+                });
+                return false;
+            };
             let key = await qiniu.upload(file.path)
             if (key) {
                 ctx.body = util.result({
@@ -104,6 +113,7 @@ class common {
                     desc: "上传失败"
                 });
             }
+            util.cleanFiles(path.resolve(__dirname,'../upload'))
         } catch (err) {
             console.log(err)
             ctx.body = util.result({
@@ -118,6 +128,14 @@ class common {
     async fwbUploadImgs(ctx, next) {
         try {
             let file = ctx.request.body.files.file;
+            if(file.size > SYSTEM.FILESIZE){
+                ctx.body = util.result({
+                    code: 1001,
+                    errno: 1,
+                    desc: "上传文件不能大于500kb!"
+                });
+                return false;
+            };
             let key = await qiniu.upload(file.path)
             if (key) {
                 ctx.body = util.result({
@@ -132,6 +150,7 @@ class common {
                     desc: "上传失败"
                 });
             }
+            util.cleanFiles(path.resolve(__dirname,'../upload'))
         } catch (err) {
             console.log(err)
             ctx.body = util.result({
