@@ -34,6 +34,16 @@ render(app, {
     }),
     debug: SYSTEM.DEBUG
 });
+    
+//404
+back.get('*', async(ctx,next)=>{
+    let datas = {
+        title:'404页面',
+    }
+    await ctx.render('404',{
+        datas:datas
+    });
+})
 
 app
     .use(cookie())

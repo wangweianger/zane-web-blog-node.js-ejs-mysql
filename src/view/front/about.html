@@ -1,46 +1,38 @@
 <%- include("./side.html") %>
-<link rel="stylesheet" href="/css/front-tags.css">
+<link rel="stylesheet" href="/css/front-onepage.css">
 <div class="main" id="main">
+	<div id="pageId" style="display:none"><%= datas.aboutme.id %></div>
 	<h1>关于</h1>
 	<div class="about">
-		<p class="danger">备注：本博客的所有文章仅表示博主的个人观点，有错误或改进的地方希望大家多多指教!</p>
-		<h1>个人介绍</h1>
-		<div class="text">
-			我是一名WEB前端爱好者，现在的职位当然就是WEB前端工程师了！
-			级别不高，粗略的估计了下 算的上是个中级吧。
-			在我眼中 前端：是一个未来发展很好的一个职业，互联网改变了我们的生活，学习和工作
-			而在整个互联网中起到举足轻重的当然就属于那些一个一个的WEB站点，
-			以前的互联网是PC端的主角，现在到未来会是移动互联网的时代，而这只会是愈演愈烈的趋势，
-			移动互联网包括了移动WEB网页和WEBAPP,而这两者都是WEB前端工程师展现拳脚的好平台。
-			而我有幸选择了这个职业		
-		</div>	
-		<h1>开发项目</h1>
-		<ul class="link">
-			<li><a href="">node.js</a></li>
-			<li><a href="">vue.js</a></li>
-		</ul>
-		<h1>现属公司</h1>
-		<p>深圳市启明星电子商务有限公司</p>
+		<%- datas.aboutme.pageText %>
+	</div>
+
+	<!-- 评论相关 -->
+	<div class="comment">
 		<h1>评论</h1>
-		<div class="comment">
+		<div id="editor"></div>
+		<div class="subComment">
+			<!-- 评论验证 -->
+			<div id="captcha" class="fl captcha">
+	            <p id="wait" class="show">正在加载验证码......</p>
+	        </div>
+	        <div id="btn" class="fl btn">提交</div>
+        </div>
+        <!-- 评论验证结束 -->
+
+		<div class="comment" id="commenttext">
+			<% datas.commentlist.forEach(function(item,index) {%> 
 			<div class="item">
-				<img src="/images/index/me.jpg">
-				<p>这里是我的评论</p>
-				<span>2017-05-03</span>
+				<img src="/images/index/0<%= index%5+1 %>.jpg">
+				<div class="text"><%- item.text %>  <span class="default"><%= item.createTime %></span></div>
 			</div>
-			<div class="item">
-				<img src="/images/index/me.jpg">
-				<p>这里是我的评论</p>
-				<span>2017-05-03</span>
-			</div>
-			<div class="item">
-				<img src="/images/index/me.jpg">
-				<p>这里是我的评论</p>
-				<span>2017-05-03</span>
-			</div>
+			<%})%>
+			<div class="item" style="display:none"></div>
 		</div>
 	</div>
 	
 </div>
 <%- include("./footer.html") %>
-
+<script src="//unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+<script src="/js/gt.js"></script>
+<script src="/js/front-about.js"></script>

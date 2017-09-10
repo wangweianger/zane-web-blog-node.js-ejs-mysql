@@ -1,0 +1,134 @@
+html,body{
+    background:#fff;
+}
+.main{
+    // 分类
+    h1{
+        font-size:.3rem;
+        margin-top:.3rem;
+    }
+
+    // 关于
+    .about{
+        // 友情链接
+        ul{
+            margin-top:.3rem;
+            li{
+                list-style:disc;
+                margin-left:.3rem;
+                font-size:.16rem;
+                margin-top:.1rem;
+            }
+        }
+        .danger{
+            color:red;
+            margin:.2rem 0;
+        }
+        .text{
+            line-height:35px;
+            margin:20px 0;
+            color:#999;
+        }
+        p{
+            line-height:35px;
+            color:#999;
+        }
+    }
+
+    // 评论
+    .comment{
+        overflow:hidden;
+        margin-top:.3rem;
+        border-bottom:solid 1px #f9f9f9;
+        pre{
+            display: block;
+            width:100%;
+            padding: 9.5px;
+            margin: 0 0 10px;
+            font-size: 13px;
+            line-height: 20px;
+            word-break: break-all;
+            word-wrap: break-word;
+            white-space: pre;
+            white-space: pre-wrap;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border: 1px solid rgba(0,0,0,0.15);
+            border-radius: 4px;
+            code{
+                color:#000;
+                padding: 0;
+                border: none;
+                background:none;
+                margin: 0;
+            }
+        }
+        h1{
+            font-size:.35rem;
+            margin-bottom:.3rem;
+        }
+        .item{
+            line-height:.3rem;
+            overflow:hidden;
+            border-top:solid 1px #f9f9f9;
+            padding:10px 0;
+            position:relative;
+            img{
+                position:absolute;
+                left:0;
+                top:8px;
+                width:.3rem;
+                height:.3rem;
+                float:left;
+                margin-right:.2rem;
+            }
+            div.text{
+                margin-left:.5rem;
+                font-size:14px;
+                &>*{
+                    float:left;
+                }
+                &>.default{
+                    float:none;
+                }
+            }
+            span{
+                display:inline-block;
+                color:#aaa;
+                font-size:13px;
+                margin-left:.2rem;
+            }
+        }
+        .subComment{
+            overflow:hidden;
+            margin:20px 0;
+            .captcha{
+                margin-right:.2rem;
+            }
+            .btn{
+                background:#000;
+                font-size:16px;
+                padding: 10px .5rem;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 768px) {
+    .main{
+        h1{
+            font-size:.5rem;
+        }
+        ul.link{
+            margin-top:.3rem;
+            li{
+                margin-left:.3rem;
+                font-size:.3rem;
+                margin-top:.1rem;
+            }
+        }
+    }
+}
+
+

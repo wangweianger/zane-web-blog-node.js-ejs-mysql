@@ -137,7 +137,8 @@ code {
 .main {
   margin-left: 250px;
   padding: 0 .2rem;
-  max-width: 1200px; }
+  max-width: 1200px;
+  padding-left: .3rem; }
 
 .footer {
   margin: 0 .2rem;
@@ -222,7 +223,8 @@ code {
       display: block; }
   .main {
     margin-left: 0px;
-    margin-top: 1rem; }
+    margin-top: 1rem;
+    padding-left: 0; }
   .sideSlideShow {
     animation: sideShowSlide .5s;
     animation-fill-mode: forwards; }

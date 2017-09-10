@@ -29,42 +29,6 @@ html, body {
     font-size: .16rem;
     margin-top: .1rem; }
 
-.main .about .danger {
-  color: red;
-  margin: .2rem 0; }
-
-.main .about .text {
-  line-height: 35px;
-  margin: 20px 0;
-  color: #999; }
-
-.main .about p {
-  line-height: 35px;
-  color: #999; }
-
-.main .comment {
-  overflow: hidden;
-  margin-top: .3rem;
-  border-bottom: solid 1px #eee; }
-  .main .comment .item {
-    line-height: .35rem;
-    overflow: hidden;
-    border-top: solid 1px #eee;
-    padding: .2rem 0; }
-    .main .comment .item img {
-      width: .3rem;
-      height: .3rem;
-      float: left;
-      margin-right: .2rem; }
-    .main .comment .item p {
-      float: left;
-      margin-right: .2rem; }
-    .main .comment .item span {
-      display: inline-block;
-      float: left;
-      color: #aaa;
-      font-size: 13px; }
-
 @media (max-width: 768px) {
   .main h1 {
     font-size: .5rem; }

@@ -96,7 +96,6 @@ router.get(['/link'], async(ctx, next) => {
 	}
 
 	datas.datalist = await controllers.front.link.getList()
-	console.log(datas)
 
 	await ctx.render('front/link',{
 		datas:datas
@@ -108,12 +107,25 @@ router.get(['/about'], async(ctx, next) => {
 	let datas = {
 		title:'关于博主',
 		imgBase:SYSTEM.BASEIMG,
+		aboutme:{},
+		commentlist:[],
 	}
+
+	// 获得单页面详情
+	datas.aboutme 	= await controllers.front.about.getAboutme();
+	datas.title 	= datas.aboutme.pageName
+
+	// 获得评论列表
+	datas.commentlist = await controllers.front.about.getCommentList(datas.aboutme.id||1)
 
 	await ctx.render('front/about',{
 		datas:datas
 	});
 })
+
+//极验验证 验证
+router.post('/api/about/gt/validate-slide', controllers.front.about.gtValidate)
+
 
 /*详情页面*/
 router.get(['/detail/:id'], async(ctx, next) => {
@@ -188,6 +200,7 @@ router.get(['/search'], async(ctx, next) => {
 		datas:datas
 	}); 
 });
+
 
 
 module.exports = router
