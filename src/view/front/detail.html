@@ -34,7 +34,7 @@
 			<div class="comment" id="commenttext">
 				<% datas.commentlist.forEach(function(item,index) {%> 
 				<div class="item">
-					<img src="/images/index/0<%= index%5+1 %>.jpg">
+					<img class="people" src="/images/index/0<%= index%5+1 %>.jpg">
 					<div class="text"><%- item.text %>  <span class="default"><%= item.createTime %></span></div>
 				</div>
 				<%})%>

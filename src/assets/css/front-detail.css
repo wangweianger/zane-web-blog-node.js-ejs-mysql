@@ -110,7 +110,7 @@ html, body {
       border-top: solid 1px #f9f9f9;
       padding: 10px 0;
       position: relative; }
-      .main .detail .comment .item img {
+      .main .detail .comment .item img.people {
         position: absolute;
         left: 0;
         top: 8px;
@@ -121,6 +121,8 @@ html, body {
       .main .detail .comment .item div.text {
         margin-left: .5rem;
         font-size: 14px; }
+        .main .detail .comment .item div.text img {
+          max-height: 2rem !important; }
         .main .detail .comment .item div.text > * {
           float: left; }
         .main .detail .comment .item div.text > .default {

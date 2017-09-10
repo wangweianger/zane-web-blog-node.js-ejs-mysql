@@ -70,7 +70,7 @@ $(()=>{
                 		captchaObj.reset();
                 		editor.txt.html('')
                         let str = `<div class="item">
-                            <img src="/images/index/01.jpg">
+                            <img class="people" src="/images/index/01.jpg">
                             <div class="text">${data.data.text} <span class="default">${data.data.createTime}</span></div>
                         </div>`
                         $("#commenttext").find('div.item').eq(0).before(str)
