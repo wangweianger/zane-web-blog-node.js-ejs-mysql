@@ -8,6 +8,9 @@ import render from 'koa-ejs'
 import cookie from 'koa-cookie'
 import session from 'koa-session'
 import LRU from 'lru-cache'
+import conditional from 'koa-conditional-get'
+import etag from 'koa-etag';
+import koa2Common from 'koa2-common'
 import {
     SYSTEM
 } from './config'
@@ -55,7 +58,10 @@ app
             uploadDir: path.join(__dirname, '/upload')
         }
     }))
-    .use(serve(__dirname + "/assets"))
+    .use(serve(__dirname + "/assets",{
+        maxage: 365 * 24 * 60 * 60
+    }))
+    .use(koa2Common())
     .use(cors({
         origin: SYSTEM.ORIGIN,
         headers: 'Origin, X-Requested-With, Content-Type, Accept',
