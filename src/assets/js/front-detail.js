@@ -120,5 +120,19 @@ $(()=>{
         }
     })
 
+    // 切换打赏二维码
+    $('#tab-chose-type').children().click(function(){
+        let index = $(this).index();
+        $('#tab-pay-img').find('img').eq(index).show().siblings().hide();
+    })
+    $('span.close').click(function(){
+        $('#dasang').find('div.model-mask').hide();
+        $('#dasang').find('div.model-dasang').hide();
+    })
+    $('#dasang-btn').click(function(){
+        $('#dasang').find('div.model-mask').show();
+        $('#dasang').find('div.model-dasang').show();
+    })
+
 })
 

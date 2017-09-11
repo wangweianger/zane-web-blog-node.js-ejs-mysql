@@ -1,17 +1,46 @@
 html, body {
   background: #fff; }
 
-.main h1 {
+.main h1.h1 {
   font-size: .3rem;
   margin-top: .3rem; }
 
-.main .about ul {
-  margin-top: .3rem; }
-  .main .about ul li {
-    list-style: disc;
-    margin-left: .3rem;
-    font-size: .16rem;
-    margin-top: .1rem; }
+.main .about ul li {
+  list-style: disc;
+  margin-left: .3rem;
+  font-size: .16rem;
+  margin-top: .1rem; }
+
+.main .about h1 {
+  font-size: 22px;
+  margin: 15px 0;
+  font-weight: bold; }
+
+.main .about h2 {
+  font-size: 20px;
+  margin: 12px 0;
+  font-weight: bold; }
+
+.main .about h3 {
+  font-size: 18px;
+  margin: 10px 0;
+  font-weight: bold; }
+
+.main .about h4 {
+  font-size: 16px;
+  margin: 8px 0;
+  font-weight: bold; }
+
+.main .about h5 {
+  font-size: 14px;
+  margin: 8px 0;
+  font-weight: bold; }
+
+.main .about ol li {
+  list-style: decimal; }
+
+.main .about ul li {
+  list-style: disc; }
 
 .main .about .danger {
   color: red;

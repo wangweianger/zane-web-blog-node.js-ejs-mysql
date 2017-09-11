@@ -256,6 +256,26 @@ code{
     margin-bottom:20px;
 }
 
+#editor{
+    .w-e-text{
+        h1{font-size:.22rem;}
+        h2{font-size:.2rem;}
+        h3{font-size:.18rem;}
+        h4{font-size:.16rem;}
+        h5{font-size:.14rem;}
+    }
+    ol{
+       li{
+            list-style:decimal;
+        } 
+    }
+    ul{
+        li{
+            list-style:disc;
+        }
+    }
+}
+
 @media (max-width: 768px) {
     // 小屏幕
     .side{
@@ -268,7 +288,7 @@ code{
     .main{
        margin-left:0px;
        margin-top:1rem;
-       padding-left:0;
+       padding-left:.2rem;
     }
     .sideSlideShow{
         animation: sideShowSlide .5s;

@@ -74,14 +74,15 @@ a:hover{text-decoration:none;}
 .red{color:red;}
 .black{color:#000;}
 .bl555{color:#555;}
+.mainlink{color:#2479CC;}
 
 @font-face {
   font-family: 'iconfont';  /* project id 407732 */
-  src: url('//at.alicdn.com/t/font_407732_ybuhye4q40nng66r.eot');
-  src: url('//at.alicdn.com/t/font_407732_ybuhye4q40nng66r.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_407732_ybuhye4q40nng66r.woff') format('woff'),
-  url('//at.alicdn.com/t/font_407732_ybuhye4q40nng66r.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_407732_ybuhye4q40nng66r.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_407732_84blznwg452ep14i.eot');
+  src: url('//at.alicdn.com/t/font_407732_84blznwg452ep14i.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_407732_84blznwg452ep14i.woff') format('woff'),
+  url('//at.alicdn.com/t/font_407732_84blznwg452ep14i.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_407732_84blznwg452ep14i.svg#iconfont') format('svg');
 }
 @mixin icon-font ($sizing) {
     font-family:"iconfont";

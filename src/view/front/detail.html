@@ -14,10 +14,42 @@
 			<%- datas.detail.text %>
 		</div>
 		<div class="info">
-			博主 <code><%= datas.detail.author %></code>  发表于 <%= datas.detail.classTime %>,添加在了 <a href=""><code><%= datas.detail.tagname %></code></a>标签下
+			博主 <code><%= datas.detail.author %></code>  
+			发表于 <%= datas.detail.classTime %>,添加在了 
+			<a href="/search?tagid=<%= datas.detail.tagid%>">
+				<code class="mainlink"><%= datas.detail.tagname %></code>
+			</a>标签下
 		</div>
-		<div class="dasang">
-			<button>打赏</button>
+		<div class="dasang" id="dasang">
+			<button id="dasang-btn">打赏</button>
+			<!-- 打赏正文 -->
+			<div class="model-mask"></div>
+			<div class="model-dasang">
+				<h1>打赏 <span class="close iconfont">&#xe601;</span></h1>
+				<h2>您的支持将鼓励我继续努力与分享。</h2>
+				<div class="pay-img" id="tab-pay-img">
+					<img class="wx" src="/images/common/wx.jpg">
+					<img class="zfb" src="/images/common/zfb.jpg">
+				</div>
+				<div class="chose-type" id="tab-chose-type">
+					<div class="item">
+						<label>
+							<input type="radio" checked="true" name="pay-type">
+							<span class="iconfont wx">&#xe6b0;</span>
+						</label>
+					</div>
+					<div class="item">
+						<label>
+							<input type="radio" name="pay-type">
+							<span class="iconfont zfb">&#xe6cf;</span>
+						</label>
+					</div>
+				</div>
+				<div class="tixing">
+					<h4>扫码打赏，建议金额1-10元</h4>
+					<h5>提醒：打赏金额将直接进此方账号，无法退款，请您谨慎操作。</h5>
+				</div>		
+			</div>
 		</div>
 		<div class="comment">
 			<h1>评论</h1>
@@ -44,6 +76,6 @@
 	</div>
 </div>
 <%- include("./footer.html") %>
-<script src="//unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+<script src="//cdn.bootcss.com/wangEditor/3.0.8/wangEditor.min.js"></script>
 <script src="/js/gt.js"></script>
 <script src="/js/front-detail.js"></script>

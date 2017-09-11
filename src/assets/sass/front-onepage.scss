@@ -3,7 +3,7 @@ html,body{
 }
 .main{
     // 分类
-    h1{
+    h1.h1{
         font-size:.3rem;
         margin-top:.3rem;
     }
@@ -12,12 +12,46 @@ html,body{
     .about{
         // 友情链接
         ul{
-            margin-top:.3rem;
             li{
                 list-style:disc;
                 margin-left:.3rem;
                 font-size:.16rem;
                 margin-top:.1rem;
+            }
+        }
+        h1{
+            font-size:22px;
+            margin:15px 0;
+            font-weight:bold;
+        }
+        h2{
+            font-size:20px;
+            margin:12px 0;
+            font-weight:bold;
+        }
+        h3{
+            font-size:18px;
+            margin:10px 0;
+            font-weight:bold;
+        }
+        h4{
+            font-size:16px;
+            margin:8px 0;
+            font-weight:bold;
+        }
+        h5{
+            font-size:14px;
+            margin:8px 0;
+            font-weight:bold;
+        }
+        ol{
+           li{
+                list-style:decimal;
+            } 
+        }
+        ul{
+            li{
+                list-style:disc;
             }
         }
         .danger{
