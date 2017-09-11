@@ -80,6 +80,14 @@ code{
             height:50px;
             line-height:50px;
             font-size:15px;
+            &.active{
+                a{
+                    color:#fff;
+                    span{
+                        color:#cacaca;
+                    }
+                }
+            }
             a{
                 display:block;
                 width:100%;

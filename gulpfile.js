@@ -52,7 +52,7 @@ gulp.task('default', ['nodemon', 'sass','watch']);
 /*---------------------------------------------------------- build ---------------------------------------------------*/
 // 清除文件
 gulp.task('clean:dist', function() {
-    return gulp.src(['./dist', './dist/test/'], {
+    return gulp.src(['./dist', './dist/build/'], {
             read: false
         })
         .pipe(clean());
@@ -131,7 +131,9 @@ gulp.task("concat:js", function() {
             buildUrl + '/assets/js/config.js',
             buildUrl + '/assets/js/util.js',
             buildUrl + '/assets/js/md5.js',
-            buildUrl + '/assets/js/common.js'
+            buildUrl + '/assets/js/common.js',
+            buildUrl + '/assets/js/resize.js',
+            buildUrl + '/assets/js/fastclick.js'
         ])
         .pipe(concat('main.js'))
         .pipe(gulp.dest(buildUrl + '/assets/js'));
@@ -154,7 +156,7 @@ gulp.task('css:minify', function() {
 //replace
 gulp.task('replace:config', function() {
     return gulp.src([buildUrl + '/config.js'])
-        .pipe(replace('http://127.0.0.1:18080', 'http://v.seosiwei.com'))
+        .pipe(replace('http://127.0.0.1:18090', 'http://blog.seosiwei.com'))
         .pipe(replace(/PASSWORD(.+)?123456'/, "PASSWORD:'root'"))
         .pipe(replace('use(KoaLogger())', ""))
         .pipe(gulp.dest(buildUrl));
@@ -167,6 +169,20 @@ gulp.task('html:minify', function() {
             collapseWhitespace: true
         }))
         .pipe(gulp.dest(buildUrl + '/view'));
+});
+gulp.task('html:minify:back', function() {
+    return gulp.src(buildUrl + '/view/back/*.html')
+        .pipe(htmlmin({
+            collapseWhitespace: true
+        }))
+        .pipe(gulp.dest(buildUrl + '/view/back'));
+});
+gulp.task('html:minify:front', function() {
+    return gulp.src(buildUrl + '/view/front/*.html')
+        .pipe(htmlmin({
+            collapseWhitespace: true
+        }))
+        .pipe(gulp.dest(buildUrl + '/view/front'));
 });
 
 //replace template.html
@@ -187,7 +203,7 @@ gulp.task('vue:back', function() {
 gulp.task('build', gulpSequence(
     'clean:dist', 'copy-all','babel', 'concat:js','replace:config',['js:minify', 'css:minify'], 
     ['babel:server:gen','babel:server:con','babel:server:routers','babel:server:tool','babel:server:con:back','babel:server:con:front'],
-    'vue:back'
+    'vue:back',['html:minify','html:minify:back','html:minify:front'],'replace:template'
 ));
 
 

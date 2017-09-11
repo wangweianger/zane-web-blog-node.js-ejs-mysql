@@ -73,6 +73,10 @@ code {
       height: 50px;
       line-height: 50px;
       font-size: 15px; }
+      .side .nav li.active a {
+        color: #fff; }
+        .side .nav li.active a span {
+          color: #cacaca; }
       .side .nav li a {
         display: block;
         width: 100%;
