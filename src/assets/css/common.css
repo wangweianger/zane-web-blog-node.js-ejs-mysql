@@ -234,10 +234,10 @@ code {
 #editor .w-e-text h5 {
   font-size: .14rem; }
 
-#editor ol li {
+#editor .w-e-text ol li {
   list-style: decimal; }
 
-#editor ul li {
+#editor .w-e-text ul li {
   list-style: disc; }
 
 @media (max-width: 768px) {

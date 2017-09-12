@@ -1,5 +1,8 @@
 import qiniu from 'qiniu'
 import util from './util'
+import {
+    SYSTEM
+} from './config'
 
 //config配置
 class qiuniuyun {
@@ -11,8 +14,8 @@ class qiuniuyun {
     }
 
     init() {
-        qiniu.conf.ACCESS_KEY = 'M8_QFRKMdDAsV2FRyrUb0C-nvVYmIhXZEs5ROYn5';
-        qiniu.conf.SECRET_KEY = '3SZ4SHc4KB306ssJq6ul_tdVq7IHc7-DrUymHxlT';
+        qiniu.conf.ACCESS_KEY = SYSTEM.QINIU.ACCESS_KEY;
+        qiniu.conf.SECRET_KEY = SYSTEM.QINIU.SECRET_KEY;
     }
 
     //调用uploadFile上传    

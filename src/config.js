@@ -18,9 +18,22 @@ export let SYSTEM = {
 	//限制文件上传大小 500kb
 	FILESIZE:512000,
 
+	// 七牛云JDK
+	QINIU:{
+		ACCESS_KEY:'xxxxxxxxxxxxxxx',
+		SECRET_KEY:'xxxxxxxxxxxxxxx'
+	},
+
+	// 极验验证JDK
+	GTSDK:{
+		GETTEST_ID:'xxxxxxxxxxxxxxx',
+		GETTEST_KEY:'xxxxxxxxxxxxxxx'
+	},
+
+	// 后台登录用户密码 （未使用数据库）
 	USERMSG:{
 		USERNAME:'admin',
-		PASSWORD:'123456789'
+		PASSWORD:'123456'
 	}
 
 }

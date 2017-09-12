@@ -8,8 +8,6 @@ import render from 'koa-ejs'
 import cookie from 'koa-cookie'
 import session from 'koa-session'
 import LRU from 'lru-cache'
-import conditional from 'koa-conditional-get'
-import etag from 'koa-etag';
 import koa2Common from 'koa2-common'
 import {
     SYSTEM

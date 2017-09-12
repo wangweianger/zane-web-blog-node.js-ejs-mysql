@@ -3,6 +3,9 @@
 
 ### 项目采用 koa2+gulp+mysal 搭建的一套后台集成模板
 
+### 所用JDK    七牛云JDK  、 极验验证JDK , 邮箱验证JDK
+
+
 ##项目通过gulp-nodemon 实时编译刷新node服务
 
 

@@ -1,13 +1,16 @@
 import util from './util'
 import Geetest from 'gt3-sdk'
+import {
+    SYSTEM
+} from './config'
 
 //config配置
 class geetest {
 
     constructor() {
         //要上传的空间
-        this.geetest_id     = '9a3122973b493235c30e4029211c5f9b';
-        this.geetest_key    = '5738d5b325648e6e424c2cdd7291a261';
+        this.geetest_id     = SYSTEM.GTSDK.GETTEST_ID;
+        this.geetest_key    = SYSTEM.GTSDK.GETTEST_KEY;
         this.captcha        = null;
         this.init()
     }
