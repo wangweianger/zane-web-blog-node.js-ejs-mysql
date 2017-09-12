@@ -5,6 +5,7 @@
 
 ### 所用JDK    七牛云JDK  、 极验验证JDK , 邮箱验证JDK
 
+## 博客效果  http://blog.seosiwei.com
 
 ##项目通过gulp-nodemon 实时编译刷新node服务
 
@@ -64,6 +65,16 @@
 	pm2启动方式：npm run pm2
 
 ```
+
+
+
+
+![前端界面](https://git.oschina.net/uploads/images/2017/0912/151325_c9179a97_818875.png "前端界面")
+
+![后台界面](https://git.oschina.net/uploads/images/2017/0912/151342_71591bbf_818875.png "后台界面")
+
+![移动端样式](https://git.oschina.net/uploads/images/2017/0912/151354_da20b67b_818875.png "移动端样式")
+
 
 
 
