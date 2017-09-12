@@ -108,10 +108,16 @@ class getsql {
         fields.forEach((item, i) => {
             if (i == fields.length - 1) {
                 for (let key in fields[i]) {
+                    if(typeof(fields[i][key]) === 'string'){
+                        fields[i][key] = fields[i][key].replace(/'/g,"\\'")
+                    }
                     sql += `${key} = '${fields[i][key]}' `
                 }
             } else {
                 for (let key in fields[i]) {
+                    if(typeof(fields[i][key]) === 'string'){
+                        fields[i][key] = fields[i][key].replace(/'/g,"\\'")
+                    }
                     sql += `${key} = '${fields[i][key]}',`
                 }
             };
@@ -138,11 +144,17 @@ class getsql {
         fields.forEach((item, index) => {
             if (index == fields.length - 1) {
                 for (let key in item) {
+                    if(typeof(item[key]) === 'string'){
+                        item[key] = item[key].replace(/'/g,"\\'")
+                    }
                     fieone += `${key}`
                     fietwo += `'${item[key]}'`
                 }
             } else {
                 for (let key in item) {
+                    if(typeof(item[key]) === 'string'){
+                        item[key] = item[key].replace(/'/g,"\\'")
+                    }
                     fieone += `${key},`
                     fietwo += `'${item[key]}',`
                 }

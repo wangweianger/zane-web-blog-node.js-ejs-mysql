@@ -57,7 +57,7 @@ app
         }
     }))
     .use(serve(__dirname + "/assets",{
-        maxage: 365 * 24 * 60 * 60
+        maxage: env === 'development' ? 0 : 365 * 24 * 60 * 60
     }))
     .use(koa2Common())
     .use(cors({
