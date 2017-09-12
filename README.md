@@ -5,6 +5,7 @@
 
 ### 所用JDK    七牛云JDK  、 极验验证JDK , 邮箱验证JDK
 
+## 博客效果  http://blog.seosiwei.com
 
 ##项目通过gulp-nodemon 实时编译刷新node服务
 
