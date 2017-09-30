@@ -2,15 +2,15 @@ import util from './util'
 import Geetest from 'gt3-sdk'
 import {
     SYSTEM
-} from './config'
+} from '../config.js'
 
 //config配置
 class geetest {
 
     constructor() {
         //要上传的空间
-        this.geetest_id     = SYSTEM.GTSDK.GETTEST_ID;
-        this.geetest_key    = SYSTEM.GTSDK.GETTEST_KEY;
+        this.geetest_id     = SYSTEM.GEETEST.ID;
+        this.geetest_key    = SYSTEM.GEETEST.KEY;
         this.captcha        = null;
         this.init()
     }

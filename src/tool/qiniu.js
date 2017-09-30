@@ -2,14 +2,14 @@ import qiniu from 'qiniu'
 import util from './util'
 import {
     SYSTEM
-} from './config'
+} from '../config.js'
 
 //config配置
 class qiuniuyun {
 
     constructor() {
         //要上传的空间
-        this.bucket = 'zane';
+        this.bucket = SYSTEM.QINIU.BUCKET;
         this.init()
     }
 

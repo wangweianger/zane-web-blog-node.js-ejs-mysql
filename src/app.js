@@ -18,7 +18,7 @@ import {
 } from './routes'
 
 const app = new Koa()
-const env = process.env.NODE_ENV || 'development'
+const env = process.env.NODE_ENV || 'production'
 
 // 打印日志
 app.on('error', (err, ctx) => {

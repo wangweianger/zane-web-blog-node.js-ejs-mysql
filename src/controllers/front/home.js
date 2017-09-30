@@ -146,7 +146,7 @@ class atticle {
             let browse    = ctx.request.body.browse
 
             if(!id || !(browse+'')) return;
-            browse = parseInt(browse)+1;
+            browse = parseInt(browse);
 
             let sql = getsql.UPDATE({
                 table:'article',

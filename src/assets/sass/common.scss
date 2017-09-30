@@ -36,29 +36,29 @@ code{
         background-size:100% auto;
         text-align:center;
         .logo{
-            width:120px;
-            height:120px;
+            width:1.2rem;
+            height:1.2rem;
             border-radius:50%;
             display:inline-block;
             overflow:hidden;
-            margin-top:40px;
+            margin-top:.4rem;
             img{
                 width:100%;
                 height:100%;
             }
         }
         .name{
-            font-size:18px;
-            margin-top:13px;
-            margin-bottom:10px;
+            font-size:.18rem;
+            margin-top:.13rem;
+            margin-bottom:.1rem;
         }
         .text{
-            font-size:14px;
+            font-size:.14rem;
             color:#676767;
         }
     }
     .nav{
-        margin-top:20px;
+        margin-top:.2rem;
         overflow:hidden;
         &:before{
             content:'';
@@ -77,9 +77,9 @@ code{
         li{
             border-top: solid 1px #444;
             border-bottom: solid 1px #000;
-            height:50px;
-            line-height:50px;
-            font-size:15px;
+            height:.5rem;
+            line-height:.5rem;
+            font-size:.15rem;
             &.active{
                 a{
                     color:#fff;
@@ -94,12 +94,12 @@ code{
                 height:100%;
                 span{
                     display:inline-block;
-                    width:30px;
-                    height:30px;
-                    margin-left:50px;
+                    width:.3rem;
+                    height:.3rem;
+                    margin-left:.5rem;
                     float:left;
-                    margin-right:20px;
-                    font-size:18px;
+                    margin-right:.2rem;
+                    font-size:.18rem;
                 }
             }
 
@@ -108,20 +108,20 @@ code{
     .icons{
         position:absolute;
         left:0;
-        bottom:50px;
+        bottom:.5rem;
         width:100%;
-        margin-left:50px;
+        margin-left:.5rem;
         li{
             float:left;
-            width:50px;
-            height:50px;
-            line-height:50px;
+            width:.5rem;
+            height:.5rem;
+            line-height:.5rem;
             a{
                 display:block;
                 width:100%;
                 height:100%;
                 span{
-                    font-size:18px;
+                    font-size:.18rem;
                 }
             }
         }
@@ -175,6 +175,7 @@ code{
     text-align:center;
     color:#afadad;
     margin-top:.5rem;
+    a{color:#afadad;}
 }
 .btn {
    display: inline-block;
@@ -261,10 +262,10 @@ code{
 }
 .h1{
     font-size:18px;
-    margin-bottom:20px;
+    margin-bottom:.15rem;
 }
 
-#editor{
+#editor,#describes{
     .w-e-text{
         h1{font-size:.22rem;}
         h2{font-size:.2rem;}
@@ -289,6 +290,51 @@ code{
     .side{
         margin-left:-250px;
         transition: width .5s;
+        .top{
+            .logo{
+                width:2rem;
+                height:2rem;
+                margin-top:.4rem;
+            }
+            .name{
+                font-size:.25rem;
+                margin-top:.2rem;
+            }
+            .text{
+                font-size:.18rem;
+            }
+        }
+        .nav{
+            margin-top:.2rem;
+            li{
+                height:1rem;
+                line-height:1rem;
+                font-size:.25rem;
+                a{
+                    span{
+                        width:.3rem;
+                        height:.3rem;
+                        margin-left:1rem;
+                        margin-right:.3rem;
+                        font-size:.3rem;
+                    }
+                }
+
+            }
+        }
+        .icons{
+            margin-left:.5rem;
+            li{
+                width:.8rem;
+                height:.8rem;
+                line-height:.8rem;
+                a{
+                    span{
+                        font-size:.25rem;
+                    }
+                }
+            }
+        }
         .fix-top{
             display:block;
         }

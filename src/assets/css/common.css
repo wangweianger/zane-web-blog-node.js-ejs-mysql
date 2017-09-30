@@ -36,24 +36,24 @@ code {
     background-size: 100% auto;
     text-align: center; }
     .side .top .logo {
-      width: 120px;
-      height: 120px;
+      width: 1.2rem;
+      height: 1.2rem;
       border-radius: 50%;
       display: inline-block;
       overflow: hidden;
-      margin-top: 40px; }
+      margin-top: .4rem; }
       .side .top .logo img {
         width: 100%;
         height: 100%; }
     .side .top .name {
-      font-size: 18px;
-      margin-top: 13px;
-      margin-bottom: 10px; }
+      font-size: .18rem;
+      margin-top: .13rem;
+      margin-bottom: .1rem; }
     .side .top .text {
-      font-size: 14px;
+      font-size: .14rem;
       color: #676767; }
   .side .nav {
-    margin-top: 20px;
+    margin-top: .2rem;
     overflow: hidden; }
     .side .nav:before {
       content: '';
@@ -70,9 +70,9 @@ code {
     .side .nav li {
       border-top: solid 1px #444;
       border-bottom: solid 1px #000;
-      height: 50px;
-      line-height: 50px;
-      font-size: 15px; }
+      height: .5rem;
+      line-height: .5rem;
+      font-size: .15rem; }
       .side .nav li.active a {
         color: #fff; }
         .side .nav li.active a span {
@@ -83,29 +83,29 @@ code {
         height: 100%; }
         .side .nav li a span {
           display: inline-block;
-          width: 30px;
-          height: 30px;
-          margin-left: 50px;
+          width: .3rem;
+          height: .3rem;
+          margin-left: .5rem;
           float: left;
-          margin-right: 20px;
-          font-size: 18px; }
+          margin-right: .2rem;
+          font-size: .18rem; }
   .side .icons {
     position: absolute;
     left: 0;
-    bottom: 50px;
+    bottom: .5rem;
     width: 100%;
-    margin-left: 50px; }
+    margin-left: .5rem; }
     .side .icons li {
       float: left;
-      width: 50px;
-      height: 50px;
-      line-height: 50px; }
+      width: .5rem;
+      height: .5rem;
+      line-height: .5rem; }
       .side .icons li a {
         display: block;
         width: 100%;
         height: 100%; }
         .side .icons li a span {
-          font-size: 18px; }
+          font-size: .18rem; }
   .side .fix-top {
     display: none;
     position: fixed;
@@ -152,6 +152,8 @@ code {
   text-align: center;
   color: #afadad;
   margin-top: .5rem; }
+  .footer a {
+    color: #afadad; }
 
 .btn {
   display: inline-block;
@@ -217,33 +219,62 @@ code {
 
 .h1 {
   font-size: 18px;
-  margin-bottom: 20px; }
+  margin-bottom: .15rem; }
 
-#editor .w-e-text h1 {
+#editor .w-e-text h1, #describes .w-e-text h1 {
   font-size: .22rem; }
 
-#editor .w-e-text h2 {
+#editor .w-e-text h2, #describes .w-e-text h2 {
   font-size: .2rem; }
 
-#editor .w-e-text h3 {
+#editor .w-e-text h3, #describes .w-e-text h3 {
   font-size: .18rem; }
 
-#editor .w-e-text h4 {
+#editor .w-e-text h4, #describes .w-e-text h4 {
   font-size: .16rem; }
 
-#editor .w-e-text h5 {
+#editor .w-e-text h5, #describes .w-e-text h5 {
   font-size: .14rem; }
 
-#editor .w-e-text ol li {
+#editor .w-e-text ol li, #describes .w-e-text ol li {
   list-style: decimal; }
 
-#editor .w-e-text ul li {
+#editor .w-e-text ul li, #describes .w-e-text ul li {
   list-style: disc; }
 
 @media (max-width: 768px) {
   .side {
     margin-left: -250px;
     transition: width .5s; }
+    .side .top .logo {
+      width: 2rem;
+      height: 2rem;
+      margin-top: .4rem; }
+    .side .top .name {
+      font-size: .25rem;
+      margin-top: .2rem; }
+    .side .top .text {
+      font-size: .18rem; }
+    .side .nav {
+      margin-top: .2rem; }
+      .side .nav li {
+        height: 1rem;
+        line-height: 1rem;
+        font-size: .25rem; }
+        .side .nav li a span {
+          width: .3rem;
+          height: .3rem;
+          margin-left: 1rem;
+          margin-right: .3rem;
+          font-size: .3rem; }
+    .side .icons {
+      margin-left: .5rem; }
+      .side .icons li {
+        width: .8rem;
+        height: .8rem;
+        line-height: .8rem; }
+        .side .icons li a span {
+          font-size: .25rem; }
     .side .fix-top {
       display: block; }
   .main {

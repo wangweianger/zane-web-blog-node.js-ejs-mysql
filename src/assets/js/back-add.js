@@ -27,15 +27,21 @@ var app = new Vue({
             if(this.edit.id){
                 this.getGoodsDetail();
             }else{
-                this.wangEditor();
+                this.wangEditor({
+                    id:'#editor',
+                    type:'text'
+                });
+                this.wangEditor({
+                    id:'#describes',
+                    type:'describes'
+                });
             }
-
         })
     },
     methods: {
-        wangEditor(){
+        wangEditor(json){
             var E = window.wangEditor
-            this.editor = new E('#editor')
+            this.editor = new E(json.id)
             this.editor.customConfig.uploadImgServer = config.baseApi+'upload'
             this.editor.customConfig.uploadFileName = 'file'
             this.editor.customConfig.withCredentials = true
@@ -46,19 +52,21 @@ var app = new Vue({
                 },
                 // 如果服务器端返回的不是 {errno:0, data: [...]} 这种格式，可使用该配置
                 customInsert: function (insertImg, result, editor) {
-                    var url = config.imgBaseUrl + result.data
+                    var url = config.imgBaseUrl + result.data + '?imageslim'
                     insertImg(url)
                 }
             }
             // this.editor.customConfig.uploadImgShowBase64 = true
             this.editor.customConfig.onchange = (html) => {
-                this.edit.text=html
+                this.edit[json.type]=html
             }
             this.editor.create() 
-            this.editor.txt.html(this.edit.text)
+            this.editor.txt.html(this.edit[json.type])
 
             setTimeout(()=>{
-                $('div.w-e-text-container').css({height:'600px'})
+                json.type === 'text'?
+                    $('#editor').find('div.w-e-text-container').css({height:'600px'}):
+                    $('#describes').find('div.w-e-text-container').css({height:'250px'});
             },0)
         },
         getGoodsDetail(){
@@ -70,7 +78,14 @@ var app = new Vue({
                 success:data=>{
                     this.detaildatas = data.data
                     this.edit = Object.assign(this.edit,data.data)
-                    this.wangEditor();
+                    this.wangEditor({
+                        id:'#editor',
+                        type:'text'
+                    });
+                    this.wangEditor({
+                        id:'#describes',
+                        type:'describes'
+                    });
                 }
             })
         },

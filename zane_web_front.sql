@@ -11,7 +11,7 @@
  Target Server Version : 50718
  File Encoding         : utf-8
 
- Date: 09/12/2017 14:56:51 PM
+ Date: 09/30/2017 16:11:29 PM
 */
 
 SET NAMES utf8;
@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `web_article`;
 CREATE TABLE `web_article` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `title` varchar(100) NOT NULL COMMENT '文章标题',
-  `describes` varchar(300) DEFAULT NULL COMMENT '描述',
+  `describes` varchar(1500) DEFAULT NULL COMMENT '描述',
   `text` text CHARACTER SET utf8mb4 NOT NULL COMMENT '文章内容',
   `author` varchar(15) DEFAULT NULL COMMENT '文章作者',
   `browse` smallint(6) DEFAULT '0' COMMENT '浏览量',
@@ -38,7 +38,7 @@ CREATE TABLE `web_article` (
 --  Records of `web_article`
 -- ----------------------------
 BEGIN;
-INSERT INTO `web_article` VALUES ('1', '如何把 Callback 接口包装成 Promise 接口', '前端开发尤其 Node.js 开发中，经常要调用一些异步接口，如：文件操作、网络数据读取。而这些接口默认情况下往往是通过 Callback 方式提供的，即：最后一个参数传入一个回调函数，当出现异常时，将错误信息作为第一个参数传给回调函数，如果正常，第一个参数为 null，后面的参数为对应其他的值。', '<pre><code>&lt;div id=\"name\"&gt;\n    我就死我\n        &lt;div&gt;我就是我&lt;/div&gt;\n&lt;/div&gt;</code></pre><p>?<br></p>', 'zane', '226', '2017-09-12 10:07:44', '2', '1'), ('2', 'Webpack 打包优化之体积篇', '水电费水电费', '<p>谈及如今欣欣向荣的前端圈，不仅有各类框架百花齐放，如<a href=\"http://www.seosiwei.com\" target=\"_blank\" style=\"background-color: rgb(238, 236, 224);\">Vue</a>，&nbsp;<code>React</code>，&nbsp;<code>Angular</code>等等，就打包工具而言，发展也是如火如荼，百家争鸣；从早期的王者<code>Browserify</code>,&nbsp;<code>Grunt</code>，到后来赢得宝座的&nbsp;<code>Gulp</code>， 以及独树一帜的&nbsp;<code>fis3</code>, 以及下一代打包神器&nbsp;<code>Ro</code><span style=\"background-color: rgb(241, 241, 241); color: red;\">&lt;div&gt;00&lt;/div&gt;</span></p><p><br></p><p><code>llup</code>&nbsp;；在&nbsp;<br></p><h1>到后来赢得宝座的</h1><h2>到后来赢得宝座的到后来赢得宝座的到后来赢得宝座的</h2><h3>到后来赢得宝座的</h3><h4>到后来赢得宝座的</h4><p><br></p><h1>NODE.JS专区</h1><ol><li>node.js</li><li>react.js</li></ol><h1>打包专区</h1><ul><li>webpack</li><li>vue</li></ul>', 'zane', '263', '2017-09-11 10:15:21', '3', '1');
+INSERT INTO `web_article` VALUES ('1', '如何把 Callback 接口包装成 Promise 接口', '前端开发尤其 Node.js 开发中，经常要调用一些异步接口，如：文件操作、网络数据读取。而这些接口默认情况下往往是通过 Callback 方式提供的，即：最后一个参数传入一个回调函数，当出现异常时，将错误信息作为第一个参数传给回调函数，如果正常，第一个参数为 null，后面的参数为对应其他的值。', '<pre><code>&lt;div id=\"name\"&gt;\n    我就死我\n        &lt;div&gt;我就是我&lt;/div&gt;\n&lt;/div&gt;</code></pre><p>?<br></p>', 'zane', '226', '2017-09-12 10:07:44', '2', '1'), ('2', 'Webpack 打包优化之体积篇', '<p>000</p>', '<pre><code>// 不和规范的json 转换成符合规范的JSON\n	toJson(json) {\n		let copyJson = json;\n		if (!copyJson) return;\n		// 替换不正常的 { 号\n		copyJson = copyJson.replace(/｛/g, \'{\')\n		// 替换不正常的 } 号\n		copyJson = copyJson.replace(/｝/g, \'}\')\n		// 替换不正常的 : 号\n		copyJson = copyJson.replace(/：/g, \':\')\n		// 去掉所有的空格\n		copyJson = copyJson.replace(/s/g, \'\')\n		// 替换所有的 引号\n		copyJson = copyJson.replace(/[\'‘“’”]/g, \'\"\')\n		// 替换value值中的双引号\n		copyJson = copyJson.replace(/\"(?=([ws-_d.*u4E00-u9FA5uf900-ufa2d]+?))/g, \'’\')\n		// 替换不正常的 , 号\n		copyJson = copyJson.replace(/[，]/g, \',\')\n		// 替换 undefined 为字符串\n		copyJson = copyJson.replace(/[\"\']?undefined[\"\']?/g, \'\"undefined\"\')\n\n		try {\n			// 若正常直接返回\n			JSON.parse(copyJson);\n			return copyJson;\n		} catch (err) {\n			// 不正常开始替换\n			copyJson = copyJson.replace(/{\"?([u4E00-u9FA5uf900-ufa2d\'\"dw_-]*?)\"?:/g,($a,$b)=&gt;{\n				return `{\"${$b}\":`;\n			}) \n			copyJson = copyJson.replace(/,\"?([u4E00-u9FA5uf900-ufa2d\'\"dw_-]*?)\"?:/g,($a,$b)=&gt;{\n				return `,\"${$b}\":`;\n			})\n			\n			return copyJson\n		}\n	};</code></pre><p><br></p>', 'zane', '275', '2017-09-12 17:54:03', '3', '1');
 COMMIT;
 
 -- ----------------------------

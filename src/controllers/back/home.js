@@ -187,7 +187,7 @@ class detail {
             let isOnline    =   ctx.request.body.isOnline
             let createTime  =   moment(new Date().getTime()).format('YYYY-MM-DD HH:mm:ss')
 
-            if(!title || !text){
+            if(!title || !text || !describes){
                 ctx.body = util.result({
                     code: 1001,
                     desc: "参数不全"
@@ -195,7 +195,7 @@ class detail {
                 return;
             }
 
-            let arr=[{title},{text},{createTime}];
+            let arr=[{title},{text}];
             if(describes) arr.push({describes});
             if(author) arr.push({author});
             if(browse) arr.push({browse});
@@ -214,6 +214,7 @@ class detail {
                 })
             } else {
                 // 表示新增
+                arr.push({createTime});
                 sql = getsql.INSERT({
                     table: 'article',
                     fields: arr,

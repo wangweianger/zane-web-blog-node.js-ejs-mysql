@@ -5,7 +5,7 @@
 <div class="main" id="main" >
 	<% datas.datalist.forEach(function (item) {%>   
 	<div class="block">
-		<h1> 
+		<h1 class="h1"> 
 			<span><a class="black" href="/detail/<%= item.id %>"><%= item.title %></a></span>
 			<div class="right fr">
 				<span><%= item.createTime %></span>
@@ -13,7 +13,7 @@
 			</div>
 		</h1>
 		<div class="text">
-			<a class="bl555" href="/detail/<%= item.id %>"><%= item.describes %></a>
+			<a class="bl555" href="/detail/<%= item.id %>"><%- item.describes %></a>
 		</div>
 		<div class="bottom">
 			<div class="fl">

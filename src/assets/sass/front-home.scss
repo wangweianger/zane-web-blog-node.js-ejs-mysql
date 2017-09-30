@@ -6,11 +6,14 @@
         margin-top:.3rem;
         padding:0 .2rem;
         border:solid 1px #eee;
-        h1{
+        h1.h1{
             font-size:.3rem;
             height:.8rem;
             line-height:.8rem;
             border-bottom:solid 1px #ddd;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             .right{
                 font-size:.14rem;
                 span{
@@ -22,8 +25,71 @@
         .text{
             font-size:.15rem;
             line-height:.35rem;
-            padding:.2rem 0;
             color:#555;
+            overflow:hidden;
+            margin-bottom: .2rem; 
+            a:hover{
+                color:#555; 
+            }
+            pre{
+                display: block;
+                padding: 9.5px;
+                margin: 0 0 10px;
+                font-size: 14px;
+                line-height: 20px;
+                word-break: break-all;
+                word-wrap: break-word;
+                white-space: pre;
+                white-space: pre-wrap;
+                background-color: #f5f5f5;
+                border: 1px solid #ccc;
+                border: 1px solid rgba(0,0,0,0.15);
+                border-radius: 4px;
+                code{
+                    color:#000;
+                    padding: 0;
+                    border: none;
+                    background:none;
+                    margin: 0;
+                }
+            }
+            h1{
+                font-size:22px;
+                margin:10px 0;
+                font-weight:bold;
+            }
+            h2{
+                font-size:20px;
+                margin:10px 0;
+                font-weight:bold;
+            }
+            h3{
+                font-size:18px;
+                margin:10px 0;
+                font-weight:bold;
+            }
+            h4{
+                font-size:16px;
+                margin:8px 0;
+                font-weight:bold;
+            }
+            h5{
+                font-size:14px;
+                margin:8px 0;
+                font-weight:bold;
+            }
+            ol{
+                margin-left: .3rem;
+                li{
+                    list-style:decimal;
+                } 
+            }
+            ul{
+                margin-left: .3rem;
+                li{
+                    list-style:disc;
+                }
+            }
         }
         .bottom{
             overflow:hidden;
@@ -44,12 +110,18 @@
                 color:#000;
             }
         }
-    }
+    } 
 }
 
 @media (max-width: 768px) {
     .main{
         .block{
+            h1.h1{
+                overflow:hidden;
+                .right{
+                    display:none;
+                }
+            }
             .text{
                 font-size:.25rem;
                 line-height:.45rem;

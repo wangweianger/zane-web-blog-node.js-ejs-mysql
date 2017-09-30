@@ -34,8 +34,10 @@
 				<input class="right from-col" v-model.trim="edit.browse" type="text" >
 			</div>
 			<div class="block">
-				<span class="left">描述：</span>
-				<textarea class="right from-col" v-model.trim="edit.describes" rows="4"></textarea>
+				<span class="left"><span class="red">*</span>描述：</span>
+				<div class="right">
+					<div id="describes"></div>
+				</div>
 			</div>
 			<div class="block">
 				<span class="left"><span class="red">*</span>正文：</span>

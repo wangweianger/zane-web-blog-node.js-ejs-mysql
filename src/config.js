@@ -13,27 +13,27 @@ export let SYSTEM = {
 
 	DEBUG: false,
 
-	BASEIMG: 'http://ormfcl92t.bkt.clouddn.com/',
+	BASEIMG: 'http://www.xxx.com/',
 
 	//限制文件上传大小 500kb
 	FILESIZE:512000,
 
-	// 七牛云JDK
+	// 极验验证秘钥
+	GEETEST:{
+		ID:'xxxxxxxxxxxx',
+		KEY:'xxxxxxxxxxxx'
+	},
+
+	// 骑牛云JDK
 	QINIU:{
-		ACCESS_KEY:'xxxxxxxxxxxxxxx',
-		SECRET_KEY:'xxxxxxxxxxxxxxx'
+		BUCKET:'xxxxxxxxxxxx',  //存储空间名
+		ACCESS_KEY:'xxxxxxxxxxxx',
+		SECRET_KEY:'xxxxxxxxxxxx'
 	},
 
-	// 极验验证JDK
-	GTSDK:{
-		GETTEST_ID:'xxxxxxxxxxxxxxx',
-		GETTEST_KEY:'xxxxxxxxxxxxxxx'
-	},
-
-	// 后台登录用户密码 （未使用数据库）
 	USERMSG:{
-		USERNAME:'admin',
-		PASSWORD:'123456'
+		USERNAME:'xxx',
+		PASSWORD:'xxx'
 	}
 
 }
