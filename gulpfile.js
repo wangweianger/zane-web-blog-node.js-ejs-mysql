@@ -156,7 +156,7 @@ gulp.task('css:minify', function() {
 //replace
 gulp.task('replace:config', function() {
     return gulp.src([buildUrl + '/config.js'])
-        .pipe(replace('http://127.0.0.1:18090', 'http://www.xxx.com'))
+        .pipe(replace('http://127.0.0.1:18090', 'http://blog.seosiwei.com'))
         .pipe(replace(/PASSWORD(.+)?123456'/, "PASSWORD:'root'"))
         .pipe(replace('use(KoaLogger())', ""))
         .pipe(gulp.dest(buildUrl));
@@ -195,7 +195,7 @@ gulp.task('replace:template', function() {
  
 // 还原 vue-component.js  和 vue-filters.js
 gulp.task('vue:back', function() {
-    return gulp.src(['./src/assets/js/vue-components.js','./src/assets/js/vue-filters.js'])
+    return gulp.src(['./src/assets/js/vue-components.js','./src/assets/js/vue-filters.js','./src/assets/js/prism.js','./src/assets/js/wangEditor.js'])
         .pipe(gulp.dest(buildUrl + '/assets/js/'));
 });
 

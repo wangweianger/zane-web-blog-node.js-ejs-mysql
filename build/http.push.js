@@ -11,8 +11,9 @@ var chalk = require('chalk');
 var Promise = require('bluebird')
 var targz = require('tar.gz');
 var exec = require('child_process').exec;
-
+ 
 /**
+ *
  * http上传插件
  *
  * @param options

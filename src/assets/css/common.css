@@ -12,13 +12,6 @@
   cursor: pointer;
   z-index: 100; }
 
-code {
-  color: #a9a9a9;
-  background: #eee;
-  padding: .04rem .06rem;
-  border: solid 1px #eee;
-  margin: 0 .05rem; }
-
 .side {
   width: 250px;
   height: 100%;
