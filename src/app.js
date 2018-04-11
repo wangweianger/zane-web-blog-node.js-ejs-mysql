@@ -4,11 +4,15 @@ import serve from 'koa-static'
 import KoaLogger from 'koa-logger'
 import cors from 'koa-cors'
 import path from 'path'
+import fs from 'fs'
 import render from 'koa-ejs'
 import cookie from 'koa-cookie'
 import session from 'koa-session'
 import LRU from 'lru-cache'
 import koa2Common from 'koa2-common'
+import enforceHttps from 'koa-sslify'
+import http from 'http'
+import https from 'https'
 import {
     SYSTEM
 } from './config'
@@ -46,6 +50,14 @@ back.get('*', async(ctx,next)=>{
     });
 })
 
+// Force HTTPS on all page 
+app.use(enforceHttps())
+
+let options = {
+  key: fs.readFileSync(path.resolve(__dirname, './assets/cert/214586773670023.key')),
+  cert: fs.readFileSync(path.resolve(__dirname, './assets/cert/214586773670023.pem'))
+}
+
 app
     .use(cookie())
     .use(session(app))
@@ -78,7 +90,12 @@ app
         })
     })
 
-app.listen(SYSTEM.PROT);
+// app.listen(SYSTEM.PROT);
+
+
+// start the server 
+// http.createServer(app.callback()).listen(SYSTEM.PROT);
+https.createServer(options, app.callback()).listen(SYSTEM.PROT);
 
 console.log(`服务启动了：路径为：127.0.0.1:${SYSTEM.PROT}`)
 

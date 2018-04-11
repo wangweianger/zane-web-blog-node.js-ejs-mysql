@@ -2,6 +2,8 @@
 import KoaRouter from 'koa-router'
 import controllers from '../controllers'
 import moment from 'moment'
+import fs from 'fs'
+import path from 'path'
 import {
 	SYSTEM
 } from '../config'
@@ -19,13 +21,13 @@ router.get(['/'], async(ctx, next) => {
 		title:'zane 的博客',
 		imgBase:SYSTEM.BASEIMG,
 		pageNo:1,
-		pageSize:0,
+		pageSize:50,
 		totalNum:0,
 		datalist:[],
 	}
 
 	let pageNo 			= 	ctx.query.pageNo || 1;
-	let pageSize 		= 	SYSTEM.PAGESIZE
+	let pageSize 		= 	datas.pageSize||SYSTEM.PAGESIZE
 
 	let tagsList    = await controllers.front.tags.getList()
 	let atticleList = await controllers.front.home.getList(pageNo,pageSize)
@@ -201,7 +203,11 @@ router.get(['/search'], async(ctx, next) => {
 	}); 
 });
 
-
+/*-------------------------------------其他相关处理-----------------------------------------------*/
+router.get(['/.well-known/pki-validation/fileauth.txt'], async(ctx, next) => {
+	let string = fs.readFileSync(path.resolve(__dirname, '../assets/other/fileauth.txt')).toString()
+	ctx.body=string
+})
 
 module.exports = router
 

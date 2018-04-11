@@ -63,8 +63,8 @@
     "request": "^2.81.0",
     "require-directory": "^2.1.1",
     "tar.gz": "^1.0.5",
-    "underscore": "^1.8.3",
-    "trek-captcha": "^0.3.0"
+    "trek-captcha": "^0.3.0",
+    "underscore": "^1.8.3"
   },
   "engines": {
     "node": ">= 7.8.0",
@@ -72,6 +72,7 @@
   },
   "dependencies": {
     "gt3-sdk": "^2.0.0",
+    "koa-sslify": "^2.1.2",
     "koa2-common": "^1.0.0",
     "lru-cache": "^4.1.1"
   }
