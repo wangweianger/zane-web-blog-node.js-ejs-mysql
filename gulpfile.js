@@ -13,6 +13,8 @@ const clean = require('gulp-clean')
 
 let buildUrl = './dist/build'
 
+const IS_HTTPS = process.env.IS_HTTPS || 'FALSE'
+
 /*---------------------------------------------dev------------------------------------------------------------------*/
 var jsScript = 'node'
 if (process.env.npm_config_argv !== undefined && process.env.npm_config_argv.indexOf('debug') > 0) {
@@ -154,9 +156,12 @@ gulp.task('css:minify', function() {
 });
 
 //replace
+let originurl = 'http://blog.seosiwei.com'
+if(IS_HTTPS=='TRUE') originurl = 'https://blog.seosiwei.com'
+
 gulp.task('replace:config', function() {
     return gulp.src([buildUrl + '/config.js'])
-        .pipe(replace('https://127.0.0.1:18090', 'https://www.xxx.com'))
+        .pipe(replace(/ORIGIN(.+)?ORIGIN/, `'ORIGIN':'${originurl}'`))
         .pipe(replace(/PASSWORD(.+)?123456'/, "PASSWORD:'root'"))
         .pipe(replace('use(KoaLogger())', ""))
         .pipe(gulp.dest(buildUrl));

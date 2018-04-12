@@ -23,6 +23,7 @@ import {
 
 const app = new Koa()
 const env = process.env.NODE_ENV || 'production'
+const IS_HTTPS = process.env.IS_HTTPS || 'FALSE'
 
 // 打印日志
 app.on('error', (err, ctx) => {
@@ -50,12 +51,14 @@ back.get('*', async(ctx,next)=>{
     });
 })
 
-// Force HTTPS on all page 
-app.use(enforceHttps())
-
-let options = {
-  key: fs.readFileSync(path.resolve(__dirname, './assets/cert/214586773670023.key')),
-  cert: fs.readFileSync(path.resolve(__dirname, './assets/cert/214586773670023.pem'))
+let options=null;
+if(IS_HTTPS === 'TRUE'){
+    // Force HTTPS on all page 
+    app.use(enforceHttps())
+    options= {
+      key: fs.readFileSync(path.resolve(__dirname, './assets/cert/214586773670023.key')),
+      cert: fs.readFileSync(path.resolve(__dirname, './assets/cert/214586773670023.pem'))
+    }
 }
 
 app
@@ -89,13 +92,10 @@ app
             console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
         })
     })
-
 // app.listen(SYSTEM.PROT);
 
-
-// start the server 
-// http.createServer(app.callback()).listen(SYSTEM.PROT);
-https.createServer(options, app.callback()).listen(SYSTEM.PROT);
+if(IS_HTTPS==='FALSE')http.createServer(app.callback()).listen(SYSTEM.PROT);
+if(IS_HTTPS==='TRUE')https.createServer(options, app.callback()).listen(SYSTEM.PROT);
 
 console.log(`服务启动了：路径为：127.0.0.1:${SYSTEM.PROT}`)
 

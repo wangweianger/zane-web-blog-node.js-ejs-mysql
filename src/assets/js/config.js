@@ -16,7 +16,7 @@ window.config={
 	msgTime:60,
 
 	//七牛图片根地址
-	imgBaseUrl: 'http://ormfcl92t.bkt.clouddn.com/',
+	imgBaseUrl: '//cdn.seosiwei.com/',
 	                            
  	//隐藏显示时间
  	containerShowTime:10, 

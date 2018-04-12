@@ -1,20 +1,26 @@
 import path from 'path'
+let PROT = 18090;
 
+// ORIGIN参数匹配是否是https
+const IS_HTTPS = process.env.IS_HTTPS || 'FALSE'
+let ORIGIN = `http://127.0.0.1:${PROT}`
+if(IS_HTTPS == 'TRUE') ORIGIN = `https://127.0.0.1:${PROT}`
+	
 // 系统配置
 export let SYSTEM = {
 	//允许调用接口的域名，用来检测防盗链
-	ORIGIN: 'https://127.0.0.1:18090',
+	ORIGIN: ORIGIN,
 
 	// HTTP服务器端口号
-	PROT: 18090,
+	PROT: PROT,
 	
 	// 分页条数
 	PAGESIZE: 30,
 
 	DEBUG: false,
 
-	// 七牛云上传图片根路径 
-	BASEIMG: 'http://xxx.com/',
+	// 七牛云图片根路径
+	BASEIMG: '//cdn.seosiwei.com/',
 
 	//限制文件上传大小 500kb
 	FILESIZE:512000,
@@ -32,6 +38,7 @@ export let SYSTEM = {
 		SECRET_KEY:'xxxxxx'
 	},
 
+	// 登录后台账号
 	USERMSG:{
 		USERNAME:'admin',
 		PASSWORD:'123456789'
