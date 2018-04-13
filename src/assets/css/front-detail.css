@@ -5,13 +5,15 @@ html, body {
   padding-top: .3rem; }
   .main .detail h1.h1 {
     font-size: .35rem; }
-    .main .detail h1.h1 div {
+    .main .detail h1.h1 .fr {
       font-size: 13px; }
-      .main .detail h1.h1 div span {
+      .main .detail h1.h1 .fr span {
         display: block; }
-        .main .detail h1.h1 div span:nth-child(1) {
+        .main .detail h1.h1 .fr span:nth-child(1) {
           margin-top: .02rem;
           margin-bottom: .05rem; }
+    .main .detail h1.h1 .title {
+      display: inline-block; }
   .main .detail .context {
     margin: .3rem 0;
     font-size: 16px;
@@ -208,11 +210,13 @@ html, body {
     .main .detail h1.h1 {
       font-size: .35rem;
       overflow: hidden; }
-      .main .detail h1.h1 div {
+      .main .detail h1.h1 .fr {
         float: left; }
-        .main .detail h1.h1 div span {
+        .main .detail h1.h1 .fr span {
           display: inline-block;
           color: #999; }
+      .main .detail h1.h1 .title {
+        display: block; }
     .main .detail .dasang .model-dasang {
       width: 80%;
       height: 7.2rem; }

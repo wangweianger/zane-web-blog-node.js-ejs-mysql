@@ -7,7 +7,7 @@ html,body{
         padding-top:.3rem;
         h1.h1{
         	font-size:.35rem;
-        	div{
+        	.fr{
         		font-size:13px;
         		span{
         			display:block;
@@ -17,6 +17,9 @@ html,body{
         			}
         		}
         	}
+            .title{
+                display:inline-block;
+            }
         }
         .context{
         	margin:.3rem 0;
@@ -288,13 +291,16 @@ html,body{
     		h1.h1{
         		font-size:.35rem;
         		overflow:hidden;
-	        	div{
+	        	.fr{
 	        		float:left;
 	        		span{
 	        			display:inline-block;
 	        			color:#999;
 	        		}
 	        	}
+                .title{
+                    display:block;
+                }
         	}
             .dasang{
                .model-dasang{

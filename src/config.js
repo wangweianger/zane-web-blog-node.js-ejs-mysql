@@ -19,7 +19,7 @@ export let SYSTEM = {
 
 	DEBUG: false,
 
-	// 七牛云图片根路径
+	// 七牛云上传根路径
 	BASEIMG: '//cdn.seosiwei.com/',
 
 	//限制文件上传大小 500kb
@@ -38,10 +38,9 @@ export let SYSTEM = {
 		SECRET_KEY:'xxxxxx'
 	},
 
-	// 登录后台账号
 	USERMSG:{
 		USERNAME:'admin',
-		PASSWORD:'123456789'
+		PASSWORD:'752636052aaaa'
 	}
 
 }
