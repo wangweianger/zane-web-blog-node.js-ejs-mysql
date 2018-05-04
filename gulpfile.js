@@ -10,6 +10,9 @@ const minifyCss = require('gulp-clean-css')
 const concat = require('gulp-concat')
 const htmlmin = require('gulp-htmlmin')
 const clean = require('gulp-clean')
+const rev = require('gulp-rev')
+const revCollector = require('gulp-rev-collector')
+
 
 let buildUrl = './dist/build'
 
@@ -125,7 +128,6 @@ gulp.task('babel:server:tool', () => {
         .pipe(gulp.dest(buildUrl+'/tool'));
 });
 
-
 // concat 前端js js
 gulp.task("concat:js", function() {
     return gulp.src([
@@ -204,11 +206,49 @@ gulp.task('vue:back', function() {
         .pipe(gulp.dest(buildUrl + '/assets/js/'));
 });
 
+// 生成json css替换文件
+gulp.task('revcss', function () {
+return gulp.src(buildUrl+'/assets/css/*.css')
+    .pipe(rev())
+    .pipe(gulp.dest(buildUrl+'/assets/css'))  // write rev'd assets to build dir
+    .pipe(rev.manifest())
+    .pipe(gulp.dest(buildUrl+'/rev/css'))  
+});
+gulp.task('revjs', function () {
+return gulp.src(buildUrl+'/assets/js/*.js')
+    .pipe(rev())
+    .pipe(gulp.dest(buildUrl+'/assets/js'))  // write rev'd assets to build dir
+    .pipe(rev.manifest())
+    .pipe(gulp.dest(buildUrl+'/rev/js'))  
+});
+//开始替换html 中的js和css
+gulp.task('revhtmltem', function () {
+  return gulp.src([buildUrl+'/rev/**/*.json', buildUrl+'/view/*.html'])
+      .pipe( revCollector({
+          replaceReved: true,
+      }) )
+      .pipe( gulp.dest(buildUrl+'/view') );
+});
+gulp.task('revhtmlfont', function () {
+  return gulp.src([buildUrl+'/rev/**/*.json', buildUrl+'/view/front/*.html'])
+      .pipe( revCollector({
+          replaceReved: true,
+      }) )
+      .pipe( gulp.dest(buildUrl+'/view/front') );
+});
+gulp.task('revhtmlback', function () {
+  return gulp.src([buildUrl+'/rev/**/*.json', buildUrl+'/view/back/*.html'])
+      .pipe( revCollector({
+          replaceReved: true,
+      }) )
+      .pipe( gulp.dest(buildUrl+'/view/back') );
+});
 
 gulp.task('build', gulpSequence(
     'clean:dist', 'copy-all','babel', 'concat:js','replace:config',['js:minify', 'css:minify'], 
     ['babel:server:gen','babel:server:con','babel:server:routers','babel:server:tool','babel:server:con:back','babel:server:con:front'],
-    'vue:back',['html:minify','html:minify:back','html:minify:front'],'replace:template'
+    'vue:back',['html:minify','html:minify:back','html:minify:front'],'replace:template',['revcss','revjs'],
+    ['revhtmltem','revhtmlfont','revhtmlback']
 ));
 
 

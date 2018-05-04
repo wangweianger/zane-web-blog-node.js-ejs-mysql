@@ -21,13 +21,15 @@ class detail {
             let pageNo   = ctx.request.body.pageNo || 1
             let pageSize = ctx.request.body.pageSize || SYSTEM.PAGESIZE
             let isOnline = ctx.request.body.isOnline || ''
-
             let datas = {
                 totalNum:0,
                 datalist:[],
                 pageNo:pageNo,
                 pageSize:pageSize
             };
+
+            console.log(datas)
+
             let arr=[]
             if(isOnline+'') arr.push({isOnline})
 
@@ -45,6 +47,12 @@ class detail {
                 wheres:arr,
                 sort: 'id',
                 isdesc: true,
+                sort: 'id',
+                isdesc: true,
+                limit:{
+                    pageNo:pageNo,
+                    pageSize:pageSize,
+                }
             });
             let result = await mysql(sql);
 
