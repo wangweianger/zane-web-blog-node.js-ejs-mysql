@@ -48,6 +48,18 @@ html, body {
         list-style: disc; }
     .main .detail .context p, .main .detail .context li {
       margin: 10px 0; }
+    .main .detail .context table {
+      width: 100%;
+      font-size: 13px;
+      line-height: 25px;
+      border-top: solid 1px #ddd;
+      border-right: solid 1px #ddd; }
+      .main .detail .context table th, .main .detail .context table td {
+        padding: 3px 8px;
+        border-left: solid 1px #ddd;
+        border-bottom: solid 1px #ddd; }
+      .main .detail .context table tr:nth-child(2n) {
+        background: #f6f8fa; }
   .main .detail .dasang {
     overflow: hidden;
     margin: .3rem 0 .2rem;

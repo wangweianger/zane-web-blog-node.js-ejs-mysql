@@ -74,6 +74,9 @@ app
     .use(serve(__dirname + "/assets",{
         maxage: env === 'development' ? 0 : 365 * 24 * 60 * 60
     }))
+    .use(serve(__dirname + "/assets/js",{
+        maxage: env === 'development' ? 0 : 365 * 24 * 60 * 60
+    }))
     .use(koa2Common())
     .use(cors({
         origin: SYSTEM.ORIGIN,

@@ -21,24 +21,17 @@ router.get(['/'], async(ctx, next) => {
 		title:'zane 的博客',
 		imgBase:SYSTEM.BASEIMG,
 		pageNo:1,
-		pageSize:50,
+		pageSize:30,
 		totalNum:0,
 		datalist:[],
 	}
 
+
 	let pageNo 			= 	ctx.query.pageNo || 1;
 	let pageSize 		= 	datas.pageSize||SYSTEM.PAGESIZE
 
-	let tagsList    = await controllers.front.tags.getList()
-	let atticleList = await controllers.front.home.getList(pageNo,pageSize)
-
-	for(let i=0,len=atticleList.datalist.length;i<len;i++){
-		for(let j=0,lenj=tagsList.length;j<lenj;j++){
-			if(atticleList.datalist[i].tagid === tagsList[j].id){
-				atticleList.datalist[i].tagname = tagsList[j].tagname
-			}
-		}
-	};
+	// 通过redis获得数据缓存
+	let atticleList = await controllers.redis.getHomeData(pageNo,pageSize)
 
 	datas.pageNo 	= 	pageNo
 	datas.pageSize 	= 	pageSize
@@ -128,7 +121,6 @@ router.get(['/about'], async(ctx, next) => {
 //极验验证 验证
 router.post('/api/about/gt/validate-slide', controllers.front.about.gtValidate)
 
-
 /*详情页面*/
 router.get(['/detail/:id'], async(ctx, next) => {
 
@@ -142,14 +134,9 @@ router.get(['/detail/:id'], async(ctx, next) => {
 	}
 
 	let id 			=	ctx.params.id || 1
-	let tagsList    = 	await controllers.front.tags.getList()
-	let detail 		= 	await controllers.front.home.getItemDetail(id) 
-
-	for(let j=0,lenj=tagsList.length;j<lenj;j++){
-		if(detail.tagid === tagsList[j].id){
-			detail.tagname = tagsList[j].tagname
-		}
-	}
+	
+	// 通过redis缓存获得详情数据
+	let detail      =  await controllers.redis.getDetailData(id)
 	
 	// 获得评论列表
 	let commentlist = await controllers.front.home.getCommentList(id)
@@ -202,6 +189,7 @@ router.get(['/search'], async(ctx, next) => {
 		datas:datas
 	}); 
 });
+
 
 module.exports = router
 

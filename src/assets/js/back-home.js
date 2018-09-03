@@ -51,12 +51,12 @@ var app = new Vue({
             })
         },
         // 删除
-        deleteItemGoods(){
+        deleteItemGoods(item){
             Layer.confirm({width:300,height:160,title:"确定删除商品吗？",header:"删除"},()=>{
                 util.ajax({
                     url:config.baseApi+'api/back/goods/deleteGoods',
                     data:{
-                        id:this.datas.id,
+                        id:item.id,
                         type:this.type
                     },
                     success:data => {
@@ -64,9 +64,7 @@ var app = new Vue({
                             type:'msg',
                             title: '操作成功!'
                         });
-                        setTimeout(()=>{
-                            window.history.back();
-                        },1000)
+                        this.getGoodsList()
                     },
                 })
             })

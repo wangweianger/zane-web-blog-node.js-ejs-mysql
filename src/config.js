@@ -19,7 +19,6 @@ export let SYSTEM = {
 
 	DEBUG: false,
 
-	// 七牛云上传根路径
 	BASEIMG: '//cdn.seosiwei.com/',
 
 	//限制文件上传大小 500kb
@@ -33,14 +32,14 @@ export let SYSTEM = {
 
 	// 骑牛云JDK
 	QINIU:{
-		BUCKET:'zane',  //存储空间名
+		BUCKET:'xxxxxx',  //存储空间名
 		ACCESS_KEY:'xxxxxx',
 		SECRET_KEY:'xxxxxx'
 	},
 
 	USERMSG:{
-		USERNAME:'admin',
-		PASSWORD:'752636052aaaa'
+		USERNAME:'xxxxxx',
+		PASSWORD:'xxxxxx'
 	}
 
 }

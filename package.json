@@ -62,6 +62,7 @@
     "mysql2": "^1.2.0",
     "nodemailer": "^4.0.1",
     "qiniu": "^6.1.13",
+    "redis": "^2.8.0",
     "request": "^2.81.0",
     "require-directory": "^2.1.1",
     "tar.gz": "^1.0.5",

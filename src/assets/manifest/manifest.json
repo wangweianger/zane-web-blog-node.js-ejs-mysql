@@ -1,0 +1,15 @@
+{
+    "start_url":"/",
+    "short_name": "zane博客",
+    "name": "zane的个人博客",
+    "icons": [
+        {
+            "src": "img/icon.png",
+            "type": "image/png",
+            "sizes": "144x144"
+        }
+    ],
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#278fef"
+}

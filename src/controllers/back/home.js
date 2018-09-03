@@ -7,6 +7,7 @@ import {
     mysql,
     getsql,
 } from '../../tool'
+import redis from '../redis'
 
 class detail {
 
@@ -131,7 +132,10 @@ class detail {
             })
 
             let result = await mysql(sql);
-            
+
+            // 更新首页redis缓存
+            redis.resetHomeDatas()
+
             ctx.body = util.result({
                 data: result
             });
@@ -167,7 +171,10 @@ class detail {
             })
 
             let result = await mysql(sql);
-            
+
+            // 更新首页redis缓存
+            redis.resetHomeDatas()
+
             ctx.body = util.result({
                 data: result
             });
@@ -230,6 +237,11 @@ class detail {
             }
 
             let result = await mysql(sql)
+
+            // 更新首页redis缓存
+            redis.resetHomeDatas()
+            //更新详情页redis缓存
+            redis.resetDetailData(result.insertId || id)
 
             ctx.body = util.result({
                 data: result

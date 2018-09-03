@@ -19,7 +19,7 @@ class atticle {
     // 获取列表
     async getList(pageNos,pageSizes) {
         try {
-            let pageNo   = pageNos || 1
+            let pageNo   = pageNos
             let pageSize = pageSizes || SYSTEM.PAGESIZE
             let isOnline =  1
 
@@ -40,18 +40,21 @@ class atticle {
             })
             let totalNum = (await mysql(totalSql))[0]['COUNT(*)']
 
-            // ---------------   查询列表数据 sql ---------------------------       
-            let sql = getsql.SELECT({
+            // ---------------   查询列表数据 sql --------------------------- 
+            let options = {
                 table: 'article',
                 wheres:arr,
                 fields:['id','title','describes','author','browse','createTime','tagid'],
                 sort: 'id',
                 isdesc: true,
-                limit:{
+            }
+            if(pageSize&&pageNo)
+                options.limit = {
                     pageNo:pageNo,
                     pageSize:pageSize,
                 }
-            });
+                
+            let sql = getsql.SELECT(options);
 
             let result = await mysql(sql);
 
