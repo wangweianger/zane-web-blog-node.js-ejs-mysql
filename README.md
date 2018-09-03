@@ -21,6 +21,17 @@ https://blog.seosiwei.com/detail/29
 	提供了邮件发送 nodemailer 配置
 ```
 
+### 博客技术栈
+```
+前端：node.js+ejs+vue.js+es6+sass+jquery+gulp
+后端：node.js+redis+mysql+koa2+koa-router
+第三方JDK|插件说明：七牛云JDK、极验验证JDK、nodemailer JDK、mysql2、wangEdito.js
+域名开启https访问
+http协议采用http2.0版本
+首页list列表、详情页数据使用redis缓存
+
+```
+
 ##运行方式
 ```
 	开发环境：npm run dev
