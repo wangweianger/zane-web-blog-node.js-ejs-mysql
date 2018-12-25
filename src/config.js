@@ -62,6 +62,15 @@ export let DB = {
 
 	// 默认"api_"
 	PREFIX: 'web_'
+
+	// 是否等待连接
+	WAITFORCONNECTIONS:false,
+
+	// 链接池大小
+	POOLLIMIT:5,
+
+	// 排队限制数量
+	QUEUELIMIT:0,
 }
 
 export let NODEMAILER = {
